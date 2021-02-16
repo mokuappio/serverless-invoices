@@ -65,6 +65,11 @@ export function validateField(input, field, label) {
   return null;
 }
 
+export function removeVuexORMFlags(obj) {
+  delete obj.$id;
+  delete obj.$isNew;
+  delete obj.$isDirty;
+}
 
 export function generateInvoiceNumber(invoices) {
   const date = dayjs()

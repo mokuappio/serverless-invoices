@@ -1,4 +1,5 @@
 import storage from 'localforage';
+import { removeVuexORMFlags } from '@/utils/helpers';
 
 class ClientService {
   async getClients() {
@@ -13,27 +14,11 @@ class ClientService {
   }
 
   async createClient(client) {
-    const clients = await this.getClients();
-
-    delete client.$id;
-    delete client.$isNew;
-    delete client.$isDirty;
-
-    clients.push(client);
-    await storage.setItem('clients', clients);
-    return client;
+    return this.saveClient(client);
   }
 
   async updateClient(client) {
-    const clients = await this.getClients();
-    const index = clients.findIndex(item => item.id === client.id);
-
-    // TODO: Fix this mess
-    if (index === -1) {
-      return false;
-    }
-    clients[index] = client;
-    return storage.setItem('clients', clients);
+    return this.saveClient(client);
   }
 
   async deleteClient(clientId) {
@@ -41,6 +26,20 @@ class ClientService {
     const index = clients.findIndex(item => item.id === clientId);
     clients.splice(index, 1);
     return storage.setItem('clients', clients);
+  }
+
+  async saveClient(client) {
+    const clients = await this.getClients();
+    const index = clients.findIndex(item => item.id === client.id);
+    removeVuexORMFlags(client);
+
+    if (index === -1) {
+      clients.push(client);
+    } else {
+      clients[index] = client;
+    }
+    await storage.setItem('clients', clients);
+    return client;
   }
 }
 

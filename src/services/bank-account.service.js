@@ -1,4 +1,5 @@
 import storage from 'localforage';
+import { removeVuexORMFlags } from '@/utils/helpers';
 
 class BankAccountService {
   async getBankAccounts() {
@@ -13,21 +14,22 @@ class BankAccountService {
   }
 
   async createBankAccount(bankAccount) {
-    const bankAccounts = await this.getBankAccounts();
-
-    delete bankAccount.$id;
-    delete bankAccount.$isNew;
-    delete bankAccount.$isDirty;
-
-    bankAccounts.push(bankAccount);
-    await storage.setItem('bank_accounts', bankAccounts);
-    return bankAccount;
+    return this.saveBankAccount(bankAccount);
   }
 
   async updateBankAccount(bankAccount) {
+    return this.saveBankAccount(bankAccount);
+  }
+
+  async saveBankAccount(bankAccount) {
     const bankAccounts = await this.getBankAccounts();
     const index = bankAccounts.findIndex(item => item.id === bankAccount.id);
-    bankAccounts[index] = bankAccount;
+    removeVuexORMFlags(bankAccount);
+    if (index === -1) {
+      bankAccounts.push(bankAccount);
+    } else {
+      bankAccounts[index] = bankAccount;
+    }
     return storage.setItem('bank_accounts', bankAccounts);
   }
 }

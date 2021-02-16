@@ -1,6 +1,6 @@
 import storage from 'localforage';
 import TeamService from '@/services/team.service';
-import { validate, generateInvoiceNumber } from '@/utils/helpers';
+import { validate, generateInvoiceNumber, removeVuexORMFlags } from '@/utils/helpers';
 import dayjs from 'dayjs';
 
 class InvoiceService {
@@ -40,13 +40,9 @@ class InvoiceService {
     invoice.vat_rate = 0;
     invoice.currency = 'USD';
 
-    delete invoice.$id;
-    delete invoice.$isNew;
-    delete invoice.$isDirty;
     delete invoice.client;
 
-    invoices.push(invoice);
-    await storage.setItem('invoices', invoices);
+    return this.saveInvoice(invoice);
   }
 
   async updateInvoice(invoice) {
@@ -63,12 +59,8 @@ class InvoiceService {
     if (Object.keys(res.errors).length > 0) {
       return Promise.reject(res);
     }
-    delete invoice.client;
 
-    const invoices = await this.getInvoices();
-    const index = invoices.findIndex(item => item.id === invoice.id);
-    invoices[index] = invoice;
-    return storage.setItem('invoices', invoices);
+    return this.saveInvoice(invoice);
   }
 
   async deleteInvoice(invoiceId) {
@@ -118,6 +110,21 @@ class InvoiceService {
 
     invoice.status = 'booked';
     return this.updateInvoice(invoice);
+  }
+
+  async saveInvoice(invoice) {
+    const invoices = await this.getInvoices();
+    const index = invoices.findIndex(item => item.id === invoice.id);
+
+    delete invoice.client;
+    removeVuexORMFlags(invoice);
+
+    if (index === -1) {
+      invoices.push(invoice);
+    } else {
+      invoices[index] = invoice;
+    }
+    return storage.setItem('invoices', invoices);
   }
 }
 
