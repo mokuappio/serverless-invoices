@@ -6,7 +6,7 @@
                     <transition name="fade" mode="out-in">
                         <router-view/>
                     </transition>
-                    <footer class="col-12 d-flex justify-content-between align-items-center text-secondary px-0">
+                    <footer class="col-12 d-flex justify-content-between align-items-center text-secondary px-0 mt-3 d-print-none">
                         <button class="btn btn-sm text-secondary" @click="toggleTheme">
                             Lights {{ theme === 'dark' ? 'on' : 'off' }}
                             <i class="material-icons material-icons-round md-14 align-text-bottom ml-1">

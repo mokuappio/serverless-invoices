@@ -1,6 +1,6 @@
 <template>
     <div v-if="team">
-        <InvoiceControls/>
+        <InvoiceControls class="d-print-none"/>
         <InvoiceForm/>
     </div>
 </template>
