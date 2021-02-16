@@ -40,7 +40,6 @@ export default {
       } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         // OS theme setting detected as dark
         this.$store.commit('themes/theme', 'dark');
-        console.log('hello there');
         return document.documentElement.setAttribute('data-theme', 'dark');
       }
       document.documentElement.setAttribute('data-theme', this.theme || 'light');

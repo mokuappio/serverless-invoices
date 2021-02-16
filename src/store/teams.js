@@ -27,11 +27,8 @@ export default {
       await Team.create({ data: team });
       return team;
     },
-    async teamProps({ state }, props) {
-      return Team.update({
-        where: state.teamId,
-        data: props,
-      });
+    async teamProps({ getters }, props) {
+      return getters.team.$update(props);
     },
     async updateTeam({ getters, dispatch }, props) {
       if (props) {

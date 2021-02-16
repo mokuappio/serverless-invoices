@@ -59,7 +59,7 @@ export function validate(requiredFields, input) {
 }
 
 export function validateField(input, field, label) {
-  if (!input.hasOwnProperty(field) || !input[field] || input[field].length === 0) {
+  if (!input.hasOwnProperty(field) || input[field] === null || input[field].length === 0) {
     return [`${label} is required`];
   }
   return null;

@@ -50,11 +50,9 @@ export default {
       await dispatch('clientProps', props);
       return ClientService.updateClient(getters.client);
     },
-    async updateClientById(payload) {
-      const client = await Client.update({
-        where: payload.clientId,
-        data: payload.props,
-      });
+    async updateClientById(store, payload) {
+      const client = Client.find(payload.clientId);
+      client.$update(payload.props);
       return ClientService.updateClient(client);
     },
     async openNewClientModal({ commit }) {
