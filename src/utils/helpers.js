@@ -1,4 +1,6 @@
 /* eslint-disable */
+import dayjs from '../services/invoice.service';
+
 export function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     var r = Math.random() * 16 | 0,
@@ -32,25 +34,42 @@ export function pick(obj, map) {
 }
 
 
-export function validate(neededFields, fieldsToValidate) {
-  const validationErrors = {};
+export function validate(requiredFields, input) {
+  const errors = {};
 
-  for (const [key, value] of Object.entries(neededFields)) {
-    if (Array.isArray(fieldsToValidate[key])) {
-      fieldsToValidate[key].forEach((item) => {
+  for (let [key, value] of Object.entries(requiredFields)) {
+    if (Array.isArray(input[key])) {
+      input[key].forEach((subInput, index) => {
+        for (let [subKey, subValue] of Object.entries(value)) {
+          const error = validateField(subInput, subKey, subValue);
+          if (error) {
+            errors[`${key}.${index}.${subKey}`] = error;
+          }
+        }
       });
-    }
-    if (!fieldsToValidate.hasOwnProperty(key) || !fieldsToValidate[key] || fieldsToValidate[key].length === 0) {
-      validationErrors[key] = [`Field ${value} is required`];
+    } else {
+      const error = validateField(input, key, value);
+      if (error) {
+        errors[key] = error;
+      }
     }
   }
 
-  console.log('errors', validationErrors);
-  return { errors: validationErrors };
+  return { errors };
+}
+
+export function validateField(input, field, label) {
+  if (!input.hasOwnProperty(field) || !input[field] || input[field].length === 0) {
+    return [`${label} is required`];
+  }
+  return null;
 }
 
 
-export function generateInvoiceNumber(date, number) {
+export function generateInvoiceNumber(invoices) {
+  const date = dayjs()
+    .format('YYYY');
+  const number = invoices.length + 1;
   return `${date}-${number}`;
 }
 

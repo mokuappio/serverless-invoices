@@ -1,4 +1,5 @@
 import storage from 'localforage';
+import TeamService from '@/services/team.service';
 import { validate, generateInvoiceNumber } from '@/utils/helpers';
 import dayjs from 'dayjs';
 
@@ -14,7 +15,7 @@ class InvoiceService {
   }
 
   async createInvoice(invoice) {
-    const team = storage.getItem('team');
+    const team = await TeamService.getTeam();
 
     const invoices = await this.getInvoices();
 
@@ -23,8 +24,7 @@ class InvoiceService {
     invoice.due_at = dayjs()
       .add(14, 'days')
       .format('YYYY-MM-DD');
-    invoice.number = generateInvoiceNumber(dayjs()
-      .format('YYYY'), invoices.length + 1);
+    invoice.number = generateInvoiceNumber(invoices);
     invoice.late_fee = 0.5;
     invoice.from_name = team.company_name;
     invoice.from_address = team.company_address;
@@ -49,7 +49,7 @@ class InvoiceService {
   }
 
   async updateInvoice(invoice) {
-    const necessaryFields = {
+    const requiredFields = {
       currency: 'Currency',
       vat_rate: 'Vat Rate',
       late_fee: 'Late Fee',
@@ -58,15 +58,14 @@ class InvoiceService {
       number: 'Number',
     };
 
-    const validation = validate(necessaryFields, invoice);
-
-    if (validation.length === 0) {
-      const invoices = await this.getInvoices();
-      const index = invoices.findIndex(item => item.id === invoice.id);
-      invoices[index] = invoice;
-      return storage.setItem('invoices', invoices);
+    const errors = validate(requiredFields, invoice);
+    if (Object.keys(errors).length > 0) {
+      return Promise.reject(errors);
     }
-    return Promise.reject(validation);
+    const invoices = await this.getInvoices();
+    const index = invoices.findIndex(item => item.id === invoice.id);
+    invoices[index] = invoice;
+    return storage.setItem('invoices', invoices);
   }
 
   async deleteInvoice(invoiceId) {
@@ -77,7 +76,7 @@ class InvoiceService {
   }
 
   async bookInvoice(invoice) {
-    const necessaryFields = {
+    const requiredFields = {
       currency: 'Currency',
       vat_rate: 'Vat rate',
       late_fee: 'Late fee',
@@ -110,13 +109,13 @@ class InvoiceService {
       },
     };
 
-    const validation = await validate(necessaryFields, invoice);
-
-    if (validation.length === 0) {
-      invoice.status = 'booked';
-      return this.updateInvoice(invoice);
+    const errors = await validate(requiredFields, invoice);
+    if (Object.keys(errors).length > 0) {
+      return Promise.reject(errors);
     }
-    return Promise.reject(validation);
+
+    invoice.status = 'booked';
+    return this.updateInvoice(invoice);
   }
 }
 

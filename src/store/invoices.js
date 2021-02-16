@@ -131,7 +131,7 @@ export default {
       commit('clearErrors');
 
       return InvoiceService.updateInvoice(getters.invoice)
-        .catch(err => commit('setErrors', err.response.data.errors));
+        .catch(err => commit('setErrors', err.errors));
     },
     async deleteInvoice(invoice) {
       const res = await InvoiceService.deleteInvoice(invoice.id);
@@ -161,11 +161,9 @@ export default {
       commit('clearErrors');
 
       try {
-        console.log('tryBookInvoice');
         const res = await InvoiceService.bookInvoice(getters.invoice);
         return dispatch('getInvoice', res.invoice_id);
       } catch (err) {
-        console.log(err);
         commit('setErrors', err.errors);
       }
     },
