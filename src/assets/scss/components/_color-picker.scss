@@ -1,0 +1,20 @@
+.color-picker {
+  .dropdown-menu {
+    min-width: initial;
+    width: 11.25rem;
+    padding: 0.5rem;
+  }
+
+  li {
+    display: inline-block;
+
+    .dropdown-item {
+      padding: 0.25rem;
+      border-radius: 1rem;
+
+      &:hover {
+        background-color: var(--text-secondary);
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.modal {
+  &-dialog {
+    &.modal-lg {
+      @include media-breakpoint-up(sm) {
+        max-width: 800px;
+      }
+    }
+  }
+
+  &.fade {
+    &-slide-horizontal {
+      .modal-dialog {
+        transform: translate(32px, 0);
+      }
+
+      &.show {
+        .modal-dialog {
+          transform: none;
+        }
+      }
+    }
+
+    &-slide-vertical {
+      .modal-dialog {
+        transform: translate(0, 16px);
+      }
+
+      &.show {
+        .modal-dialog {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &.high {
+    .modal-dialog {
+      height: 100vh;
+      margin: 0;
+      padding: 8px;
+
+      .modal-content {
+        height: 100%;
+      }
+    }
+  }
+
+  &.right {
+    .modal-dialog {
+      float: right;
+    }
+  }
+
+  &-backdrop {
+    opacity: $modal-backdrop-opacity;
+  }
+
+  &-content {
+    @include media-breakpoint-up(sm) {
+      box-shadow: $modal-content-box-shadow-sm-up;
+    }
+  }
+}

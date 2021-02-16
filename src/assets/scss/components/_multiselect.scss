@@ -1,0 +1,299 @@
+.multiselect {
+  color: var(--text-primary) !important;
+
+  &--active {
+    &.multiselect-custom {
+      .multiselect__tags {
+        border-color: $input-focus-border-color;
+      }
+    }
+  }
+
+  &--lg {
+    .multiselect__tags {
+      padding-top: $input-padding-y-lg !important;
+      padding-bottom: $input-padding-y-lg !important;
+    }
+
+    .multiselect__single {
+      font-weight: 500 !important;
+      font-size: $font-size-lg;
+    }
+  }
+
+  &--form-control {
+    .multiselect {
+      .multiselect__tags {
+        padding: 0;
+      }
+
+      .multiselect__single,
+      .multiselect__input {
+        padding: $input-padding-y ($input-padding-x * 3) $input-padding-y $input-padding-x;
+        font-size: $input-font-size;
+        line-height: $input-line-height;
+      }
+
+      .multiselect__select {
+        &:before {
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  &--capitalize {
+    .multiselect__option {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.multiselect {
+  &--primary {
+    .multiselect {
+      .multiselect__tags,
+      .multiselect__single,
+      .multiselect__input {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: var(--bg-primary);
+      }
+
+      .multiselect__input {
+        &::placeholder {
+          color: var(--text-secondary);
+        }
+      }
+
+      .multiselect__select {
+        &:before {
+          color: var(--bg-primary);
+          border-color: var(--bg-primary) transparent transparent;
+        }
+      }
+    }
+  }
+}
+
+.multiselect {
+  min-height: $input-height !important;
+
+  .multiselect__spinner {
+    background: var(--bg-secondary);
+  }
+
+  .multiselect__spinner:after,
+  .multiselect__spinner:before {
+    border-color: $green transparent transparent;
+  }
+
+  .multiselect {
+    color: inherit;
+  }
+
+  .multiselect__input,
+  .multiselect__single {
+    margin-bottom: 0;
+    background: transparent;
+    padding: 0;
+    font-weight: $input-font-weight;
+    font-size: $input-font-size;
+    color: $input-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .multiselect__input:-ms-input-placeholder {
+    color: $input-placeholder-color;
+  }
+
+  .multiselect__input::placeholder {
+    color: $input-placeholder-color;
+  }
+
+  .multiselect__input:hover,
+  .multiselect__single:hover {
+    border-color: $input-border-color;
+  }
+
+  .multiselect__input:focus,
+  .multiselect__single:focus {
+    border-color: $input-focus-border-color;
+  }
+
+  .multiselect__tags {
+    min-height: $input-height;
+    border: 1px solid $input-border-color;
+    background: $input-bg;
+    //padding-bottom: 4px;
+    font-size: $input-font-size;
+    border-radius: $border-radius;
+    padding: $input-padding-y ($input-padding-x * 2.5) $input-padding-y $input-padding-x;
+  }
+
+  .multiselect__tag {
+    color: var(--text-primary);
+    background: $green;
+  }
+
+  .multiselect__tag-icon:after {
+    color: darken($green, 0.07);
+  }
+
+  .multiselect__tag-icon:focus,
+  .multiselect__tag-icon:hover {
+    background: darken($green, 0.07);
+  }
+
+  .multiselect__tag-icon:focus:after,
+  .multiselect__tag-icon:hover:after {
+    color: var(--text-primary);
+  }
+
+  .multiselect__current {
+    border: 1px solid var(--text-secondary);
+  }
+
+  .multiselect__select {
+    width: auto;
+    padding: 0;
+    transition: none;
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      margin-top: -4px;
+      right: 12px;
+      color: $gray-600;
+      border-color: $gray-600 transparent transparent;
+      //display: none;
+      //color: $gray-light;
+      //border-color: $gray-light transparent transparent;
+    }
+
+    //&:after {
+    //  position: absolute;
+    //  //font-family: 'Material Icons';
+    //  display: inline-block;
+    //  //content: '\e313';
+    //  top: 50%;
+    //  margin-top: -8px;
+    //  right: 6px;
+    //  font-size: 18px;
+    //  pointer-events: none;
+    //  color: inherit;
+    //}
+  }
+
+  &.multiselect--active {
+    .multiselect__select {
+      transform: none;
+    }
+  }
+
+  .multiselect__placeholder {
+    color: var(--bg-secondary);
+    font-weight: 400;
+    padding-top: 9px;
+    margin-bottom: 0;
+    padding-left: 16px;
+  }
+
+  .multiselect__content-wrapper {
+    //@extend .bg-base;
+    //background: var(--dp24);
+    border: 1px solid var(--bg-primary);
+    box-shadow: $box-shadow-2;
+  }
+
+  .multiselect__content {
+    position: relative;
+    @extend .bg-base;
+    background: var(--dp24);
+  }
+
+  .multiselect--above .multiselect__content-wrapper {
+    border-top: 1px solid var(--bg-primary);
+  }
+
+  .multiselect__option {
+    white-space: normal;
+  }
+
+  .multiselect__option--highlight {
+    background: var(--shade);
+    color: inherit;
+  }
+
+  .multiselect__option--highlight:after {
+    background: var(--shade);
+    color: inherit;
+  }
+
+  .multiselect__option--selected {
+    background: $input-bg;
+    color: var(--text-primary);
+  }
+
+  .multiselect__option--selected.multiselect__option--highlight {
+    background: $input-bg;
+    color: var(--text-primary);
+  }
+
+  .multiselect__option--selected.multiselect__option--highlight:after {
+    background: $input-bg;
+    color: $red;
+  }
+
+  &--disabled {
+    opacity: 1 !important;
+    background: $input-disabled-bg;
+
+    .multiselect__tags {
+      background: $input-disabled-bg;
+    }
+
+    .multiselect__single {
+      background: transparent;
+    }
+
+    .multiselect__select {
+      opacity: .35;
+    }
+  }
+
+  .multiselect__option--disabled {
+    background: $input-disabled-bg !important;
+    color: var(--text-disabled) !important;
+  }
+
+  .multiselect__option--group {
+    background: $gray-100;
+    color: inherit;
+  }
+
+  .multiselect__option--group.multiselect__option--highlight {
+    background: inherit;
+    color: var(--text-primary);
+  }
+
+  .multiselect__option--group.multiselect__option--highlight:after {
+    background: inherit;
+  }
+
+  .multiselect__option--disabled.multiselect__option--highlight {
+    background: $input-disabled-bg;
+  }
+
+  .multiselect__option--group-selected.multiselect__option--highlight {
+    background: $input-bg;
+    color: inherit;
+  }
+
+  .multiselect__option--group-selected.multiselect__option--highlight:after {
+    background: $input-bg;
+    color: inherit;
+  }
+}

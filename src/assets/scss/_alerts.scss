@@ -1,0 +1,7 @@
+.alert {
+  &-secondary {
+    color: var(--text-primary);
+    background-color: var(--shade);
+    border-color: transparent;
+  }
+}

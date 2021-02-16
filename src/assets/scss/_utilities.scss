@@ -1,0 +1,141 @@
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+
+html, body {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: $body-bg;
+  overflow-x: hidden;
+}
+
+.scaling-svg-container {
+  display: inline-block;
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 100%;
+  /* override this inline for aspect ratio other than square */
+}
+
+.scaling-svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.border-0 {
+  .form-control {
+    border-color: transparent;
+  }
+}
+
+.pulsate {
+  animation-name: pulsate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+
+.bump {
+  animation-name: bump;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+
+.bg-gradient-gray {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,eceff1+100 */
+  background: rgb(255, 255, 255); /* Old browsers */
+  background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(236, 239, 241, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(236, 239, 241, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(236, 239, 241, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eceff1', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+.break-line {
+  &:after {
+    display: block;
+    content: '';
+  }
+}
+
+.scrollbar {
+  // scrollbar styles
+  scrollbar-color: var(--text-caption);
+  scrollbar-width: 12px;
+  scrollbar-gutter: always;
+  &::-webkit-scrollbar-track {
+    background: var(--shade);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-caption);
+    &:hover {
+      background: var(--text-secondary);
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.bg-base {
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    border-radius: inherit;
+  }
+
+  &:before {
+    background-color: var(--bg-primary);
+    z-index: 0;
+  }
+
+  &:after {
+    background-color: inherit;
+    z-index: 1;
+  }
+}
+
+.bg-shade {
+  background-color: var(--shade) !important;
+}
+
+.bg-secondary {
+  background-color: var(--text-secondary) !important;
+}
+
+.bg-success {
+  background-color: var(--success) !important;
+}
+
+.bg-dark {
+  background-color: var(--text-primary) !important;
+}

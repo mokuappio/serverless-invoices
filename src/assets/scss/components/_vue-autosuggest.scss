@@ -1,0 +1,50 @@
+.typeahead {
+  .autosuggest__results-container {
+    @extend .scrollbar;
+    position: absolute;
+    max-height: 600px;
+    overflow: auto;
+    border-radius: 0.3rem;
+    box-shadow: $box-shadow-light-3;
+    z-index: 3;
+    background: var(--bg-primary);
+
+    ul {
+      width: 100%;
+      min-width: 300px;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0 .5rem 0;
+
+      li {
+        padding: 0.5rem 0.75rem;
+
+        &:hover {
+          cursor: pointer;
+
+        }
+
+        &.autosuggest__results-before {
+          text-transform: uppercase;
+          font-size: 10px;
+          font-weight: 700;
+          cursor: initial;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .autosuggest__results {
+    @extend .bg-base;
+    background-color: var(--dp12);
+  }
+
+  .autosuggest__results-item--highlighted {
+    background-color: var(--text-caption);
+  }
+}
+
+.autosuggest__results-item--highlighted {
+  background-color: var(--text-caption);
+}

@@ -1,0 +1,83 @@
+.btn {
+  border-width: 0;
+
+  &-sm {
+    &.btn--icon-left {
+      padding-left: $btn-padding-x-sm / 2;
+    }
+  }
+
+  &-outline-secondary {
+    border-width: $btn-border-width;
+    border-color: $input-border-color;
+  }
+
+  &-primary {
+    color: var(--bg-primary);
+    background-color: var(--primary);
+
+    &:hover, &focus {
+      color: var(--bg-primary);
+      background-color: var(--primary-darken);
+    }
+  }
+
+  &-light {
+    color: var(--text-primary);
+    background-color: transparent;
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active, {
+      color: var(--text-primary);
+      background-color: transparent;
+    }
+
+    &:hover, &:active, &:focus {
+      color: var(--text-primary);
+      background-color: var(--text-caption);
+    }
+  }
+
+  &-outline-dark {
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+    background-color: transparent;
+    border-width: $btn-border-width;
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active, {
+      color: var(--text-primary);
+      background-color: transparent;
+    }
+
+    &:hover, &:active, &:focus {
+      color: var(--text-primary);
+      background-color: var(--text-caption);
+    }
+  }
+
+  &-success {
+    &--light {
+      color: $success;
+      background-color: rgba($success, 0.07);
+
+      &:hover, &:active, &:focus {
+        color: $success;
+        background-color: rgba($success, 0.07);
+      }
+    }
+  }
+
+  &-link {
+    color: var(--text-primary);
+  }
+
+  &--fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 1;
+    border-radius: 99px;
+    box-shadow: $box-shadow-light-3;
+  }
+}

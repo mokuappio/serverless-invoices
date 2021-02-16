@@ -1,0 +1,25 @@
+.editable {
+  &__project-selector {
+    button {
+      font-size: 16px;
+      padding: 0;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid transparent;
+    border-bottom-color: var(--divider);
+    background-color: var(--shade);
+
+    &:focus {
+      outline: 0;
+    }
+
+    display: inline-block;
+    min-width: 1px;
+    @media print {
+      border-bottom: 0;
+      background-color: transparent;
+    }
+  }
+}

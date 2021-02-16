@@ -1,0 +1,53 @@
+.app {
+  &__content {
+    padding-top: 32px;
+    padding-right: 66px;
+    padding-left: 66px;
+    will-change: padding-left;
+    transition: padding-left 0.2s $base-ease;
+
+    //@include media-breakpoint-up(xl) {
+    //  padding-left: $sidebar-width + ($grid-gutter-width * 2);
+    //  &.app__content--sidebar-collapsed {
+    //    padding-left: 66px;
+    //  }
+    //}
+    //
+    //&--sheet-open {
+    //  @include media-breakpoint-up(xl) {
+    //    padding-right: $sheet-width + ($grid-gutter-width * 2);
+    //  }
+    //}
+  }
+}
+
+.workspace {
+  .app {
+    &__content {
+      padding-top: 0;
+      padding-right: 0;
+      padding-left: 0;
+
+      @include media-breakpoint-up(xl) {
+        padding-left: $sidebar-width + ($grid-gutter-width * 2);
+        &.app__content--sidebar-collapsed {
+          padding-left: 66px;
+        }
+      }
+    }
+  }
+}
+
+.controls {
+  position: fixed;
+  top: 16px;
+  z-index: 2;
+
+  &--left {
+    left: 0;
+  }
+
+  &--right {
+    right: 0;
+  }
+}

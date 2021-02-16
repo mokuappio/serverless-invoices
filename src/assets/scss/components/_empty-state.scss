@@ -1,0 +1,24 @@
+.empty-state {
+  &__task {
+    height: 72px;
+    border-radius: $border-radius;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f8f9fa+100 */
+    background: rgb(255, 255, 255); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f8f9fa', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+    transition: opacity $link-transition-duration $base-ease;
+  }
+
+  &__text {
+    height: 12px;
+    width: 60%;
+    border-radius: $border-radius;
+    background-color: $gray-highlight;
+  }
+
+  &--active {
+    opacity: 0.3;
+  }
+}

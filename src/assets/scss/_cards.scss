@@ -1,0 +1,14 @@
+.card {
+  box-shadow: $box-shadow-light-1;
+  border-color: transparent;
+  border-radius: $border-radius-large;
+  border-width: 0;
+
+  &-header {
+    border-bottom: 0;
+  }
+
+  &-footer {
+    border-top: 0;
+  }
+}

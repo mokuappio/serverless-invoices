@@ -1,0 +1,18 @@
+.snackbar {
+  &.vue-notification-template {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    padding: ($spacer / 4) ($spacer);
+    margin-bottom: $spacer / 4;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-2;
+    background-color: $dark;
+    font-size: .875rem;
+    color: $light-primary;
+  }
+}
+
+.vue-notification-wrapper {
+  padding: 0 16px !important;
+}

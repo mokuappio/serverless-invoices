@@ -1,0 +1,61 @@
+.custom-checkbox {
+  width: 1.25em;
+  height: 1.25em;
+  min-height: 1.25em;
+
+  .custom-control-label {
+    &:before, &:after {
+      top: 0;
+      right: 0;
+      width: 1.25em;
+      height: 1.25em;
+    }
+
+    &:after {
+      cursor: pointer;
+    }
+  }
+
+  &--rounded {
+    .custom-control-label {
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &--lg {
+    width: 1.5em;
+    height: 1.5em;
+    min-height: 1.5em;
+
+    .custom-control-label {
+      &:before, &:after {
+        top: 0;
+        right: 0;
+        width: 1.5em;
+        height: 1.5em;
+      }
+    }
+  }
+
+  &--caption {
+    .custom-control-input {
+      &:checked {
+        ~ .custom-control-label {
+          &:before {
+            background-color: $gray-400;
+            border-color: $gray-400;
+            color: $gray-600;
+          }
+        }
+      }
+    }
+  }
+
+  &--narrow {
+    &.custom-control {
+      padding-right: 0;
+    }
+  }
+}

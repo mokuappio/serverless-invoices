@@ -1,0 +1,21 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1038;
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: $modal-backdrop-bg;
+  opacity: $modal-backdrop-opacity;
+  transition: opacity .4s $base-ease;
+  visibility: visible;
+  &.in {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  @include media-breakpoint-up(xl) {
+    visibility: hidden;
+  }
+}

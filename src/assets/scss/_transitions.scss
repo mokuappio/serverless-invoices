@@ -1,0 +1,59 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s $base-ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slideFade-enter-active,
+.slideFade-leave-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: all 0.2s $base-ease;
+}
+
+.slideFade-enter,
+.slideFade-leave-to {
+  transform: translate(-4px, 0);
+  opacity: 0;
+}
+
+.slideLeftFade-enter-active,
+.slideLeftFade-leave-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: all 0.2s $base-ease;
+}
+
+.slideLeftFade-enter,
+.slideLeftFade-leave-to {
+  transform: translate(32px, 0);
+  opacity: 0;
+}
+
+
+.slideFromTopFade-enter-active,
+.slideFromTopFade-leave-active {
+  transform: translate(0, 16px);
+  opacity: 1;
+  transition: all 0.2s $base-ease;
+}
+
+.slideFromTopFade-enter,
+.slideFromTopFade-leave-to {
+  transform: translate(0, 0);
+  opacity: 0;
+}
+
+.bump-enter-active,
+.bump-leave-active {
+  animation: bump-in .5s;
+}
+
+.bump-enter,
+.bump-leave-to {
+  animation: bump-in .5s reverse;
+}

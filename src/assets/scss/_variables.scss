@@ -1,0 +1,342 @@
+:root {
+  --text-primary: rgba(0, 0, 0, .87);
+  --text-secondary: rgba(0, 0, 0, .6);
+  --text-disabled: rgba(0, 0, 0, .38);
+  --text-caption: rgba(0, 0, 0, .12);
+  --divider: rgba(0, 0, 0, .12);
+  --shade: rgba(0, 0, 0, .04);
+
+  --primary: #2962ff;
+  --primary-darken: #0D47A1;
+  --success: #64DD17;
+  --error: #C62828;
+  --error-darken: #B71C1C;
+
+  --bg-body: #f3f8f8;
+  --bg-primary: #fff;
+  --bg-secondary: #EEEEEE;
+  --bg-control: transparent;
+
+  --scrim: rgba(0, 0, 0, .32);
+
+  --dp00: #fff;
+  --dp01: #fff;
+  --dp02: #fff;
+  --dp03: #fff;
+  --dp04: #fff;
+  --dp06: #fff;
+  --dp08: #fff;
+  --dp12: #fff;
+  --dp16: #fff;
+  --dp24: #fff;
+
+  @media (prefers-color-scheme: dark) {
+    --text-primary: rgba(255, 255, 255, .87);
+    --text-secondary: rgba(255, 255, 255, .6);
+    --text-disabled: rgba(255, 255, 255, .38);
+    --text-caption: rgba(255, 255, 255, .12);
+    --divider: rgba(255, 255, 255, .2);
+    --shade: rgba(255, 255, 255, .04);
+
+    --primary: #bbdefb;
+    --primary-darken: #90CAF9;
+    --success: #DCEDC8;
+    --error: #FFCDD2;
+    --error-darken: #EF9A9A;
+
+
+    --bg-body: #121212;
+    --bg-primary: #121212;
+    --bg-secondary: #616161;
+    --bg-control: rgba(255, 255, 255, 0.04);
+
+    --scrim: rgba(0, 0, 0, .32);
+
+    --dp00: transparent;
+    --dp01: rgba(255, 255, 255, 0.05);
+    --dp02: rgba(255, 255, 255, 0.07);
+    --dp03: rgba(255, 255, 255, 0.08);
+    --dp04: rgba(255, 255, 255, 0.09);
+    --dp06: rgba(255, 255, 255, 0.11);
+    --dp08: rgba(255, 255, 255, 0.12);
+    --dp12: rgba(255, 255, 255, 0.14);
+    --dp16: rgba(255, 255, 255, 0.15);
+    --dp24: rgba(255, 255, 255, 0.16);
+
+    &[data-theme="light"] {
+      --text-primary: rgba(0, 0, 0, .87);
+      --text-secondary: rgba(0, 0, 0, .6);
+      --text-disabled: rgba(0, 0, 0, .38);
+      --text-caption: rgba(0, 0, 0, .12);
+      --divider: rgba(0, 0, 0, .12);
+      --shade: rgba(0, 0, 0, .04);
+
+      --primary: #2962ff;
+      --primary-darken: #0D47A1;
+      --success: #64DD17;
+      --error: #C62828;
+      --error-darken: #B71C1C;
+
+      --bg-body: #f3f8f8;
+      --bg-primary: #fff;
+      --bg-secondary: #EEEEEE;
+      --bg-control: transparent;
+
+      --scrim: rgba(0, 0, 0, .32);
+
+      --dp00: #fff;
+      --dp01: #fff;
+      --dp02: #fff;
+      --dp03: #fff;
+      --dp04: #fff;
+      --dp06: #fff;
+      --dp08: #fff;
+      --dp12: #fff;
+      --dp16: #fff;
+      --dp24: #fff;
+    }
+  }
+
+  &[data-theme="dark"] {
+    --text-primary: rgba(255, 255, 255, .87);
+    --text-secondary: rgba(255, 255, 255, .6);
+    --text-disabled: rgba(255, 255, 255, .38);
+    --text-caption: rgba(255, 255, 255, .12);
+    --divider: rgba(255, 255, 255, .2);
+    --shade: rgba(255, 255, 255, .04);
+
+    --primary: #bbdefb;
+    --primary-darken: #90CAF9;
+    --success: #DCEDC8;
+    --error: #FFCDD2;
+    --error-darken: #EF9A9A;
+
+
+    --bg-body: #121212;
+    --bg-primary: #121212;
+    --bg-secondary: #616161;
+    --bg-control: rgba(255, 255, 255, 0.04);
+
+    --scrim: rgba(0, 0, 0, .32);
+
+    --dp00: transparent;
+    --dp01: rgba(255, 255, 255, 0.05);
+    --dp02: rgba(255, 255, 255, 0.07);
+    --dp03: rgba(255, 255, 255, 0.08);
+    --dp04: rgba(255, 255, 255, 0.09);
+    --dp06: rgba(255, 255, 255, 0.11);
+    --dp08: rgba(255, 255, 255, 0.12);
+    --dp12: rgba(255, 255, 255, 0.14);
+    --dp16: rgba(255, 255, 255, 0.15);
+    --dp24: rgba(255, 255, 255, 0.16);
+  }
+}
+
+$blue: #03A9F4;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #F44336;
+$orange: #E65100;
+$yellow: #ffc107;
+//$green: #64DD17;
+//$green: #009688;
+$green: #64DD17;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$blue-dark: #0091EA;
+
+
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+$warning: $orange;
+
+//$box-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$box-shadow-1: rgba(23, 43, 77, 0.2) 0px 1px 1px, rgba(23, 43, 77, 0.2) 0px 0px 1px;
+$box-shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+$box-shadow-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+$box-shadow-4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+$box-shadow-5: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+$box-shadow-light-1: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12);
+$box-shadow-light-2: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+$box-shadow-light-3: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.12);
+$box-shadow-light-4: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.11);
+$box-shadow-light-5: 0 19px 38px rgba(0, 0, 0, 0.15), 0 15px 12px rgba(0, 0, 0, 0.11);
+$box-shadow-light-6: 0 0 82px 2px rgba(61, 69, 74, .2);
+
+$font-family-base: 'Work Sans', sans-serif;
+
+$gray-primary: rgba(0, 0, 0, 0.87);
+$gray-medium: rgba(0, 0, 0, 0.72);
+$gray-secondary: rgba(0, 0, 0, 0.54);
+$gray-caption: rgba(0, 0, 0, 0.20);
+$gray-divider: rgba(0, 0, 0, 0.12);
+$gray-highlight: rgba(0, 0, 0, 0.07);
+$gray-shade: rgba(0, 0, 0, 0.02);
+
+$light-primary: rgba(255, 255, 255, 0.87);
+$light-secondary: rgba(255, 255, 255, 0.54);
+$light-caption: rgba(255, 255, 255, 0.20);
+$light-divider: rgba(255, 255, 255, 0.12);
+$light-highlight: rgba(255, 255, 255, 0.07);
+$light-shade: rgba(255, 255, 255, 0.03);
+
+$body-bg: var(--bg-body);
+$body-color: var(--text-primary);
+
+$line-height-base: 1.25;
+
+$btn-font-weight: 500;
+
+$card-cap-bg: transparent;
+
+$grid-gutter-width: 32px;
+
+$spacer: 1rem;
+
+$alert-bg-level: -11;
+$alert-border-level: -11;
+$alert-padding-x: .75rem;
+
+$badge-font-size: 68.75%;
+
+$border-color: var(--text-caption);
+
+$border-radius-large: 6px;
+
+$base-ease: cubic-bezier(0, 0, 0.2, 1) 0ms;
+
+$hr-border-color: var(--divider);
+
+$dropdown-bg: var(--dp24);
+$dropdown-border-color: transparent;
+$dropdown-color: $body-color;
+$dropdown-link-color: $body-color;
+$dropdown-link-active-color: $body-color;
+$dropdown-link-active-bg: var(--shade);
+$dropdown-link-hover-bg: var(--shade);
+$dropdown-link-hover-color: $dropdown-link-color;
+$dropdown-divider-bg: $hr-border-color;
+$dropdown-header-color: var(--text-secondary);
+
+$close-color: var(--text-primary);
+$close-text-shadow: none;
+$close-font-weight: 500;
+
+$modal-header-border-color: transparent;
+$modal-footer-border-color: transparent;
+$modal-transition: all 200ms $base-ease;
+$modal-backdrop-bg: var(--scrim);
+$modal-backdrop-opacity: 1;
+$modal-content-border-color: transparent;
+$modal-content-box-shadow-sm-up: $box-shadow-light-6;
+
+$navbar-light-color: var(--text-secondary);
+$navbar-light-hover-color: $body-color;
+$navbar-light-active-color: $body-color;
+
+$nav-tabs-link-active-bg: var(--bg-control);
+$nav-tabs-link-active-border-color: transparent;
+$nav-tabs-border-color: transparent;
+$nav-tabs-link-hover-border-color: transparent;
+$nav-tabs-link-active-color: var(--text-primary);
+
+$navbar-padding-y: $spacer;
+$navbar-nav-link-padding-x: 1rem;
+
+$navbar-brand-font-size: 1.75rem;
+
+$nav-pills-link-active-bg: var(--text-caption);
+$nav-pills-link-active-color: $body-color;
+
+$input-color: $body-color;
+$input-focus-color: $input-color;
+$input-border-color: var(--text-caption);
+$input-bg: var(--bg-control);
+$input-focus-bg: $input-bg;
+$input-disabled-bg: var(--text-disabled);
+$input-btn-padding-x: $grid-gutter-width / 2;
+$input-placeholder-color: var(--text-disabled);
+
+$input-focus-box-shadow: none;
+$input-focus-border-color: $body-color;
+
+$btn-font-size-sm: $font-size-sm;
+$btn-focus-box-shadow: none;
+$btn-padding-x: $input-btn-padding-x;
+
+$headings-font-weight: $font-weight-normal;
+
+$input-group-addon-bg: $input-bg;
+$input-group-addon-border-color: $input-border-color;
+
+$list-group-border-color: transparent;
+$list-group-bg: var(--bg-control);
+$list-group-color: $body-color;
+$list-group-item-padding-y: $grid-gutter-width / 4;
+$list-group-item-padding-x: $grid-gutter-width / 2;
+
+$progress-bar-bg: var(--text-caption);
+
+$spacers: (0: 0, 1: $spacer * .25, 2: $spacer * .5, 3: $spacer, 4: $spacer * 1.5, 5: $spacer * 3, 6: $spacer * 5);
+
+// Custom
+
+$link-transition-duration: 0.15s;
+
+$text-muted: var(--text-disabled);
+
+$sidebar-width: 220px;
+$sidebar-width-collapsed: 72px;
+
+$sheet-width: 360px;
+
+$tracker-width: $sheet-width * 1.5;
+
+$table-cell-padding: $grid-gutter-width / 2;
+$table-border-color: $border-color;
+$table-border-color: var(--text-caption);
+$table-hover-bg: var(--divider);
+$table-color: $body-color;
+$table-hover-color: $body-color;
+
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 600px,
+        md: 800px,
+        lg: 1000px,
+        xl: 1280px,
+        xxl: 1600px
+);
+
+// vue2-datepicker variables
+
+$default-color: var(--text-primary);
+$primary-color: var(--primary);
+
+$today-color: $primary-color;
+
+$disabled-color: var(--text-secondary);
+$disabled-background-color: var(--text-disabled);
+
+$calendar-active-color: var(--text-primary);
+$calendar-active-background-color: $primary-color !default;
+
+$calendar-hover-color: $default-color !default;
+$calendar-hover-background-color: $calendar-active-background-color;
+
+$calendar-in-range-color: $default-color !default;
+$calendar-in-range-background-color: $calendar-active-background-color;
+
+$time-active-color: $primary-color !default;
+$time-active-background-color: transparent !default;
+
+$time-hover-color: $default-color !default;
+$time-hover-background-color: $calendar-active-background-color;
+
+$input-border-radius: $input-border-radius;
