@@ -23,7 +23,7 @@
                     <template slot="button-content">
                         <i class="material-icons">more_vert</i>
                     </template>
-                    <b-dropdown-item :href="invoice.pdf_url" target="_blank">Download PDF</b-dropdown-item>
+                    <b-dropdown-item-button @click="print">Download PDF</b-dropdown-item-button>
                     <b-dropdown-item-button @click="deleteInvoice">Delete</b-dropdown-item-button>
                 </b-dropdown>
             </div>
@@ -34,13 +34,12 @@
 <script>
 import { mapGetters } from 'vuex';
 import NotificationService from '@/services/notification.service';
-import { BDropdown, BDropdownItem, BDropdownItemButton } from 'bootstrap-vue';
+import { BDropdown, BDropdownItemButton } from 'bootstrap-vue';
 import AppSelect from '@/components/form/AppSelect';
 
 export default {
   components: {
     BDropdown,
-    BDropdownItem,
     BDropdownItemButton,
     AppSelect,
   },
@@ -71,6 +70,9 @@ export default {
     },
     updateProp(props) {
       this.$store.dispatch('invoices/updateInvoice', props);
+    },
+    print() {
+      window.print();
     },
   },
 };
