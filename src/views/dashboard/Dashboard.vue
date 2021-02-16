@@ -16,7 +16,7 @@
                         <div>
                             <small v-b-tooltip.hover
                                    title="All your data is saved in your browser and not on any server.
-                                   This application is truly serverless and we do not have access to any of your data."
+                                   This application is truly serverless and only you have access to your data."
                                    class="pointer">
                                 What about my data?
                             </small>
@@ -46,6 +46,7 @@
         </div>
         <ClientModal v-if="team"/>
         <BankAccountModal v-if="team"/>
+        <ImportModal/>
     </div>
 </template>
 
@@ -54,6 +55,7 @@ import { mapGetters, mapState } from 'vuex';
 import ClientModal from '@/components/clients/ClientModal';
 import BankAccountModal from '@/components/bank-accounts/BankAccountModal';
 import { VBTooltip } from 'bootstrap-vue';
+import ImportModal from '../../components/ImportModal';
 
 
 export default {
@@ -61,6 +63,7 @@ export default {
     'b-tooltip': VBTooltip,
   },
   components: {
+    ImportModal,
     BankAccountModal,
     ClientModal,
   },

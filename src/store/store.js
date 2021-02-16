@@ -12,8 +12,7 @@ import clients from '@/store/clients';
 import invoices from '@/store/invoices';
 import teams from '@/store/teams';
 import themes from '@/store/themes';
-import localForage from 'localforage';
-import { download } from '../utils/helpers';
+import data from '@/store/data';
 
 Vue.use(Vuex);
 
@@ -34,27 +33,9 @@ export default new Vuex.Store({
     invoices,
     teams,
     themes,
+    data,
   },
   state: {},
   mutations: {},
-  actions: {
-    async exportJson() {
-      let results = [];
-      const keys = await localForage.keys();
-      keys.forEach((key) => {
-        results.push(localForage.getItem(key));
-      });
-      results = await Promise.all(results);
-
-      const data = {};
-      keys.forEach((key, index) => {
-        data[key] = results[index];
-      });
-
-      download(JSON.stringify(data), 'serverless-invoices.json', 'application/json');
-    },
-    importJson() {
-
-    },
-  },
+  actions: {},
 });

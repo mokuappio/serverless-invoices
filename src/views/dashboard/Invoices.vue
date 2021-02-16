@@ -9,7 +9,7 @@
                             <i class="material-icons">more_vert</i>
                         </template>
                         <b-dropdown-item @click="exportJson">Export</b-dropdown-item>
-                        <b-dropdown-item @click="importJson">Import</b-dropdown-item>
+                        <b-dropdown-item @click="openImportModal">Import</b-dropdown-item>
                     </b-dropdown>
                     <button class="btn btn-sm btn-outline-dark" @click="createNewInvoice">New invoice</button>
                 </div>
@@ -46,10 +46,10 @@ export default {
         .then(id => this.$router.push({ name: 'invoice', params: { id } }));
     },
     exportJson() {
-      this.$store.dispatch('exportJson');
+      this.$store.dispatch('data/exportJson');
     },
-    importJson() {
-      this.$store.dispatch('importJson');
+    openImportModal() {
+      this.$store.commit('data/isImportModalOpen', true);
     },
   },
 };

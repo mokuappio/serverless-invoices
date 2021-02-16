@@ -7,15 +7,20 @@ export default {
   mutations: {},
   actions: {
     async init({ dispatch }) {
-      dispatch('clients/terminate', null, { root: true });
-      dispatch('bankAccounts/terminate', null, { root: true });
-      dispatch('invoices/terminate', null, { root: true });
+      await Promise.all([
+        dispatch('clients/terminate', null, { root: true }),
+        dispatch('bankAccounts/terminate', null, { root: true }),
+        dispatch('invoices/terminate', null, { root: true }),
+      ]);
 
       await dispatch('getTeam');
 
       dispatch('clients/init', null, { root: true });
       dispatch('bankAccounts/init', null, { root: true });
       dispatch('invoices/init', null, { root: true });
+    },
+    async terminate() {
+      return Team.deleteAll();
     },
     async getTeam() {
       const team = await TeamService.getTeam();
