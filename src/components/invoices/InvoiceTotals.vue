@@ -2,7 +2,7 @@
     <tfoot>
     <tr class="text-right">
         <td colspan="4">Subtotal</td>
-        <td>{{ subTotal | currency }}</td>
+        <td>{{ invoice.subTotal | currency }}</td>
     </tr>
     <tr class="text-right">
         <td colspan="4">
@@ -13,7 +13,7 @@
                           @change="updateProp({ vat_rate: $event })"/>)
             <AppError :errors="errors" field="vat_rate"/>
         </td>
-        <td>{{ totalVat | currency }}</td>
+        <td>{{ invoice.totalVat | currency }}</td>
     </tr>
     <tr class="text-right">
         <th colspan="4">
@@ -24,12 +24,11 @@
                          placeholder="Add currency"
                          @change="updateProp({ currency: $event })"/>
         </th>
-        <th class="text-nowrap">{{ total | currency }}</th>
+        <th class="text-nowrap">{{ invoice.total | currency }}</th>
     </tr>
     </tfoot>
 </template>
 <script>
-import { mapGetters } from 'vuex';
 import AppError from '@/components/form/AppError';
 import AppEditable from '../form/AppEditable';
 import { formatDate } from '../../filters/date.filter';
@@ -44,14 +43,6 @@ export default {
   filters: {
     date: formatDate,
     currency: formatCurrency,
-  },
-  computed: {
-    ...mapGetters({
-      rows: 'invoices/rows',
-      subTotal: 'invoices/subTotal',
-      total: 'invoices/total',
-      totalVat: 'invoices/totalVat',
-    }),
   },
   methods: {
     updateProp(props) {

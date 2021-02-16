@@ -177,14 +177,5 @@ export default {
         .orderBy('number', 'desc')
         .get();
     },
-    subTotal(state, getters) {
-      return getters.invoice.rows.reduce((carr, row) => (row.quantity * row.price) + carr, 0);
-    },
-    total(state, getters) {
-      return getters.subTotal + getters.totalVat;
-    },
-    totalVat(state, getters) {
-      return (getters.invoice.vat_rate / 100) * getters.subTotal;
-    },
   },
 };

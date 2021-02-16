@@ -48,4 +48,25 @@ export default class Invoice extends Model {
       total: this.attr(null), // Only used in lists.
     };
   }
+
+  get subTotal() {
+    return this.rows.reduce((carr, row) => (row.quantity * row.price) + carr, 0);
+  }
+
+  // eslint-disable-next-line no-empty-function
+  set subTotal(val) {}
+
+  get total() {
+    return this.subTotal + this.totalVat;
+  }
+
+  // eslint-disable-next-line no-empty-function
+  set total(val) {}
+
+  get totalVat() {
+    return (this.vat_rate / 100) * this.subTotal;
+  }
+
+  // eslint-disable-next-line no-empty-function
+  set totalVat(val) {}
 }

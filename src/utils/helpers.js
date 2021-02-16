@@ -1,5 +1,5 @@
 /* eslint-disable */
-import dayjs from '../services/invoice.service';
+import dayjs from 'dayjs';
 
 export function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {

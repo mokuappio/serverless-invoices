@@ -43,6 +43,7 @@ class InvoiceService {
     delete invoice.$id;
     delete invoice.$isNew;
     delete invoice.$isDirty;
+    delete invoice.client;
 
     invoices.push(invoice);
     await storage.setItem('invoices', invoices);
@@ -62,6 +63,8 @@ class InvoiceService {
     if (Object.keys(res.errors).length > 0) {
       return Promise.reject(res);
     }
+    delete invoice.client;
+
     const invoices = await this.getInvoices();
     const index = invoices.findIndex(item => item.id === invoice.id);
     invoices[index] = invoice;
