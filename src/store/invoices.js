@@ -150,19 +150,12 @@ export default {
     async removeRow(store, row) {
       await InvoiceRow.delete(row.id);
     },
-    async sendInvoice({ state, dispatch }, message) {
-      const res = await InvoiceService.sendInvoice(state.invoiceId, message);
-      dispatch('invoiceProps', {
-        status: 'sent',
-      });
-      return res;
-    },
     async bookInvoice({ getters, commit, dispatch }) {
       commit('clearErrors');
 
       try {
-        const res = await InvoiceService.bookInvoice(getters.invoice);
-        return dispatch('getInvoice', res.invoice_id);
+        await InvoiceService.bookInvoice(getters.invoice);
+        return dispatch('getInvoice', getters.invoice.id);
       } catch (err) {
         commit('setErrors', err.errors);
       }
@@ -171,7 +164,7 @@ export default {
   getters: {
     invoice(state) {
       return Invoice.query()
-        .with(['client', 'project', 'team.logos'])
+        .with(['client'])
         .with('rows', query => query.orderBy('order', 'asc'))
         .find(state.invoiceId);
     },

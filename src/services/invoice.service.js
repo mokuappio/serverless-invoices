@@ -58,9 +58,9 @@ class InvoiceService {
       number: 'Number',
     };
 
-    const errors = validate(requiredFields, invoice);
-    if (Object.keys(errors).length > 0) {
-      return Promise.reject(errors);
+    const res = validate(requiredFields, invoice);
+    if (Object.keys(res.errors).length > 0) {
+      return Promise.reject(res);
     }
     const invoices = await this.getInvoices();
     const index = invoices.findIndex(item => item.id === invoice.id);
@@ -100,7 +100,6 @@ class InvoiceService {
       from_phone: 'From Phone',
       bank_name: 'Bank Name',
       bank_account_no: 'Bank Account No.',
-      project_id: 'Project Id',
       rows: {
         item: 'Item',
         quantity: 'Quantity',
@@ -109,9 +108,9 @@ class InvoiceService {
       },
     };
 
-    const errors = await validate(requiredFields, invoice);
-    if (Object.keys(errors).length > 0) {
-      return Promise.reject(errors);
+    const res = await validate(requiredFields, invoice);
+    if (Object.keys(res.errors).length > 0) {
+      return Promise.reject(res);
     }
 
     invoice.status = 'booked';
