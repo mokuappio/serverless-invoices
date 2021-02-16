@@ -1,9 +1,14 @@
 .btn {
   border-width: 0;
 
-  &-sm {
-    &.btn--icon-left {
-      padding-left: $btn-padding-x-sm / 2;
+  &--icon {
+    &-left {
+      .btn-sm {
+        padding-left: $btn-padding-x-sm / 2;
+      }
+    }
+    img {
+      max-width: 1.5rem;
     }
   }
 
