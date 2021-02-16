@@ -1,9 +1,9 @@
 # Serverless Invoices by Moku
 
-Serverless Invoices is a free invoicing tool for freelancers and small businesses or a starter kit for more complex systems.
+Serverless Invoices is a free invoicing tool for freelancers and small businesses.
 
-It is open-source and easily extendable. Implement new features, localization, styling
- or integrate with various backends and API-s.
+It is open-source and easily extendable. You can use it as a starter kit for more complex systems. Implement your own features, localization, styling
+ or integrate with various other systems and API-s.
  
 Run it locally or host it yourself.
  
