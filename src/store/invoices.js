@@ -123,7 +123,7 @@ export default {
       commit('clearErrors');
 
       return InvoiceService.updateInvoice(getters.invoice)
-        .catch(err => commit('setErrors', err.response.data.errors));
+        .catch(err => commit('setErrors', err.errors));
     },
     async updateInvoiceRow({ getters, dispatch, commit }, payload) {
       await dispatch('invoiceRowProps', payload);
@@ -161,10 +161,12 @@ export default {
       commit('clearErrors');
 
       try {
+        console.log('tryBookInvoice');
         const res = await InvoiceService.bookInvoice(getters.invoice);
         return dispatch('getInvoice', res.invoice_id);
       } catch (err) {
-        commit('setErrors', err.response.data.errors);
+        console.log(err);
+        commit('setErrors', err.errors);
       }
     },
   },

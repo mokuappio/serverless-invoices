@@ -1,7 +1,8 @@
 /* eslint-disable */
 export function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    var r = Math.random() * 16 | 0,
+      v = c == 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(16);
   });
 }
@@ -30,18 +31,42 @@ export function pick(obj, map) {
   return objSubset;
 }
 
+
+export function validate(neededFields, fieldsToValidate) {
+  const validationErrors = {};
+
+  for (const [key, value] of Object.entries(neededFields)) {
+    if (Array.isArray(fieldsToValidate[key])) {
+      fieldsToValidate[key].forEach((item) => {
+      });
+    }
+    if (!fieldsToValidate.hasOwnProperty(key) || !fieldsToValidate[key] || fieldsToValidate[key].length === 0) {
+      validationErrors[key] = [`Field ${value} is required`];
+    }
+  }
+
+  console.log('errors', validationErrors);
+  return { errors: validationErrors };
+}
+
+
+export function generateInvoiceNumber(date, number) {
+  return `${date}-${number}`;
+}
+
 export function download(data, filename, type) {
-  var file = new Blob([data], {type: type});
+  var file = new Blob([data], { type: type });
   if (window.navigator.msSaveOrOpenBlob) // IE10+
+  {
     window.navigator.msSaveOrOpenBlob(file, filename);
-  else { // Others
-    var a = document.createElement("a"),
+  } else { // Others
+    var a = document.createElement('a'),
       url = URL.createObjectURL(file);
     a.href = url;
     a.download = filename;
     document.body.appendChild(a);
     a.click();
-    setTimeout(function() {
+    setTimeout(function () {
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
     }, 0);
