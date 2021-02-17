@@ -4,8 +4,12 @@
             <div class="row mb-5">
                 <div class="col-4">
                     <img v-if="team.logo_url"
+                         v-b-modal.team_logo_url
                          :src="team.logo_url" style="width:100%; max-width:200px;">
                     <!-- TODO: logo url input -->
+                    <button class="btn btn-sm" v-b-modal.team_logo_url v-else>
+                        <i class="material-icons material-icons-round md-36">file_upload</i>
+                    </button>
                     <AppError :errors="errors" field="team.logos"/>
                 </div>
                 <InvoiceHeader :invoice="invoice" :errors="errors" @update="updateProp"
@@ -57,6 +61,19 @@
                                        class="col-4 text-right"/>
             </div>
         </div>
+        <BModal id="team_logo_url"
+                centered
+                title="Insert logo url"
+                hide-footer
+                size="sm"
+                content-class="bg-base dp--24">
+            <AppInput :value="team.logo_url"
+                      @change="updateTeam({ logo_url: $event })"
+                      label="Logo url"
+                      field="logo_url"
+                      :errors="errors"
+                      type="url"/>
+        </BModal>
     </div>
 </template>
 <script>
@@ -70,8 +87,13 @@ import InvoiceHeader from '@/components/invoices/InvoiceHeader';
 import InvoiceTotals from '@/components/invoices/InvoiceTotals';
 import AppEditable from '@/components/form/AppEditable';
 import AppError from '@/components/form/AppError';
+import { BModal, VBModal } from 'bootstrap-vue';
+import AppInput from '@/components/form/AppInput';
 
 export default {
+  directives: {
+    'b-modal': VBModal,
+  },
   components: {
     InvoiceTotals,
     InvoiceHeader,
@@ -82,6 +104,8 @@ export default {
     InvoiceClientDetails,
     AppEditable,
     AppError,
+    AppInput,
+    BModal,
   },
   computed: {
     ...mapState({
@@ -109,6 +133,9 @@ export default {
     },
     addRow() {
       this.$store.dispatch('invoices/addRow');
+    },
+    updateTeam(props) {
+      this.$store.dispatch('teams/updateTeam', props);
     },
   },
 };
