@@ -30,7 +30,8 @@ class BankAccountService {
     } else {
       bankAccounts[index] = bankAccount;
     }
-    return storage.setItem('bank_accounts', bankAccounts);
+    await storage.setItem('bank_accounts', bankAccounts);
+    return bankAccount;
   }
 }
 

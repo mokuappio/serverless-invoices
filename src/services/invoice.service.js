@@ -124,7 +124,8 @@ class InvoiceService {
     } else {
       invoices[index] = invoice;
     }
-    return storage.setItem('invoices', invoices);
+    await storage.setItem('invoices', invoices);
+    return invoice;
   }
 }
 

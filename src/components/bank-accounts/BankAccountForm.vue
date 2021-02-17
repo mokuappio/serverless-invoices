@@ -71,10 +71,10 @@ export default {
       this.errors.clear();
 
       return this.$store.dispatch('bankAccounts/updateBankAccount', props)
-        .then((res) => {
-          NotificationService.success(res.message);
+        .then(() => {
+          NotificationService.success('Updated');
         })
-        .catch(err => this.errors.set(err.response.data.errors));
+        .catch(err => this.errors.set(err.errors));
     },
     createBankAccount() {
       this.loading = true;
@@ -89,7 +89,7 @@ export default {
           });
           this.$emit('done');
         })
-        .catch(err => this.errors.set(err.response.data.errors))
+        .catch(err => this.errors.set(err.errors))
         .finally(() => {
           this.loading = false;
         });

@@ -119,10 +119,10 @@ export default {
       this.errors.clear();
 
       this.$store.dispatch('clients/updateClient', props)
-        .then((res) => {
-          NotificationService.success(res.message);
+        .then(() => {
+          NotificationService.success('Updated');
         })
-        .catch(err => this.errors.set(err.response.data.errors));
+        .catch(err => this.errors.set(err.errors));
     },
     bankAccountChanged(val) {
       this.updateProp({
@@ -143,7 +143,7 @@ export default {
           });
           this.$emit('done');
         })
-        .catch(err => this.errors.set(err.response.data.errors))
+        .catch(err => this.errors.set(err.errors))
         .finally(() => {
           this.loading = false;
         });
@@ -158,9 +158,9 @@ export default {
       });
       if (confirmed) {
         this.$emit('done');
-        const res = await this.$store.dispatch('clients/deleteClient', clientId);
+        await this.$store.dispatch('clients/deleteClient', clientId);
         try {
-          NotificationService.success(res.message);
+          NotificationService.success('Deleted');
         } catch (err) {
           NotificationService.error(err.message);
         }

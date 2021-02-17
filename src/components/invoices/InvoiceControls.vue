@@ -58,8 +58,8 @@ export default {
         contentClass: 'bg-base dp--24',
       });
       if (confirmed) {
-        const res = await this.$store.dispatch('invoices/deleteInvoice', this.invoice);
-        NotificationService.success(res.message);
+        await this.$store.dispatch('invoices/deleteInvoice', this.invoice);
+        NotificationService.success('Deleted');
         this.$router.push({
           name: 'invoices',
         });
