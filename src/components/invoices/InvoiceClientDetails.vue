@@ -2,6 +2,7 @@
     <div>
         <div>
             <ClientSelector :value="invoice.client_name" btn-class="font-weight-bold" @selected="clientSelected"/>
+            <i class="material-icons md-18 ml-2 pointer d-print-none" v-if="invoice.client" @click="editClient">edit</i>
         </div>
         <AppEditable :value="invoice.client_address"
                      suffix=", "
@@ -71,6 +72,9 @@ export default {
     }),
   },
   methods: {
+    editClient() {
+      this.$router.push({ query: { clientId: this.invoice.client_id } });
+    },
     updateProp(props) {
       this.$emit('update', props);
     },

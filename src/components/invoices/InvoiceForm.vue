@@ -6,7 +6,6 @@
                     <img v-if="team.logo_url"
                          v-b-modal.team_logo_url
                          :src="team.logo_url" style="width:100%; max-width:200px;">
-                    <!-- TODO: logo url input -->
                     <button class="btn btn-sm" v-b-modal.team_logo_url v-else>
                         <i class="material-icons material-icons-round md-36">file_upload</i>
                     </button>
