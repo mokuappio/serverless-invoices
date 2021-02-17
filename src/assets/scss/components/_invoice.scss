@@ -16,6 +16,10 @@
   html, body {
     width: 210mm;
     height: 297mm;
+    color: $dark;
+  }
+  .table {
+    color: $dark;
   }
   .invoice-box {
     box-shadow: none;
