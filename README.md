@@ -11,7 +11,7 @@ You can always use the latest free version at [invoices.mokuapp.io](https://invo
  
 Sponsored and maintained by [Moku](https://mokuapp.io)
 
-Built with Vue.js
+Built with [Vue.js](https://vuejs.org/) and [Bootstrap](https://getbootstrap.com/)
 
 ## Features
 - Truly serverless - data stored in your browser only, no network requests
