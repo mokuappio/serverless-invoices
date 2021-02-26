@@ -6,13 +6,9 @@
                     <img v-if="team.logo_url"
                          v-b-modal.team_logo_url
                          :src="team.logo_url" style="width:100%; max-width:200px;">
-                    <AppFileInput :class="{'text-muted': !!team.logo_url }"
-                                  accept="image/*"
-                                  class="d-print-none" @selected="logoSelected"
-                                  button-text="Select logo" output-type="base64"/>
-                    <!--<button class="btn btn-sm" v-b-modal.team_logo_url v-else>
+                    <button class="btn btn-sm" v-b-modal.team_logo_url v-else>
                         <i class="material-icons material-icons-round md-36">file_upload</i>
-                    </button>-->
+                    </button>
                     <AppError :errors="errors" field="logo_url"/>
                 </div>
                 <InvoiceHeader :invoice="invoice" :errors="errors" @update="updateProp"
@@ -66,13 +62,19 @@
         </div>
         <BModal id="team_logo_url"
                 centered
-                title="Insert logo url"
+                title="Choose logo"
                 hide-footer
                 size="sm"
-                content-class="bg-base dp--24">
+                content-class="bg-base dp--24 text-center">
+            <AppFileInput :class="{'text-muted': !!team.logo_url }"
+                          accept="image/*"
+                          class="d-print-none mb-4" @selected="logoSelected"
+                          button-text="Select from files" output-type="base64"/>
+            or
             <AppInput :value="team.logo_url"
+                      class="mt-4"
                       @change="updateTeam({ logo_url: $event })"
-                      label="Logo url"
+                      label="Insert web url"
                       field="logo_url"
                       :errors="errors"
                       type="url"/>
