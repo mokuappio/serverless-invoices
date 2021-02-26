@@ -46,9 +46,9 @@ export default {
     close() {
       this.isOpen = false;
     },
-    onSelected(content) {
+    onSelected(payload) {
       try {
-        const data = JSON.parse(content);
+        const data = JSON.parse(payload.content);
 
         this.$store.dispatch('data/importJson', data);
         this.close();

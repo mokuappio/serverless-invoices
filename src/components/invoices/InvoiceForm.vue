@@ -6,10 +6,14 @@
                     <img v-if="team.logo_url"
                          v-b-modal.team_logo_url
                          :src="team.logo_url" style="width:100%; max-width:200px;">
-                    <button class="btn btn-sm" v-b-modal.team_logo_url v-else>
+                    <AppFileInput :class="{'text-muted': !!team.logo_url }"
+                                  accept="image/*"
+                                  class="d-print-none" @selected="logoSelected"
+                                  button-text="Select logo" output-type="base64"/>
+                    <!--<button class="btn btn-sm" v-b-modal.team_logo_url v-else>
                         <i class="material-icons material-icons-round md-36">file_upload</i>
-                    </button>
-                    <AppError :errors="errors" field="team.logos"/>
+                    </button>-->
+                    <AppError :errors="errors" field="logo_url"/>
                 </div>
                 <InvoiceHeader :invoice="invoice" :errors="errors" @update="updateProp"
                                class="col-8 text-right mb-2"/>
@@ -88,12 +92,14 @@ import AppEditable from '@/components/form/AppEditable';
 import AppError from '@/components/form/AppError';
 import { BModal, VBModal } from 'bootstrap-vue';
 import AppInput from '@/components/form/AppInput';
+import AppFileInput from '@/components/form/AppFileInput';
 
 export default {
   directives: {
     'b-modal': VBModal,
   },
   components: {
+    AppFileInput,
     InvoiceTotals,
     InvoiceHeader,
     InvoiceContactDetails,
@@ -135,6 +141,13 @@ export default {
     },
     updateTeam(props) {
       this.$store.dispatch('teams/updateTeam', props);
+    },
+    logoSelected(payload) {
+      this.errors.clear();
+      if (payload.size / 1000 > 512) {
+        return this.errors.set({ logo_url: ['Logo has to be under 512kb.'] });
+      }
+      this.updateTeam({ logo_url: payload.content });
     },
   },
 };

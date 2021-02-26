@@ -3,7 +3,8 @@
         <label :for="inputRef" class="btn btn-sm btn-link pointer mb-0">
             <i class="material-icons md-18 mr-2 va-tt">cloud_upload</i>{{ buttonText }}
         </label>
-        <input v-if="ready" class="d-none" type="file" :id="inputRef" :ref="inputRef" @change="handleFileUpload()"/>
+        <input v-if="ready" class="d-none" :accept="accept" type="file" :id="inputRef" :ref="inputRef"
+               @change="handleFileUpload()"/>
     </div>
 </template>
 
@@ -15,6 +16,10 @@ export default {
     buttonText: {
       default: 'Select file',
     },
+    outputType: {
+      default: 'text',
+    },
+    accept: {},
   },
   data() {
     return {
@@ -28,10 +33,18 @@ export default {
 
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.$emit('selected', e.target.result);
+        this.$emit('selected', {
+          content: e.target.result,
+          mime: file.type,
+          size: file.size,
+        });
         this.reset();
       };
-      reader.readAsText(file);
+      if (this.outputType === 'text') {
+        reader.readAsText(file);
+      } else if (this.outputType === 'base64') {
+        reader.readAsDataURL(file);
+      }
     },
     reset() {
       this.ready = false;
