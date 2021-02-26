@@ -43,7 +43,6 @@ export default {
     },
     all() {
       return Team.query()
-        .with(['logos'])
         .where('$isNew', false)
         .get();
     },

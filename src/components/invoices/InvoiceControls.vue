@@ -5,12 +5,8 @@
                             :to="{name: 'invoices'}">
                 <i class="material-icons">arrow_back</i>
                 <span class="d-inline-block">Back</span>
-                <!--        Back-->
             </router-link>
             <div class="d-flex align-items-center">
-                <!--        <button class="btn btn-sm btn-outline-danger mr-2" @click="deleteInvoice">Delete</button>-->
-                <!--        <a :href="invoice.pdf_url" target="_blank" class="btn btn-sm btn-outline-primary mr-2">PDF</a>-->
-
                 <AppSelect :value="invoice.status"
                            class="mb-0 mr-2 text-capitalize multiselect--capitalize"
                            :options="['draft', 'booked', 'sent', 'paid', 'cancelled']"

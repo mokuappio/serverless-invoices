@@ -133,7 +133,7 @@ export default {
       return InvoiceService.updateInvoice(getters.invoice)
         .catch(err => commit('setErrors', err.errors));
     },
-    async deleteInvoice(invoice) {
+    async deleteInvoice(store, invoice) {
       const res = await InvoiceService.deleteInvoice(invoice.id);
       if ('invoice_id' in res) {
         Invoice.delete(res.invoice_id);
