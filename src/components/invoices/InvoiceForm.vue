@@ -66,9 +66,7 @@
                 hide-footer
                 size="sm"
                 content-class="bg-base dp--24 text-center">
-            <AppFileInput :class="{'text-muted': !!team.logo_url }"
-                          accept="image/*"
-                          class="d-print-none mb-4" @selected="logoSelected"
+            <AppFileInput accept="image/*" class="mb-4" @selected="logoSelected"
                           button-text="Select from files" output-type="base64"/>
             or
             <AppInput :value="team.logo_url"
