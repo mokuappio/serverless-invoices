@@ -28,7 +28,7 @@ class InvoiceService {
     invoice.late_fee = 0.5;
     invoice.from_name = team.company_name;
     invoice.from_address = team.company_address;
-    invoice.from_postal_code = team.from_postal_code;
+    invoice.from_postal_code = team.company_postal_code;
     invoice.from_city = team.company_city;
     invoice.from_country = team.company_country;
     invoice.from_county = team.company_county;
