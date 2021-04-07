@@ -5,16 +5,16 @@
       <table class="table table-hover">
         <thead>
         <tr>
-          <th>Account no.</th>
           <th>Bank</th>
+          <th>Bank account details</th>
           <th class="text-right"></th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="account in bankAccounts" :key="account.id"
             @click="onSelect(account)" :class="{pointer: $listeners.select }">
-          <td>{{ account.account_no }}</td>
           <td>{{ account.bank_name }}</td>
+          <td>{{ account.account_no }}</td>
           <td class="text-right">
             <i class="material-icons md-18 p-1 pointer"
                @click.stop="openBankAccountModal(account)">

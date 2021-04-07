@@ -8,8 +8,8 @@ export default class BankAccount extends Model {
   static fields() {
     return {
       id: this.attr(() => uuidv4()),
-      account_no: this.attr(''),
       bank_name: this.attr(''),
+      account_no: this.attr(''),
       updated_at: this.attr(''),
       created_at: this.attr(''),
     };

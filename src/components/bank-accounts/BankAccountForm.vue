@@ -8,13 +8,13 @@
         <div v-if="bankAccount" class="row">
             <AppInput :value="bankAccount.bank_name"
                       @change="updateProp({ bank_name: $event })"
-                      label="Bank Name"
+                      label="Bank name"
                       field="bank_name"
                       :errors="errors"
                       class="col-sm-10"/>
-            <AppInput :value="bankAccount.account_no"
+            <AppTextarea :value="bankAccount.account_no"
                       @change="updateProp({ account_no: $event })"
-                      label="Account no"
+                      label="Bank account details"
                       field="account_no"
                       :errors="errors"
                       class="col-12"/>
@@ -43,11 +43,13 @@
 import { mapGetters } from 'vuex';
 import NotificationService from '@/services/notification.service';
 import AppInput from '@/components/form/AppInput';
+import AppTextarea from '@/components/form/AppTextarea';
 import Errors from '@/utils/errors';
 
 export default {
   components: {
     AppInput,
+    AppTextarea,
   },
   data() {
     return {

@@ -7,7 +7,7 @@
           class="editable">
         <span ref="editable"
               class="editable__item"
-              contenteditable
+              :contenteditable="!disabled"
               v-on="listeners"
               :class="{'position-absolute': !tmpVal || (!tmpVal && !isFocused)}"
         ></span>
@@ -30,6 +30,9 @@ export default {
     placeholder: {
       type: String,
       default: 'Enter item',
+    },
+    disabled: {
+      default: false,
     },
     suffix: {},
     errors: {},
