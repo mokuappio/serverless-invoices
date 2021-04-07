@@ -1,3 +1,5 @@
+<a href="https://www.producthunt.com/posts/serverless-invoices?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-serverless-invoices" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=287626&theme=light&period=daily" alt="Serverless Invoices - Open source, serverless invoice generator | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 # Serverless Invoices by Moku
 
 Serverless Invoices is a free invoicing tool for freelancers and small businesses.
