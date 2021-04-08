@@ -1,0 +1,75 @@
+.nav-tabs {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  // scrollbar styles
+  scrollbar-color: var(--text-caption);
+  scrollbar-width: 6px;
+  scrollbar-gutter: always;
+
+  &::-webkit-scrollbar-track {
+    background: var(--shade);
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-caption);
+    border-radius: 6px;
+
+    &:hover {
+      background: var(--text-secondary);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  > li {
+    display: inline-block;
+    float: none;
+    white-space: normal;
+  }
+
+  &--simple {
+    &.nav-tabs {
+      > li {
+        > a {
+          border-bottom: 1px solid transparent;
+
+          &.active {
+            background-color: transparent;
+            border-left-color: transparent;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: var(--text-primary);
+            color: $nav-tabs-link-active-color;
+          }
+
+          &:hover, &:focus, &:active {
+            background-color: transparent;
+            border-left-color: transparent;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          }
+        }
+      }
+
+      > li {
+        > a {
+          border-bottom-width: 2px;
+          min-width: 90px;
+          text-align: center;
+          font-weight: 500;
+          color: $nav-tabs-link-active-color;
+        }
+      }
+    }
+
+    .tab-content {
+      padding-top: 16px;
+    }
+  }
+}

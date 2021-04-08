@@ -47,11 +47,15 @@ export default {
       });
     },
     async updateClient({ getters, dispatch }, props) {
-      await dispatch('clientProps', props);
+      if (props) {
+        await dispatch('clientProps', props);
+      }
       return ClientService.updateClient(getters.client);
     },
     async updateClientById(store, payload) {
-      const client = Client.find(payload.clientId);
+      const client = Client.query()
+        .with('fields')
+        .find(payload.clientId);
       client.$update(payload.props);
       return ClientService.updateClient(client);
     },
@@ -60,24 +64,22 @@ export default {
       commit('clientId', client.id);
       commit('isModalOpen', true);
     },
-    async deleteClient(clientId) {
+    async deleteClient(store, clientId) {
       const res = await ClientService.deleteClient(clientId);
-      if ('client_id' in res) {
-        Client.delete(res.client_id);
-      }
+      await Client.delete(clientId);
       return res;
     },
   },
   getters: {
     client(state) {
       return Client.query()
-        .with(['bank_account'])
+        .with(['bank_account', 'fields'])
         .find(state.clientId);
     },
     all() {
       return Client.query()
         .where('$isNew', false)
-        .with(['bank_account'])
+        .with(['bank_account', 'fields'])
         .get();
     },
   },

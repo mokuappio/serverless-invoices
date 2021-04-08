@@ -137,7 +137,7 @@ export default {
       this.$store.dispatch('invoices/updateInvoice', props);
     },
     addRow() {
-      this.$store.dispatch('invoices/addRow');
+      this.$store.dispatch('invoiceRows/addRow', this.invoice.id);
     },
     updateTeam(props) {
       this.$store.dispatch('teams/updateTeam', props);

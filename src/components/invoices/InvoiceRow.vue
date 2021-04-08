@@ -52,13 +52,13 @@ export default {
   },
   methods: {
     updateProp(props) {
-      this.$store.dispatch('invoices/updateInvoiceRow', {
+      this.$store.dispatch('invoiceRows/updateInvoiceRow', {
         props,
         id: this.row.id,
       });
     },
     async removeRow(row) {
-      await this.$store.dispatch('invoices/removeRow', row);
+      await this.$store.dispatch('invoiceRows/removeRow', row.id);
       this.updateProp();
     },
   },

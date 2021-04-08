@@ -1,6 +1,5 @@
 import InvoiceService from '@/services/invoice.service';
 import Invoice from '@/store/models/invoice';
-import InvoiceRow from '@/store/models/invoice-row';
 import { pick } from '@/utils/helpers';
 import dayjs from 'dayjs';
 import Errors from '@/utils/errors';
@@ -55,16 +54,7 @@ export default {
         data: props,
       });
     },
-    invoiceRowProps(store, payload) {
-      return InvoiceRow.update({
-        where: payload.id,
-        data: payload.props,
-      });
-    },
-    async updateInvoice({ getters, dispatch, commit }, props) {
-      await dispatch('invoiceProps', props);
-
-      // Update client
+    async updateClient({ getters, dispatch }, props) {
       const clientProps = pick(props, {
         bank_account_id: 'bank_account_id',
         client_name: 'company_name',
@@ -73,8 +63,6 @@ export default {
         client_country: 'company_country',
         client_county: 'company_county',
         client_city: 'company_city',
-        client_reg_no: 'company_reg_no',
-        client_vat_no: 'company_vat_no',
         client_email: 'invoice_email',
         currency: 'currency',
       });
@@ -88,7 +76,8 @@ export default {
           clientId: getters.invoice.client_id,
         }, { root: true });
       }
-
+    },
+    async updateTeam({ getters, dispatch }, props) {
       const teamProps = pick(props, {
         late_fee: 'invoice_late_fee',
         from_name: 'company_name',
@@ -119,36 +108,22 @@ export default {
       if (Object.keys(teamProps).length > 0) {
         dispatch('teams/updateTeam', teamProps, { root: true });
       }
-
-      commit('clearErrors');
-
-      return InvoiceService.updateInvoice(getters.invoice)
-        .catch(err => commit('setErrors', err.errors));
     },
-    async updateInvoiceRow({ getters, dispatch, commit }, payload) {
-      await dispatch('invoiceRowProps', payload);
+    async updateInvoice({ dispatch, commit, getters }, props) {
+      if (props) {
+        await dispatch('invoiceProps', props);
+        await dispatch('updateClient', props);
+        await dispatch('updateTeam', props);
+      }
 
       commit('clearErrors');
-
       return InvoiceService.updateInvoice(getters.invoice)
         .catch(err => commit('setErrors', err.errors));
     },
     async deleteInvoice(store, invoice) {
       const res = await InvoiceService.deleteInvoice(invoice.id);
-      if ('invoice_id' in res) {
-        Invoice.delete(res.invoice_id);
-      }
+      await Invoice.delete(invoice.id);
       return res;
-    },
-    async addRow({ state, getters }) {
-      const row = await InvoiceRow.createNew();
-      row.$update({
-        invoice_id: state.invoiceId,
-        order: getters.invoice.rows.length,
-      });
-    },
-    async removeRow(store, row) {
-      await InvoiceRow.delete(row.id);
     },
     async bookInvoice({ getters, commit, dispatch }) {
       commit('clearErrors');
@@ -164,7 +139,7 @@ export default {
   getters: {
     invoice(state) {
       return Invoice.query()
-        .with(['client'])
+        .with(['client', 'client_fields'])
         .with('rows', query => query.orderBy('order', 'asc'))
         .find(state.invoiceId);
     },

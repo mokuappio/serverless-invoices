@@ -1,5 +1,6 @@
 import { Model } from '@vuex-orm/core';
 import { uuidv4 } from '@/utils/helpers';
+import TeamField from '@/store/models/team-field';
 
 export default class Team extends Model {
   // This is the name used as module name of the Vuex Store.
@@ -22,6 +23,7 @@ export default class Team extends Model {
       vat_rate: this.attr(null),
       invoice_late_fee: this.attr(null),
       invoice_due_days: this.attr(null),
+      fields: this.hasMany(TeamField, 'team_id'),
       updated_at: this.attr(''),
       created_at: this.attr(''),
       logo_url: this.attr(''),

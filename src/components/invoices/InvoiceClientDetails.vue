@@ -31,20 +31,8 @@
         <AppError :errors="errors" field="client_county"/>
         <AppError :errors="errors" field="client_country"/>
 
-        <span :class="{'d-print-none': !invoice.client_reg_no }">Reg no: </span>
-        <AppEditable :value="invoice.client_reg_no"
-                     :errors="errors"
-                     field="client_reg_no"
-                     placeholder="Enter reg no"
-                     class="break-line"
-                     @change="updateProp({ client_reg_no: $event })"/>
-        <span :class="{'d-print-none': !invoice.client_vat_no }">VAT no: </span>
-        <AppEditable :value="invoice.client_vat_no"
-                     :errors="errors"
-                     field="client_vat_no"
-                     placeholder="Enter vat no"
-                     class="break-line"
-                     @change="updateProp({ client_vat_no: $event })"/>
+        <InvoiceClientFields :invoice="invoice"/>
+
         <AppEditable :value="invoice.client_email"
                      :errors="errors"
                      field="client_email"
@@ -58,6 +46,7 @@ import { mapGetters } from 'vuex';
 import AppError from '@/components/form/AppError';
 import AppEditable from '@/components/form/AppEditable';
 import ClientSelector from '@/components/clients/ClientSelector';
+import InvoiceClientFields from '@/components/invoices/InvoiceClientFields';
 
 export default {
   props: ['invoice', 'errors'],
@@ -65,6 +54,7 @@ export default {
     AppError,
     ClientSelector,
     AppEditable,
+    InvoiceClientFields,
   },
   computed: {
     ...mapGetters({
@@ -82,6 +72,8 @@ export default {
       this.prefillClient(client);
     },
     prefillClient(client) {
+      this.prefillClientFields(client);
+
       return this.updateProp({
         client_id: client.id,
         client_name: client.company_name,
@@ -90,13 +82,25 @@ export default {
         client_city: client.company_city,
         client_county: client.company_county,
         client_country: client.company_country,
-        client_reg_no: client.company_reg_no,
-        client_vat_no: client.company_vat_no,
         client_email: client.invoice_email,
         currency: client.currency || 'USD',
         vat_rate: client.has_vat ? this.team.vat_rate : 0,
         bank_name: client.bank_account ? client.bank_account.bank_name : null,
         bank_account_no: client.bank_account ? client.bank_account.account_no : null,
+      });
+    },
+    prefillClientFields(client) {
+      this.$store.dispatch('invoiceClientFields/removeInvoiceClientFields', this.invoice.id);
+
+      client.fields.forEach((field) => {
+        this.$store.dispatch('invoiceClientFields/addInvoiceClientField', {
+          invoiceId: this.invoice.id,
+          props: {
+            label: field.label,
+            value: field.value,
+            client_field_id: field.id,
+          },
+        });
       });
     },
   },
