@@ -23,6 +23,20 @@ export default {
         client_id: clientId,
       });
     },
+    async addAllFields(store, clientId) {
+      // Get all distinct custom fields
+      const uniqueLabels = ClientField.all()
+        .map(field => field.label)
+        .filter((value, index, self) => self.indexOf(value) === index);
+
+      await Promise.all(uniqueLabels.map(async (label) => {
+        const field = await ClientField.createNew();
+        await field.$update({
+          label,
+          client_id: clientId,
+        });
+      }));
+    },
     async deleteClientField({ dispatch }, fieldId) {
       await ClientField.delete(fieldId);
       return dispatch('clients/updateClient', null, { root: true }); // TODO: pass clientId to make generic

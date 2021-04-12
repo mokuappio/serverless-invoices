@@ -1,6 +1,12 @@
 import ClientService from '@/services/client.service';
 import Client from '@/store/models/client';
 
+function getClientById(clientId) {
+  return Client.query()
+    .with(['bank_account', 'fields'])
+    .find(clientId);
+}
+
 export default {
   namespaced: true,
   state: {
@@ -32,13 +38,15 @@ export default {
       commit('clientId', client.id);
       Client.insert({ data: client });
     },
-    async createNewClient(store, client) {
+    async createNewClient({ dispatch }, client) {
       if (!client.hasOwnProperty('id')) {
         client = new Client(client);
       }
+      await dispatch('clientFields/addAllFields', client.id, { root: true });
+
       const res = await ClientService.createClient(client);
       await Client.insert({ data: res });
-      return Client.find(res.id);
+      return getClientById(res.id);
     },
     clientProps({ state }, props) {
       return Client.update({
@@ -53,9 +61,7 @@ export default {
       return ClientService.updateClient(getters.client);
     },
     async updateClientById(store, payload) {
-      const client = Client.query()
-        .with('fields')
-        .find(payload.clientId);
+      const client = getClientById(payload.clientId);
       client.$update(payload.props);
       return ClientService.updateClient(client);
     },
@@ -72,9 +78,7 @@ export default {
   },
   getters: {
     client(state) {
-      return Client.query()
-        .with(['bank_account', 'fields'])
-        .find(state.clientId);
+      return getClientById(state.clientId);
     },
     all() {
       return Client.query()
