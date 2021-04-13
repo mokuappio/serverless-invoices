@@ -33,6 +33,7 @@ export default {
     },
     ...mapGetters({
       client: 'clients/client',
+      invoice: 'invoices/invoice',
     }),
   },
   watch: {
@@ -56,8 +57,25 @@ export default {
         this.$store.commit('clients/isModalOpen', false);
       }
     },
-    close() {
+    async close() {
+      await this.promptUpdateInvoice();
       this.isOpen = false;
+    },
+    async promptUpdateInvoice() {
+      if (this.$route.name === 'invoice' && this.invoice.client_id === this.client.id) {
+        const confirmed = await this.$bvModal.msgBoxConfirm('Update client details on invoice?', {
+          okTitle: 'Update',
+          cancelTitle: 'Dismiss',
+          cancelVariant: 'btn-link',
+          contentClass: 'bg-base dp--24',
+        });
+        if (confirmed) {
+          this.$store.dispatch('invoices/prefillClient', {
+            client: this.client,
+            invoice: this.invoice,
+          });
+        }
+      }
     },
   },
 };

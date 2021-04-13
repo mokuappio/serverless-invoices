@@ -133,6 +133,36 @@ export default {
         commit('setErrors', err.errors);
       }
     },
+    prefillClient({ dispatch, rootGetters }, payload) {
+      const client = payload.client;
+      dispatch('invoiceClientFields/removeInvoiceClientFields', payload.invoice.id, { root: true });
+
+      client.fields.forEach((field) => {
+        dispatch('invoiceClientFields/addInvoiceClientField', {
+          invoiceId: payload.invoice.id,
+          props: {
+            label: field.label,
+            value: field.value,
+            client_field_id: field.id,
+          },
+        }, { root: true });
+      });
+
+      return dispatch('updateInvoice', {
+        client_id: client.id,
+        client_name: client.company_name,
+        client_address: client.company_address,
+        client_postal_code: client.company_postal_code,
+        client_city: client.company_city,
+        client_county: client.company_county,
+        client_country: client.company_country,
+        client_email: client.invoice_email,
+        currency: client.currency || rootGetters['teams/team'].currency || 'USD',
+        vat_rate: client.has_vat ? rootGetters['teams/team'].vat_rate : 0,
+        bank_name: client.bank_account ? client.bank_account.bank_name : null,
+        bank_account_no: client.bank_account ? client.bank_account.account_no : null,
+      });
+    },
   },
   getters: {
     invoice(state) {
