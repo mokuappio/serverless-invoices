@@ -1,6 +1,8 @@
 import storage from 'localforage';
 import TeamService from '@/services/team.service';
-import { validate, generateInvoiceNumber, removeVuexORMFlags } from '@/utils/helpers';
+import {
+  validate, generateInvoiceNumber, removeVuexORMFlags, uuidv4,
+} from '@/utils/helpers';
 import dayjs from 'dayjs';
 
 class InvoiceService {
@@ -22,25 +24,32 @@ class InvoiceService {
     invoice.issued_at = dayjs()
       .format('YYYY-MM-DD');
     invoice.due_at = dayjs()
-      .add(14, 'days')
+      .add(team.invoice_due_days || 14, 'days')
       .format('YYYY-MM-DD');
     invoice.number = generateInvoiceNumber(invoices);
-    invoice.late_fee = 0.5;
+    invoice.late_fee = team.invoice_late_fee || 0.5;
     invoice.from_name = team.company_name;
     invoice.from_address = team.company_address;
     invoice.from_postal_code = team.company_postal_code;
     invoice.from_city = team.company_city;
     invoice.from_country = team.company_country;
     invoice.from_county = team.company_county;
-    invoice.from_reg_no = team.company_reg_no;
-    invoice.from_vat_no = team.company_vat_no;
     invoice.from_website = team.website;
     invoice.from_email = team.contact_email;
     invoice.from_phone = team.contact_phone;
-    invoice.vat_rate = 0;
-    invoice.currency = 'USD';
+    invoice.vat_rate = team.vat_rate || 0;
+    invoice.currency = team.currency || 'USD';
+
+    // Add custom fields
+    invoice.team_fields = team.fields.map(field => ({
+      id: uuidv4(),
+      label: field.label,
+      value: field.value,
+      invoice_id: invoice.id,
+    }));
 
     delete invoice.client;
+
 
     return this.saveInvoice(invoice);
   }

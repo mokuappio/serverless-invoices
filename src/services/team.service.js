@@ -11,8 +11,6 @@ class TeamService {
         company_country: null,
         company_county: null,
         company_city: null,
-        company_reg_no: null,
-        company_vat_no: null,
         website: null,
         contact_email: null,
         contact_phone: null,

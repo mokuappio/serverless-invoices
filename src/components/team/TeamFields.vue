@@ -1,0 +1,70 @@
+<template>
+    <div>
+        <div v-for="field in team.fields" :key="field.id" class="col-sm-6">
+            <AppEditable :value="field.label"
+                         placeholder="Label"
+                         @change="updateFieldProp({ label: $event }, field)"/>
+            <i class="material-icons md-18 float-right pointer" @click="removeField(field)">close</i>
+            <AppInput :value="field.value" @change="updateFieldProp({ value: $event }, field)"
+                      :placeholder="field.label"/>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-sm btn-secondary" @click="addNewField">
+                <i class="material-icons md-18">add</i>
+                Field
+            </button>
+        </div>
+    </div>
+</template>
+<script>
+import NotificationService from '@/services/notification.service';
+import AppInput from '@/components/form/AppInput';
+import AppEditable from '@/components/form/AppEditable';
+
+export default {
+  props: ['team'],
+  components: {
+    AppEditable,
+    AppInput,
+  },
+  computed: {
+    isNew() {
+      return this.team && this.team.$isNew;
+    },
+  },
+  methods: {
+    addNewField() {
+      this.$store.dispatch('teamFields/addNewField', this.team.id);
+    },
+    async removeField(field) {
+      const confirmed = await this.$bvModal.msgBoxConfirm(`Delete field ${field.label}?`, {
+        okTitle: 'Delete',
+        okVariant: 'danger',
+        cancelTitle: 'Dismiss',
+        cancelVariant: 'btn-link',
+        contentClass: 'bg-base dp--24',
+      });
+      if (confirmed) {
+        await this.$store.dispatch('teamFields/deleteTeamField', field.id);
+        try {
+          NotificationService.success('Deleted');
+        } catch (err) {
+          NotificationService.error(err.message);
+        }
+      }
+    },
+    updateFieldProp(props, field) {
+      if (this.isNew) {
+        return this.$store.dispatch('teamFields/teamFieldProps', {
+          props,
+          fieldId: field.id,
+        });
+      }
+      this.$store.dispatch('teamFields/updateTeamField', {
+        props,
+        fieldId: field.id,
+      });
+    },
+  },
+};
+</script>

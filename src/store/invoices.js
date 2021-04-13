@@ -86,8 +86,6 @@ export default {
         from_city: 'company_city',
         from_country: 'company_country',
         from_county: 'company_county',
-        from_reg_no: 'company_reg_no',
-        from_vat_no: 'company_vat_no',
         from_website: 'website',
         from_email: 'contact_email',
         from_phone: 'contact_phone',
@@ -139,7 +137,7 @@ export default {
   getters: {
     invoice(state) {
       return Invoice.query()
-        .with(['client', 'client_fields'])
+        .with(['client', 'client_fields', 'team_fields'])
         .with('rows', query => query.orderBy('order', 'asc'))
         .find(state.invoiceId);
     },

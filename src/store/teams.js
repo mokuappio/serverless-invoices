@@ -3,8 +3,14 @@ import Team from '@/store/models/team';
 
 export default {
   namespaced: true,
-  state: {},
-  mutations: {},
+  state: {
+    isModalOpen: false,
+  },
+  mutations: {
+    isModalOpen(state, isOpen) {
+      state.isModalOpen = isOpen;
+    },
+  },
   actions: {
     async init({ dispatch }) {
       await Promise.all([
@@ -39,12 +45,7 @@ export default {
   },
   getters: {
     team() {
-      return Team.query().first();
-    },
-    all() {
-      return Team.query()
-        .where('$isNew', false)
-        .get();
+      return Team.query().with(['fields']).first();
     },
   },
 };

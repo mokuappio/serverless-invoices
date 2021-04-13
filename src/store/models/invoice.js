@@ -3,6 +3,7 @@ import { uuidv4 } from '@/utils/helpers';
 import Client from '@/store/models/client';
 import InvoiceRow from '@/store/models/invoice-row';
 import InvoiceClientField from '@/store/models/invoice-client-field';
+import InvoiceTeamField from '@/store/models/invoice-team-field';
 
 export default class Invoice extends Model {
   // This is the name used as module name of the Vuex Store.
@@ -24,8 +25,6 @@ export default class Invoice extends Model {
       from_city: this.attr(''),
       from_country: this.attr(''),
       from_county: this.attr(''),
-      from_reg_no: this.attr(''),
-      from_vat_no: this.attr(''),
       from_website: this.attr(''),
       from_email: this.attr(''),
       from_phone: this.attr(''),
@@ -46,6 +45,7 @@ export default class Invoice extends Model {
       created_at: this.attr(''),
       total: this.attr(null), // Only used in lists.
       client_fields: this.hasMany(InvoiceClientField, 'invoice_id'),
+      team_fields: this.hasMany(InvoiceTeamField, 'invoice_id'),
     };
   }
 
