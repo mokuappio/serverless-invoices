@@ -29,6 +29,7 @@ export default {
     },
     ...mapGetters({
       team: 'teams/team',
+      invoice: 'invoices/invoice',
     }),
   },
   mounted() {
@@ -38,8 +39,24 @@ export default {
     getTeam() {
       this.$store.dispatch('teams/getTeam');
     },
-    close() {
+    async close() {
+      await this.promptUpdateInvoice();
       this.isOpen = false;
+    },
+    async promptUpdateInvoice() {
+      if (this.$route.name === 'invoice') {
+        /* const confirmed = await this.$bvModal.msgBoxConfirm('Update team details on invoice?', {
+          okTitle: 'Update',
+          cancelTitle: 'Dismiss',
+          cancelVariant: 'btn-link',
+          contentClass: 'bg-base dp--24',
+        });
+        if (confirmed) { */
+        this.$store.dispatch('invoices/prefillTeam', {
+          invoiceId: this.invoice.id,
+        });
+        /* } */
+      }
     },
   },
 };

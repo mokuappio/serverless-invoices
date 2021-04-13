@@ -63,18 +63,18 @@ export default {
     },
     async promptUpdateInvoice() {
       if (this.$route.name === 'invoice' && this.invoice.client_id === this.client.id) {
-        const confirmed = await this.$bvModal.msgBoxConfirm('Update client details on invoice?', {
+        /* const confirmed = await this.$bvModal.msgBoxConfirm('Update client details on invoice?', {
           okTitle: 'Update',
           cancelTitle: 'Dismiss',
           cancelVariant: 'btn-link',
           contentClass: 'bg-base dp--24',
         });
-        if (confirmed) {
-          this.$store.dispatch('invoices/prefillClient', {
-            client: this.client,
-            invoice: this.invoice,
-          });
-        }
+        if (confirmed) { */
+        this.$store.dispatch('invoices/prefillClient', {
+          client: this.client,
+          invoiceId: this.invoice.id,
+        });
+        /* } */
       }
     },
   },

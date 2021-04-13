@@ -17,7 +17,9 @@ export default {
     },
     async updateInvoiceRow({ dispatch }, payload) {
       await dispatch('invoiceRowProps', payload);
-      return dispatch('invoices/updateInvoice', null, { root: true });
+      return dispatch('invoices/updateInvoice', {
+        invoiceId: payload.invoiceId,
+      }, { root: true });
     },
     async addRow(store, invoiceId) {
       const row = await InvoiceRow.createNew();

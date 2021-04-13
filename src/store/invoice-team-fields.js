@@ -15,7 +15,9 @@ export default {
     },
     async updateInvoiceTeamField({ dispatch }, payload) {
       await dispatch('invoiceTeamFieldProps', payload);
-      return dispatch('invoices/updateInvoice', null, { root: true });
+      return dispatch('invoices/updateInvoice', {
+        invoiceId: payload.invoiceId,
+      }, { root: true });
     },
     async addInvoiceTeamField(store, payload) {
       const field = await InvoiceTeamField.createNew();
@@ -24,8 +26,11 @@ export default {
         invoice_id: payload.invoiceId,
       });
     },
-    async removeInvoiceTeamField(store, fieldId) {
-      await InvoiceTeamField.delete(fieldId);
+    async removeInvoiceTeamFields(store, invoiceId) {
+      return InvoiceTeamField.delete(field => field.invoice_id === invoiceId);
+    },
+    removeInvoiceTeamField(store, fieldId) {
+      return InvoiceTeamField.delete(fieldId);
     },
   },
 };

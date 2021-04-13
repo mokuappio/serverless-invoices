@@ -55,6 +55,7 @@ export default {
       this.$store.dispatch('invoiceRows/updateInvoiceRow', {
         props,
         id: this.row.id,
+        invoiceId: this.row.invoice_id,
       });
     },
     async removeRow(row) {

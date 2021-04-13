@@ -15,7 +15,9 @@ export default {
     },
     async updateInvoiceClientField({ dispatch }, payload) {
       await dispatch('invoiceClientFieldProps', payload);
-      return dispatch('invoices/updateInvoice', null, { root: true });
+      return dispatch('invoices/updateInvoice', {
+        invoiceId: payload.invoiceId,
+      }, { root: true });
     },
     async removeInvoiceClientFields(store, invoiceId) {
       return InvoiceClientField.delete(field => field.invoice_id === invoiceId);

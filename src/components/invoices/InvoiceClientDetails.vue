@@ -65,7 +65,7 @@ export default {
     clientSelected(client) {
       this.$store.dispatch('invoices/prefillClient', {
         client,
-        invoice: this.invoice,
+        invoiceId: this.invoice.id,
       });
     },
   },

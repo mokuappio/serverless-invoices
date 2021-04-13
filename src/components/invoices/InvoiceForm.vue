@@ -101,7 +101,10 @@ export default {
       this.$store.dispatch('invoices/getInvoice', this.$route.params.id);
     },
     updateProp(props) {
-      this.$store.dispatch('invoices/updateInvoice', props);
+      this.$store.dispatch('invoices/updateInvoice', {
+        props,
+        invoiceId: this.invoice.id,
+      });
     },
     addRow() {
       this.$store.dispatch('invoiceRows/addRow', this.invoice.id);

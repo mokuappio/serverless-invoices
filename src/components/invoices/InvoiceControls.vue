@@ -65,7 +65,10 @@ export default {
       this.$store.dispatch('invoices/bookInvoice');
     },
     updateProp(props) {
-      this.$store.dispatch('invoices/updateInvoice', props);
+      this.$store.dispatch('invoices/updateInvoice', {
+        props,
+        invoiceId: this.invoice.id,
+      });
     },
     print() {
       window.print();
