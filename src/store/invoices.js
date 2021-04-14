@@ -82,7 +82,7 @@ export default {
       const invoice = getInvoice(payload.invoiceId);
 
       if (Object.keys(clientProps).length > 0 && invoice.client_id) {
-        dispatch('clients/updateClientById', {
+        dispatch('clients/updateClient', {
           props: clientProps,
           clientId: invoice.client_id,
         }, { root: true });
@@ -189,6 +189,7 @@ export default {
           props: {
             label: field.label,
             value: field.value,
+            team_field_id: field.id,
           },
         }, { root: true });
       });

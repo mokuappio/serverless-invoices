@@ -14,8 +14,10 @@ export default {
       });
     },
     async updateClientField({ dispatch }, payload) {
-      await dispatch('clientFieldProps', payload);
-      return dispatch('clients/updateClient', null, { root: true }); // TODO: pass clientId to make generic
+      const field = await dispatch('clientFieldProps', payload);
+      return dispatch('clients/updateClient', {
+        clientId: field.client_id,
+      }, { root: true });
     },
     async addNewField(store, clientId) {
       const field = await ClientField.createNew();
@@ -38,8 +40,10 @@ export default {
       }));
     },
     async deleteClientField({ dispatch }, fieldId) {
-      await ClientField.delete(fieldId);
-      return dispatch('clients/updateClient', null, { root: true }); // TODO: pass clientId to make generic
+      const field = await ClientField.delete(fieldId);
+      return dispatch('clients/updateClient', {
+        clientId: field.client_id,
+      }, { root: true }); // TODO: pass clientId to make generic
     },
   },
 };

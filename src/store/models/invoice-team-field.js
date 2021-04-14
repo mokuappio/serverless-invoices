@@ -9,6 +9,7 @@ export default class InvoiceTeamField extends Model {
     return {
       id: this.attr(() => uuidv4()),
       invoice_id: this.attr(null),
+      team_field_id: this.attr(null),
       label: this.attr(''),
       value: this.attr(''),
     };

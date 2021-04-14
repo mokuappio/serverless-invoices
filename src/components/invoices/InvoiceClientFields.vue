@@ -24,6 +24,10 @@ export default {
         fieldId: field.id,
         invoiceId: this.invoice.id,
       });
+      this.$store.dispatch('clientFields/updateClientField', {
+        fieldId: field.client_field_id,
+        props,
+      });
     },
   },
 };

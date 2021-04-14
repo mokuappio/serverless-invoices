@@ -123,11 +123,17 @@ export default {
     },
     updateProp(props) {
       if (this.isNew) {
-        return this.$store.dispatch('clients/clientProps', props);
+        return this.$store.dispatch('clients/clientProps', {
+          props,
+          clientId: this.client.id,
+        });
       }
       this.errors.clear();
 
-      this.$store.dispatch('clients/updateClient', props)
+      this.$store.dispatch('clients/updateClient', {
+        props,
+        clientId: this.client.id,
+      })
         .then(() => {
           NotificationService.success('Updated');
         })

@@ -27,11 +27,6 @@ export default {
     AppEditable,
     AppInput,
   },
-  computed: {
-    isNew() {
-      return this.team && this.team.$isNew;
-    },
-  },
   methods: {
     addNewField() {
       this.$store.dispatch('teamFields/addNewField', this.team.id);
@@ -54,12 +49,6 @@ export default {
       }
     },
     updateFieldProp(props, field) {
-      if (this.isNew) {
-        return this.$store.dispatch('teamFields/teamFieldProps', {
-          props,
-          fieldId: field.id,
-        });
-      }
       this.$store.dispatch('teamFields/updateTeamField', {
         props,
         fieldId: field.id,

@@ -48,22 +48,17 @@ export default {
       await Client.insert({ data: res });
       return getClientById(res.id);
     },
-    clientProps({ state }, props) {
+    clientProps(store, payload) {
       return Client.update({
-        where: state.clientId,
-        data: props,
+        where: payload.clientId,
+        data: payload.props,
       });
     },
-    async updateClient({ getters, dispatch }, props) {
-      if (props) {
-        await dispatch('clientProps', props);
+    async updateClient({ dispatch }, payload) {
+      if (payload.props) {
+        await dispatch('clientProps', payload.props);
       }
-      return ClientService.updateClient(getters.client);
-    },
-    async updateClientById(store, payload) {
-      const client = getClientById(payload.clientId);
-      client.$update(payload.props);
-      return ClientService.updateClient(client);
+      return ClientService.updateClient(getClientById(payload.clientId));
     },
     async openNewClientModal({ commit }) {
       const client = await Client.createNew();

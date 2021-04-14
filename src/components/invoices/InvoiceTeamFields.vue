@@ -24,6 +24,10 @@ export default {
         fieldId: field.id,
         invoiceId: this.invoice.id,
       });
+      this.$store.dispatch('teamFields/updateTeamField', {
+        fieldId: field.team_field_id,
+        props,
+      });
     },
   },
 };
