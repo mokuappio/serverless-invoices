@@ -17,6 +17,7 @@ export default {
         dispatch('clients/terminate', null, { root: true }),
         dispatch('bankAccounts/terminate', null, { root: true }),
         dispatch('invoices/terminate', null, { root: true }),
+        dispatch('taxes/terminate', null, { root: true }),
       ]);
 
       await dispatch('getTeam');
@@ -24,6 +25,7 @@ export default {
       dispatch('clients/init', null, { root: true });
       dispatch('bankAccounts/init', null, { root: true });
       dispatch('invoices/init', null, { root: true });
+      dispatch('taxes/init', null, { root: true });
     },
     async terminate() {
       return Team.deleteAll();

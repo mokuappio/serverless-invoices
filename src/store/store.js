@@ -17,17 +17,20 @@ import invoiceTeamFields from '@/store/invoice-team-fields';
 import teams from '@/store/teams';
 import teamFields from '@/store/team-fields';
 import themes from '@/store/themes';
+import taxes from '@/store/taxes';
 import data from '@/store/data';
 import ClientField from '@/store/models/client-field';
 import TeamField from '@/store/models/team-field';
 import InvoiceClientField from '@/store/models/invoice-client-field';
 import InvoiceTeamField from '@/store/models/invoice-team-field';
+import Tax from '@/store/models/tax';
 
 Vue.use(Vuex);
 
 VuexORM.use(VuexORMisDirtyPlugin);
 const database = new VuexORM.Database();
 
+database.register(Tax);
 database.register(Team);
 database.register(TeamField);
 database.register(Client);
@@ -51,6 +54,7 @@ export default new Vuex.Store({
     teams,
     teamFields,
     themes,
+    taxes,
     data,
   },
   state: {},

@@ -34,9 +34,11 @@
                 <div class="row">
                     <AppInput :value="team.vat_rate" @change="updateProp({ vat_rate: $event })" type="number"
                               label="VAT rate" field="vat_rate" :errors="errors" class="col-sm-4"/>
-                    <AppInput :value="team.invoice_late_fee" @change="updateProp({ invoice_late_fee: $event })" type="number"
+                    <AppInput :value="team.invoice_late_fee" @change="updateProp({ invoice_late_fee: $event })"
+                              type="number"
                               label="Late fee (%)" field="invoice_late_fee" :errors="errors" class="col-sm-4"/>
-                    <AppInput :value="team.invoice_due_days" @change="updateProp({ invoice_due_days: $event })" type="number"
+                    <AppInput :value="team.invoice_due_days" @change="updateProp({ invoice_due_days: $event })"
+                              type="number"
                               label="Payment terms, days" field="invoice_due_days" :errors="errors" class="col-sm-4"/>
                     <AppInput :value="team.currency" @change="updateProp({ currency: $event })"
                               label="Default currency" field="currency" :errors="errors" class="col-sm-4"/>
@@ -61,6 +63,10 @@
                 </div>
             </b-tab>
 
+            <b-tab title="Taxes" class="col-12">
+                <TeamTaxes class="row"/>
+            </b-tab>
+
         </b-tabs>
 
         <div v-if="!team">Loading</div>
@@ -76,11 +82,13 @@ import AppInput from '@/components/form/AppInput';
 import Errors from '@/utils/errors';
 import TeamFields from '@/components/team/TeamFields';
 import TeamLogo from '@/components/team/TeamLogo';
+import TeamTaxes from '@/components/team/TeamTaxes';
 
 export default {
   components: {
     TeamLogo,
     TeamFields,
+    TeamTaxes,
     AppInput,
     BTab,
     BTabs,

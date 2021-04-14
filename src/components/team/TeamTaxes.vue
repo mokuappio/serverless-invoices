@@ -1,0 +1,64 @@
+<template>
+    <div>
+        <div v-for="tax in taxes" :key="tax.id" class="col-sm-6">
+            <AppEditable :value="tax.label"
+                         placeholder="Label"
+                         @change="updateTaxProp({ label: $event }, tax)"/>
+            <i class="material-icons md-18 float-right pointer" @click="removeTax(tax)">close</i>
+            <AppInput :value="tax.value" @change="updateTaxProp({ value: $event }, tax)"
+                      :placeholder="tax.label"/>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-sm btn-secondary " @click="addNewTax">
+                <i class="material-icons md-18">add</i>
+                Tax
+            </button>
+        </div>
+    </div>
+</template>
+<script>
+import NotificationService from '@/services/notification.service';
+import AppInput from '@/components/form/AppInput';
+import AppEditable from '@/components/form/AppEditable';
+import { mapGetters } from 'vuex';
+
+export default {
+  components: {
+    AppEditable,
+    AppInput,
+  },
+  computed: {
+    ...mapGetters({
+      taxes: 'taxes/all',
+    }),
+  },
+  methods: {
+    addNewTax() {
+      this.$store.dispatch('taxes/addNewTax');
+    },
+    async removeTax(field) {
+      const confirmed = await this.$bvModal.msgBoxConfirm(`Delete tax ${field.label}?`, {
+        okTitle: 'Delete',
+        okVariant: 'danger',
+        cancelTitle: 'Dismiss',
+        cancelVariant: 'btn-link',
+        contentClass: 'bg-base dp--24',
+      });
+      if (confirmed) {
+        await this.$store.dispatch('taxes/deleteTax', field.id);
+        try {
+          NotificationService.success('Deleted');
+        } catch (err) {
+          NotificationService.error(err.message);
+        }
+      }
+    },
+    updateTaxProp(props, tax) {
+      this.$store.dispatch('taxes/updateTax', {
+        props,
+        taxId: tax.id,
+      });
+    },
+  },
+};
+</script>
