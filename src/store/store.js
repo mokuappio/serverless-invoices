@@ -24,6 +24,7 @@ import TeamField from '@/store/models/team-field';
 import InvoiceClientField from '@/store/models/invoice-client-field';
 import InvoiceTeamField from '@/store/models/invoice-team-field';
 import Tax from '@/store/models/tax';
+import InvoiceRowTax from '@/store/models/invoice-row-tax';
 
 Vue.use(Vuex);
 
@@ -39,6 +40,7 @@ database.register(Invoice);
 database.register(InvoiceClientField);
 database.register(InvoiceTeamField);
 database.register(InvoiceRow);
+database.register(InvoiceRowTax);
 database.register(BankAccount);
 
 export default new Vuex.Store({

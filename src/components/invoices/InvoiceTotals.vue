@@ -1,22 +1,18 @@
 <template>
     <tfoot>
     <tr class="text-right">
-        <td colspan="4">Subtotal</td>
+        <td :colspan="colspan">Subtotal</td>
         <td>{{ invoice.subTotal | currency }}</td>
     </tr>
-    <tr class="text-right">
-        <td colspan="4">
-            VAT
-            (<AppEditable :value="invoice.vat_rate | currency"
-                          suffix="%"
-                          placeholder="Add VAT"
-                          @change="updateProp({ vat_rate: $event })"/>)
-            <AppError :errors="errors" field="vat_rate"/>
+    <tr class="text-right" v-for="tax in invoice.taxes" :key="tax.label">
+        <td :colspan="colspan">
+            {{ tax.label }}
+            <!--({{ tax.rate | currency }}%)-->
         </td>
-        <td>{{ invoice.totalVat | currency }}</td>
+        <td>{{ tax.total | currency }}</td>
     </tr>
     <tr class="text-right">
-        <th colspan="4">
+        <th :colspan="colspan">
             Total
             <AppEditable :value="invoice.currency"
                          :errors="errors"
@@ -29,7 +25,7 @@
     </tfoot>
 </template>
 <script>
-import AppError from '@/components/form/AppError';
+import { mapGetters } from 'vuex';
 import AppEditable from '../form/AppEditable';
 import { formatDate } from '../../filters/date.filter';
 import { formatCurrency } from '../../filters/currency.filter';
@@ -38,11 +34,18 @@ export default {
   props: ['invoice', 'errors'],
   components: {
     AppEditable,
-    AppError,
   },
   filters: {
     date: formatDate,
     currency: formatCurrency,
+  },
+  computed: {
+    ...mapGetters({
+      taxes: 'invoiceRows/taxes',
+    }),
+    colspan() {
+      return 4 + this.taxes.length;
+    },
   },
   methods: {
     updateProp(props) {

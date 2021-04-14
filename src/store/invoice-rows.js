@@ -1,14 +1,16 @@
 import InvoiceRow from '@/store/models/invoice-row';
+import InvoiceRowTax from '@/store/models/invoice-row-tax';
+import { flatten, uniqBy } from 'lodash';
 
 export default {
   namespaced: true,
-  state: {
-  },
-  mutations: {
-  },
+  state: {},
+  mutations: {},
   actions: {
-    init() {},
-    terminate() {},
+    init() {
+    },
+    terminate() {
+    },
     invoiceRowProps(store, payload) {
       return InvoiceRow.update({
         where: payload.id,
@@ -21,16 +23,48 @@ export default {
         invoiceId: payload.invoiceId,
       }, { root: true });
     },
-    async addRow(store, invoiceId) {
+    async addRow({ getters, rootGetters }, invoiceId) {
       const row = await InvoiceRow.createNew();
       const rowCount = InvoiceRow.query().where('invoice_id', invoiceId).count();
-      row.$update({
+      await row.$update({
         invoice_id: invoiceId,
         order: rowCount,
       });
+
+      const client = rootGetters['invoices/invoice'].client;
+      if (client && client.has_tax) {
+        const taxes = getters.taxes.length > 0
+          ? getters.taxes
+          : rootGetters['taxes/all'];
+        taxes.forEach((tax) => {
+          const rowTax = new InvoiceRowTax();
+          rowTax.label = tax.label;
+          rowTax.value = tax.value;
+          rowTax.row_id = row.id;
+          rowTax.$save();
+        });
+      }
     },
     async removeRow(store, rowId) {
       await InvoiceRow.delete(rowId);
+    },
+    async updateInvoiceRowTax({ dispatch }, payload) {
+      await InvoiceRowTax.update({
+        where: payload.taxId,
+        data: payload.props,
+      });
+      return dispatch('invoices/updateInvoice', {
+        invoiceId: payload.invoiceId,
+      }, { root: true });
+    },
+  },
+  getters: {
+    taxes(state, getters, rootState, rootGetters) {
+      let taxes = rootGetters['invoices/invoice'].rows.map(row => row.taxes);
+      taxes = flatten(taxes);
+      taxes = uniqBy(taxes, 'label');
+      taxes = taxes.filter(tax => !!tax.label);
+      return taxes;
     },
   },
 };

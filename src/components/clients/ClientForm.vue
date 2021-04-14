@@ -41,8 +41,8 @@
                               label="Currency" field="currency" :errors="errors" class="col-sm-4"/>
                     <AppInput :value="client.rate" @change="updateProp({ rate: $event })"
                               label="Hourly rate" field="rate" :errors="errors" class="col-sm-4"/>
-                    <AppCheckbox :value="client.has_vat" @input="updateProp({ has_vat: $event })"
-                                 label="Apply VAT" field="has_vat" :errors="errors" class="col-sm-4"/>
+                    <AppCheckbox :value="client.has_tax" @input="updateProp({ has_tax: $event })"
+                                 label="Apply taxes" field="has_tax" :errors="errors" class="col-sm-4"/>
                     <AppSelect :value="client.bank_account"
                                track-by="id"
                                label="Bank account"

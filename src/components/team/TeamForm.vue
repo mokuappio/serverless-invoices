@@ -32,8 +32,6 @@
 
             <b-tab title="Invoicing" class="col-12">
                 <div class="row">
-                    <AppInput :value="team.vat_rate" @change="updateProp({ vat_rate: $event })" type="number"
-                              label="VAT rate" field="vat_rate" :errors="errors" class="col-sm-4"/>
                     <AppInput :value="team.invoice_late_fee" @change="updateProp({ invoice_late_fee: $event })"
                               type="number"
                               label="Late fee (%)" field="invoice_late_fee" :errors="errors" class="col-sm-4"/>

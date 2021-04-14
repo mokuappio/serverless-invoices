@@ -17,7 +17,6 @@ export default class Invoice extends Model {
       issued_at: this.attr(''),
       due_at: this.attr(''),
       late_fee: this.attr(''),
-      vat_rate: this.attr(''),
       currency: this.attr(''),
       from_name: this.attr(''),
       from_address: this.attr(''),
@@ -57,16 +56,36 @@ export default class Invoice extends Model {
   set subTotal(val) {}
 
   get total() {
-    return this.subTotal + this.totalVat;
+    return this.subTotal + this.taxTotal;
   }
 
   // eslint-disable-next-line no-empty-function
   set total(val) {}
 
-  get totalVat() {
-    return (this.vat_rate / 100) * this.subTotal;
+  get taxTotal() {
+    return Object.values(this.taxes).reduce((carr, tax) => (tax.total + carr), 0);
   }
 
   // eslint-disable-next-line no-empty-function
-  set totalVat(val) {}
+  set taxTotal(val) {}
+
+  get taxes() {
+    const taxes = {};
+
+    this.rows.forEach(row => row.taxes.forEach((tax) => {
+      if (!taxes.hasOwnProperty(tax.label)) {
+        taxes[tax.label] = {
+          total: 0,
+          label: tax.label,
+          rate: tax.value,
+        };
+      }
+      taxes[tax.label].total += (row.quantity * row.price) * tax.value / 100;
+    }));
+
+    return taxes;
+  }
+
+  // eslint-disable-next-line no-empty-function
+  set taxes(val) {}
 }

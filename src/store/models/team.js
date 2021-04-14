@@ -18,7 +18,6 @@ export default class Team extends Model {
       website: this.attr(''),
       contact_email: this.attr(''),
       contact_phone: this.attr(''),
-      vat_rate: this.attr(null),
       currency: this.attr(null),
       invoice_late_fee: this.attr(null),
       invoice_due_days: this.attr(null),

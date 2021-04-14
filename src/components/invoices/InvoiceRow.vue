@@ -28,6 +28,14 @@
                          placeholder="Enter price"
                          @change="updateProp({ price: $event })"/>
         </td>
+        <td v-for="(tax, taxIndex) in row.taxes" :title="tax.label">
+            <AppEditable v-if="tax.row_id"
+                         :value="tax.value | currency"
+                         :errors="errors"
+                         :field="`rows.${index}.taxes.${taxIndex}.value`"
+                         placeholder="Enter tax"
+                         @change="updateTaxProp({ value: $event }, tax)"/>
+        </td>
         <td class="text-right position-relative">
             {{ (row.quantity * row.price) | currency }}
             <button class="btn btn-sm remove-invoice-row d-print-none" @click="removeRow(row)">
@@ -56,6 +64,13 @@ export default {
         props,
         id: this.row.id,
         invoiceId: this.row.invoice_id,
+      });
+    },
+    updateTaxProp(props, tax) {
+      this.$store.dispatch('invoiceRows/updateInvoiceRowTax', {
+        props,
+        invoiceId: this.row.invoice_id,
+        taxId: tax.id,
       });
     },
     async removeRow(row) {

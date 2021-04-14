@@ -56,7 +56,7 @@ export default {
     },
     async updateClient({ dispatch }, payload) {
       if (payload.props) {
-        await dispatch('clientProps', payload.props);
+        await dispatch('clientProps', payload);
       }
       return ClientService.updateClient(getClientById(payload.clientId));
     },

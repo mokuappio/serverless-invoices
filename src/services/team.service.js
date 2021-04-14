@@ -14,7 +14,6 @@ class TeamService {
         website: null,
         contact_email: null,
         contact_phone: null,
-        vat_rate: null,
         invoice_late_fee: null,
         invoice_due_days: null,
         updated_at: null,

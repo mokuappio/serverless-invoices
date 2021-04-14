@@ -20,26 +20,11 @@
             </div>
             <div class="row">
                 <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Unit</th>
-                        <th>Price</th>
-                        <th class="text-right">Sum</th>
-                    </tr>
-                    </thead>
+                    <InvoiceRowsHeader :invoice="invoice"/>
                     <tbody>
                     <InvoiceRow v-for="(row, index) in invoice.rows" :errors="errors"
                                 :row="row" :index="index" :key="row.id"/>
-                    <tr class="d-print-none">
-                        <td colspan="5">
-                            <button class="btn btn-sm" @click="addRow">
-                                <i class="material-icons md-18 pointer">add</i>
-                            </button>
-                            <AppError :errors="errors" field="rows"/>
-                        </td>
-                    </tr>
+                    <InvoiceAddRowBtn :invoice="invoice" :errors="errors"/>
                     </tbody>
                     <InvoiceTotals :invoice="invoice" :errors="errors" @update="updateProp"/>
                 </table>
@@ -64,11 +49,13 @@ import InvoiceContactDetails from '@/components/invoices/InvoiceContactDetails';
 import InvoiceHeader from '@/components/invoices/InvoiceHeader';
 import InvoiceTotals from '@/components/invoices/InvoiceTotals';
 import AppEditable from '@/components/form/AppEditable';
-import AppError from '@/components/form/AppError';
 import TeamLogo from '@/components/team/TeamLogo';
+import InvoiceRowsHeader from '@/components/invoices/InvoiceRowsHeader';
+import InvoiceAddRowBtn from '@/components/invoices/InvoiceAddRowBtn';
 
 export default {
   components: {
+    InvoiceAddRowBtn,
     TeamLogo,
     InvoiceTotals,
     InvoiceHeader,
@@ -76,9 +63,9 @@ export default {
     InvoiceBankDetails,
     InvoiceCompanyDetails,
     InvoiceRow,
+    InvoiceRowsHeader,
     InvoiceClientDetails,
     AppEditable,
-    AppError,
   },
   computed: {
     ...mapState({
@@ -105,9 +92,6 @@ export default {
         props,
         invoiceId: this.invoice.id,
       });
-    },
-    addRow() {
-      this.$store.dispatch('invoiceRows/addRow', this.invoice.id);
     },
   },
 };

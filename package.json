@@ -16,6 +16,7 @@
     "dayjs": "^1.10.3",
     "es6-promise": "^4.2.6",
     "localforage": "^1.9.0",
+    "lodash": "^4.17.21",
     "vue": "^2.6.10",
     "vue-autosuggest": "^2.2.0",
     "vue-multiselect": "^2.1.6",

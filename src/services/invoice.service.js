@@ -22,7 +22,6 @@ class InvoiceService {
   async updateInvoice(invoice) {
     const requiredFields = {
       currency: 'Currency',
-      vat_rate: 'Vat Rate',
       late_fee: 'Late Fee',
       issued_at: 'Issued At',
       due_at: 'Due At',
@@ -47,7 +46,6 @@ class InvoiceService {
   async bookInvoice(invoice) {
     const requiredFields = {
       currency: 'Currency',
-      vat_rate: 'Vat rate',
       late_fee: 'Late fee',
       issued_at: 'Issued at',
       due_at: 'Due at',

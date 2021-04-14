@@ -16,7 +16,7 @@ export default class Client extends Model {
       company_country: this.attr(''),
       company_county: this.attr(''),
       company_city: this.attr(''),
-      has_vat: this.attr(null),
+      has_tax: this.attr(true),
       currency: this.attr(null),
       rate: this.attr(null),
       invoice_email: this.attr(''),

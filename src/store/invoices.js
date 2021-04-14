@@ -6,7 +6,7 @@ import Errors from '@/utils/errors';
 
 function getInvoice(invoiceId) {
   return Invoice.query()
-    .with(['client', 'client_fields', 'team_fields'])
+    .with(['client', 'client_fields', 'team_fields', 'rows.taxes'])
     .with('rows', query => query.orderBy('order', 'asc'))
     .find(invoiceId);
 }
@@ -76,9 +76,6 @@ export default {
         client_email: 'invoice_email',
         currency: 'currency',
       });
-      if ('vat_rate' in payload.props) {
-        clientProps.has_vat = payload.props.vat_rate > 0;
-      }
       const invoice = getInvoice(payload.invoiceId);
 
       if (Object.keys(clientProps).length > 0 && invoice.client_id) {
@@ -100,20 +97,12 @@ export default {
         from_website: 'website',
         from_email: 'contact_email',
         from_phone: 'contact_phone',
-        vat_rate: 'vat_rate',
       });
       const invoice = getInvoice(payload.invoiceId);
 
       if ('due_at' in payload.props || 'issued_at' in payload.props) {
         teamProps.invoice_due_days = dayjs(invoice.due_at)
           .diff(invoice.issued_at, 'days');
-      }
-      if ('vat_rate' in payload.props) {
-        // You can only set VAT to 0 if setting it directly under settings
-        // This is to avoid setting general VAT to 0, if only changing per invoice
-        if (parseFloat(teamProps.vat_rate) === 0) {
-          delete teamProps.vat_rate;
-        }
       }
 
       if (Object.keys(teamProps).length > 0) {
@@ -173,7 +162,6 @@ export default {
           client_country: client.company_country,
           client_email: client.invoice_email,
           currency: client.currency || rootGetters['teams/team'].currency || 'USD',
-          vat_rate: client.has_vat ? rootGetters['teams/team'].vat_rate : 0,
           bank_name: client.bank_account ? client.bank_account.bank_name : null,
           bank_account_no: client.bank_account ? client.bank_account.account_no : null,
         },
@@ -213,7 +201,6 @@ export default {
           from_website: team.website,
           from_email: team.contact_email,
           from_phone: team.contact_phone,
-          vat_rate: team.vat_rate || 0,
           currency: team.currency || 'USD',
         },
       });
@@ -226,7 +213,7 @@ export default {
     all() {
       return Invoice.query()
         .where('$isNew', false)
-        .with(['client'])
+        .with(['client', 'rows.taxes'])
         .with('rows', query => query.orderBy('order', 'asc')) // TODO: do we need this?
         .orderBy('issued_at', 'desc')
         .orderBy('number', 'desc')
