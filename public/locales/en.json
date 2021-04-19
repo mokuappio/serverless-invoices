@@ -1,5 +1,6 @@
 {
   "invoices": {
-    "title": "Invoices"
+    "title": "Invoices",
+    "new_invoice": "New invoice"
   }
 }
