@@ -19,6 +19,7 @@ import teamFields from '@/store/team-fields';
 import themes from '@/store/themes';
 import taxes from '@/store/taxes';
 import data from '@/store/data';
+import language from '@/store/language';
 import ClientField from '@/store/models/client-field';
 import TeamField from '@/store/models/team-field';
 import InvoiceClientField from '@/store/models/invoice-client-field';
@@ -58,6 +59,7 @@ export default new Vuex.Store({
     themes,
     taxes,
     data,
+    language,
   },
   state: {},
   mutations: {},

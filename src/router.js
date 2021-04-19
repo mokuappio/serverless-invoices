@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import store from '@/store/store';
+import i18n from '@/config/i18n.config';
 
 Vue.use(Router);
 
@@ -38,6 +39,17 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (!to.query.hasOwnProperty('lang')) {
+    i18n.initialized.then(() => {
+      to.query.lang = i18n.i18next.language;
+      next(to);
+    });
+  } else {
+    next();
+  }
 });
 
 export default router;

@@ -6,6 +6,7 @@
                 {{ theme === 'dark' ? 'wb_sunny' : 'brightness_2' }}
             </i>
         </button>
+        <LanguageSwitcher/>
         <div>
             <small v-b-tooltip.hover
                    title="All your data is saved in your browser and not on any server.
@@ -39,8 +40,10 @@
 <script>
 import { mapState } from 'vuex';
 import { VBTooltip } from 'bootstrap-vue';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default {
+  components: { LanguageSwitcher },
   directives: {
     'b-tooltip': VBTooltip,
   },

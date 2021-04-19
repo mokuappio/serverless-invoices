@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@panter/vue-i18next": "^0.15.2",
     "@vuex-orm/core": "^0.36.3",
     "@vuex-orm/plugin-change-flags": "https://github.com/mareksmakosz/plugin-change-flags.git",
     "bootstrap": "^4.5.2",
@@ -15,6 +16,8 @@
     "core-js": "^2.6.5",
     "dayjs": "^1.10.3",
     "es6-promise": "^4.2.6",
+    "i18next": "^20.2.1",
+    "i18next-browser-languagedetector": "^6.1.0",
     "localforage": "^1.9.0",
     "lodash": "^4.17.21",
     "vue": "^2.6.10",

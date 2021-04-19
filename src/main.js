@@ -6,6 +6,7 @@ import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store/store';
 import VueNotifications from 'vue-notification';
+import i18n from './config/i18n.config';
 
 Vue.use(BVModalPlugin);
 Vue.use(VueNotifications);
@@ -15,6 +16,7 @@ Vue.config.productionTip = false;
 const app = new Vue({
   router,
   store,
+  i18n,
   render: h => h(App),
 }).$mount('#app');
 
