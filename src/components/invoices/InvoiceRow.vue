@@ -4,28 +4,28 @@
             <AppEditable :value="row.item"
                          :errors="errors"
                          :field="`rows.${index}.item`"
-                         placeholder="Enter item"
+                         :placeholder="$t('enter_item')"
                          @change="updateProp({ item: $event })"/>
         </td>
         <td>
             <AppEditable :value="row.quantity"
                          :errors="errors"
                          :field="`rows.${index}.quantity`"
-                         placeholder="Enter quantity"
+                         :placeholder="$('enter_quantity')"
                          @change="updateProp({ quantity: $event })"/>
         </td>
         <td>
             <AppEditable :value="row.unit"
                          :errors="errors"
                          :field="`rows.${index}.unit`"
-                         placeholder="Enter unit"
+                         :placeholder="$t('enter_unit')"
                          @change="updateProp({ unit: $event })"/>
         </td>
         <td>
             <AppEditable :value="row.price | currency"
                          :errors="errors"
                          :field="`rows.${index}.price`"
-                         placeholder="Enter price"
+                         :placeholder="$t('enter_price')"
                          @change="updateProp({ price: $event })"/>
         </td>
         <td v-for="(tax, taxIndex) in row.taxes" :title="tax.label">
@@ -33,7 +33,7 @@
                          :value="tax.value | currency"
                          :errors="errors"
                          :field="`rows.${index}.taxes.${taxIndex}.value`"
-                         placeholder="Enter tax"
+                         :placeholder="$t('enter_tax')"
                          @change="updateTaxProp({ value: $event }, tax)"/>
         </td>
         <td class="text-right position-relative">
@@ -52,6 +52,7 @@ import AppEditable from '../form/AppEditable';
 export default {
   props: ['row', 'errors', 'index'],
   name: 'InvoiceRow',
+  i18nOptions: { namespaces: 'invoice-row' },
   components: {
     AppEditable,
   },

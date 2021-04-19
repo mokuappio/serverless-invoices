@@ -9,8 +9,8 @@
                         <template slot="button-content">
                             <i class="material-icons">more_vert</i>
                         </template>
-                        <b-dropdown-item @click="exportJson">Export</b-dropdown-item>
-                        <b-dropdown-item @click="openImportModal">Import</b-dropdown-item>
+                        <b-dropdown-item @click="exportJson">{{ $t('export') }}</b-dropdown-item>
+                        <b-dropdown-item @click="openImportModal">{{ $t('import') }}</b-dropdown-item>
                     </b-dropdown>
                 </div>
             </div>

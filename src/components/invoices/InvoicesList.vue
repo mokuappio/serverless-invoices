@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div v-if="!invoices" class="col-12">Loading</div>
+        <div v-if="!invoices" class="col-12">{{ $t('loading') }}</div>
         <table class="table table--card table-hover" v-else-if="invoices && invoices.length > 0">
             <thead>
             <tr>
-                <th>No.</th>
-                <th>Client</th>
-                <th>Issued at</th>
-                <th>Total</th>
-                <th class="text-right">Status</th>
+                <th>{{ $t('invoice_number') }}</th>
+                <th>{{ $t('client') }}</th>
+                <th>{{ $t('issued_at') }}</th>
+                <th>{{ $t('total') }}</th>
+                <th class="text-right">{{ $t('status') }}</th>
             </tr>
             </thead>
             <tbody v-if="invoices">
@@ -46,6 +46,7 @@ import dayjs from 'dayjs';
 import { VBTooltip } from 'bootstrap-vue';
 
 export default {
+  i18nOptions: { namespaces: 'invoices-list' },
   components: {
     EmptyState,
   },

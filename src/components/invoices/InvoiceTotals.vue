@@ -1,7 +1,7 @@
 <template>
     <tfoot>
     <tr class="text-right">
-        <td :colspan="colspan">Subtotal</td>
+        <td :colspan="colspan">{{ $t('subtotal') }}</td>
         <td>{{ invoice.subTotal | currency }}</td>
     </tr>
     <tr class="text-right" v-for="tax in invoice.taxes" :key="tax.label">
@@ -13,11 +13,11 @@
     </tr>
     <tr class="text-right">
         <th :colspan="colspan">
-            Total
+            {{ $t('total') }}
             <AppEditable :value="invoice.currency"
                          :errors="errors"
                          field="currency"
-                         placeholder="Add currency"
+                         :placeholder="$t('add_currency')"
                          @change="updateProp({ currency: $event })"/>
         </th>
         <th class="text-nowrap">{{ invoice.total | currency }}</th>
@@ -31,6 +31,7 @@ import { formatDate } from '../../filters/date.filter';
 import { formatCurrency } from '../../filters/currency.filter';
 
 export default {
+  i18nOptions: { namespaces: 'invoice-totals' },
   props: ['invoice', 'errors'],
   components: {
     AppEditable,

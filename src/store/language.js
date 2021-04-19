@@ -6,7 +6,7 @@ export default {
     lang: null,
     all: [
       { name: 'English', code: 'en' },
-      { name: 'Estonian', code: 'est' },
+      { name: 'Estonian', code: 'et' },
     ],
   },
   mutations: {
