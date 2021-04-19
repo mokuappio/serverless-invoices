@@ -7,7 +7,7 @@ module.exports = {
     name: 'Serverless Invoices',
     manifestOptions: {
       short_name: 'Invoices',
-    }
+    },
     themeColor: '#edeff1',
     appleMobileWebAppCapable: 'yes',
     workboxPluginMode: 'GenerateSW',
