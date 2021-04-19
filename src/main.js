@@ -1,4 +1,3 @@
-import i18n from '@/config/i18n.config';
 import 'es6-promise';
 import '@/config/storage.config';
 import { BVModalPlugin } from 'bootstrap-vue';
