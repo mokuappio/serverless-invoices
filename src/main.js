@@ -6,6 +6,7 @@ import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store/store';
 import VueNotifications from 'vue-notification';
+import './registerServiceWorker';
 
 Vue.use(BVModalPlugin);
 Vue.use(VueNotifications);

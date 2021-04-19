@@ -3,4 +3,10 @@ module.exports = {
   transpileDependencies: [
     'bootstrap-vue',
   ],
+  pwa: {
+    name: 'Serverless Invoices',
+    themeColor: '#edeff1',
+    appleMobileWebAppCapable: 'yes',
+    workboxPluginMode: 'GenerateSW',
+  },
 };
