@@ -6,10 +6,10 @@
         </div>
         <AppEditable :value="invoice.client_address"
                      suffix=", "
-                     placeholder="Address"
+                     :placeholder="$t('client_address')"
                      @change="updateProp({ client_address: $event })"/>
         <AppEditable :value="invoice.client_postal_code"
-                     placeholder="Postal code"
+                     :placeholder="$t('client_postal_code')"
                      class="break-line"
                      @change="updateProp({ client_postal_code: $event })"/>
         <AppError :errors="errors" field="client_address"/>
@@ -17,14 +17,14 @@
 
         <AppEditable :value="invoice.client_city"
                      suffix=", "
-                     placeholder="City"
+                     :placeholder="$t('client_city')"
                      @change="updateProp({ client_city: $event })"/>
         <AppEditable :value="invoice.client_county"
                      suffix=", "
-                     placeholder="County/State"
+                     :placeholder="$t('client_county')"
                      @change="updateProp({ client_county: $event })"/>
         <AppEditable :value="invoice.client_country"
-                     placeholder="Country"
+                     :placeholder="$t('client_country')"
                      class="break-line"
                      @change="updateProp({ client_country: $event })"/>
         <AppError :errors="errors" field="client_city"/>
@@ -37,7 +37,7 @@
                      :errors="errors"
                      field="client_email"
                      class="break-line"
-                     placeholder="Client's email"
+                     :placeholder="$t('client_email')"
                      @change="updateProp({ client_email: $event })"/>
     </div>
 </template>
@@ -48,6 +48,7 @@ import ClientSelector from '@/components/clients/ClientSelector';
 import InvoiceClientFields from '@/components/invoices/InvoiceClientFields';
 
 export default {
+  i18nOptions: { namespaces: 'invoice-client-details' },
   props: ['invoice', 'errors'],
   components: {
     AppError,

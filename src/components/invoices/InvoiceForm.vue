@@ -15,7 +15,7 @@
             <div class="row mt-3">
                 <AppEditable :value="invoice.notes"
                              class="col-12"
-                             placeholder="Insert note"
+                             :placeholder="$t('insert_note')"
                              @change="updateProp({ notes: $event })"/>
             </div>
             <div class="row">
@@ -54,6 +54,7 @@ import InvoiceRowsHeader from '@/components/invoices/InvoiceRowsHeader';
 import InvoiceAddRowBtn from '@/components/invoices/InvoiceAddRowBtn';
 
 export default {
+  i18nOptions: { namespaces: 'invoice-form' },
   components: {
     InvoiceAddRowBtn,
     TeamLogo,

@@ -1,7 +1,7 @@
 <template>
     <footer class="col-12 d-flex justify-content-between align-items-center text-secondary px-0 mt-3 d-print-none">
         <button class="btn btn-sm text-secondary" @click="toggleTheme">
-            Lights {{ theme === 'dark' ? 'on' : 'off' }}
+            {{ $t('lights') }}{{ theme === 'dark' ? 'on' : 'off' }}
             <i class="material-icons material-icons-round md-14 align-text-bottom ml-1">
                 {{ theme === 'dark' ? 'wb_sunny' : 'brightness_2' }}
             </i>
@@ -9,15 +9,14 @@
         <LanguageSwitcher/>
         <div>
             <small v-b-tooltip.hover
-                   title="All your data is saved in your browser and not on any server.
-                                   This application is truly serverless and only you have access to your data."
+                   :title="$t('title')"
                    class="pointer">
-                What about my data?
+                {{ $t('what_about_my_data') }}
             </small>
             <small class="pl-2">
-                Made with
+                {{ $t('made_with') }}
                 <i class="material-icons material-icons-round md-14 align-text-bottom">favorite</i>
-                by
+                {{ $t('by') }}
                 <a href="https://mokuapp.io/" class="text-secondary" target="_blank">Moku</a>.
             </small>
             <a href="https://github.com/mokuappio/serverless-invoices"
@@ -32,7 +31,7 @@
             </a>
             <a href="https://app.mokuapp.io/"
                class="btn btn-sm btn-primary ml-2"
-               target="_blank">Upgrade</a>
+               target="_blank">{{ $t('upgrade') }}</a>
         </div>
     </footer>
 </template>
@@ -43,6 +42,7 @@ import { VBTooltip } from 'bootstrap-vue';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default {
+  i18nOptions: { namespaces: 'the-footer' },
   components: { LanguageSwitcher },
   directives: {
     'b-tooltip': VBTooltip,

@@ -2,25 +2,26 @@
     <div class="row" v-if="invoice">
         <div class="col-12 mb-4 d-flex justify-content-between align-items-start">
             <router-link class="btn btn-sm btn-light btn--icon-left"
-                            :to="{name: 'invoices'}">
+                         :to="{name: 'invoices'}">
                 <i class="material-icons">arrow_back</i>
-                <span class="d-inline-block">Back</span>
+                <span class="d-inline-block">{{ $t('back') }}</span>
             </router-link>
             <div class="d-flex align-items-center">
-                <AppSelect :value="invoice.status"
+                <AppSelect :value="getStatusObj"
                            class="mb-0 mr-2 text-capitalize multiselect--capitalize"
-                           :options="['draft', 'booked', 'sent', 'paid', 'cancelled']"
-                           @input="updateProp({status: $event})"/>
+                           :options="invoiceStatuses"
+                           label-field="name"
+                           @input="updateProp({status: $event.value})"/>
                 <button class="btn btn-sm btn-outline-dark"
                         v-if="invoice.status === 'draft'"
-                        @click="bookInvoice">Book
+                        @click="bookInvoice">{{ $t('book') }}
                 </button>
                 <b-dropdown variant="link" size="sm" no-caret right>
                     <template slot="button-content">
                         <i class="material-icons">more_vert</i>
                     </template>
-                    <b-dropdown-item-button @click="print">Download PDF</b-dropdown-item-button>
-                    <b-dropdown-item-button @click="deleteInvoice">Delete</b-dropdown-item-button>
+                    <b-dropdown-item-button @click="print">{{ $t('download_pdf') }} </b-dropdown-item-button>
+                    <b-dropdown-item-button @click="deleteInvoice">{{ $t('delete') }}</b-dropdown-item-button>
                 </b-dropdown>
             </div>
         </div>
@@ -34,6 +35,7 @@ import { BDropdown, BDropdownItemButton } from 'bootstrap-vue';
 import AppSelect from '@/components/form/AppSelect';
 
 export default {
+  i18nOptions: { namespaces: 'invoice-controls' },
   components: {
     BDropdown,
     BDropdownItemButton,
@@ -43,13 +45,36 @@ export default {
     ...mapGetters({
       invoice: 'invoices/invoice',
     }),
+    getStatusObj() {
+      const test = this.invoiceStatuses
+        .find(obj => obj.value === this.invoice.status);
+      return test;
+    },
+    invoiceStatuses() {
+      return [{
+        value: 'draft',
+        name: this.$t('statuses.draft'),
+      }, {
+        value: 'booked',
+        name: this.$t('statuses.booked'),
+      }, {
+        value: 'sent',
+        name: this.$t('statuses.sent'),
+      }, {
+        value: 'paid',
+        name: this.$t('statuses.paid'),
+      }, {
+        value: 'cancelled',
+        name: this.$t('statuses.cancelled'),
+      }];
+    },
   },
   methods: {
     async deleteInvoice() {
-      const confirmed = await this.$bvModal.msgBoxConfirm(`Delete invoice ${this.invoice.number}?`, {
-        okTitle: 'Delete',
+      const confirmed = await this.$bvModal.msgBoxConfirm(`${this.$t('delete_modal.title')} ${this.invoice.number}?`, {
+        okTitle: this.$t('delete_modal.ok_title'),
         okVariant: 'danger',
-        cancelTitle: 'Dismiss',
+        cancelTitle: this.$t('delete_modal.cancel_title'),
         cancelVariant: 'btn-link',
         contentClass: 'bg-base dp--24',
       });

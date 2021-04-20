@@ -10,17 +10,17 @@
         <AppError :errors="errors" field="logo_url"/>
         <BModal v-model="isModalOpen"
                 centered
-                title="Choose logo"
+                :title="$t('modal_title')"
                 hide-footer
                 size="sm"
                 content-class="bg-base dp--24 text-center">
             <AppFileInput accept="image/*" class="mb-4" @selected="logoSelected"
-                          button-text="Select from files" output-type="base64"/>
-            or
+                          :button-text="$t('button_text')" output-type="base64"/>
+            {{ $t('or') }}
             <AppInput :value="team.logo_url"
                       class="mt-4"
                       @change="updateTeam({ logo_url: $event })"
-                      label="Insert web url"
+                      :label="$t('logo_url')"
                       field="logo_url"
                       :errors="errors"
                       type="url"/>
@@ -35,6 +35,7 @@ import AppInput from '@/components/form/AppInput';
 import AppFileInput from '@/components/form/AppFileInput';
 
 export default {
+  i18nOptions: { namespaces: 'team-logo' },
   props: ['errors'],
   components: {
     AppFileInput,
@@ -59,7 +60,7 @@ export default {
     logoSelected(payload) {
       this.errors.clear();
       if (payload.size / 1000 > 512) {
-        return this.errors.set({ logo_url: ['Logo has to be under 512kb.'] });
+        return this.errors.set({ logo_url: [this.$t('logo_url_err')] });
       }
       this.updateTeam({ logo_url: payload.content });
     },

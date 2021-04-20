@@ -2,50 +2,51 @@
     <div>
         <div class="row">
             <div class="col-12 d-flex justify-content-between">
-                <h4>Client</h4>
+                <h4>{{ $t('title') }}</h4>
                 <div v-if="client">
                     <div v-if="!isNew">
                         <b-dropdown variant="link" size="sm" no-caret right>
                             <template slot="button-content">
                                 <i class="material-icons">more_vert</i>
                             </template>
-                            <b-dropdown-item-button @click="deleteClient">Delete</b-dropdown-item-button>
+                            <b-dropdown-item-button @click="deleteClient">{{ $t('delete') }}</b-dropdown-item-button>
                         </b-dropdown>
                         <button class="btn btn-sm btn-primary"
-                                @click="$emit('done')">Done
+                                @click="$emit('done')">{{ $t('done') }}
                         </button>
                     </div>
                     <button v-else class="btn btn-primary ml-2"
                             :disabled="loading"
-                            @click="createClient">Create
+                            @click="createClient">{{ $t('create') }}
                     </button>
                 </div>
             </div>
         </div>
 
         <b-tabs v-if="client" nav-class="nav-tabs--simple mb-4" active-tab-class="active" class="row">
-            <b-tab title="General" class="col-12">
+            <b-tab :title="$t('general.title')" class="col-12">
                 <div class="row">
                     <AppInput :value="client.company_name" @change="updateProp({ company_name: $event })"
-                              label="Company Name" field="company_name" :errors="errors" class="col-12"/>
+                              :label="$t('general.company_name')" field="company_name" :errors="errors" class="col-12"/>
                     <AppInput :value="client.invoice_email" @change="updateProp({ invoice_email: $event })"
-                              label="Email" field="invoice_email" :errors="errors" class="col-sm-7"/>
+                              :label="$t('general.invoice_email')" field="invoice_email" :errors="errors"
+                              class="col-sm-7"/>
                 </div>
 
                 <ClientFields class="row" :client="client"/>
             </b-tab>
 
-            <b-tab title="Invoicing" class="col-12">
+            <b-tab :title="$t('invoicing.title')" class="col-12">
                 <div class="row">
                     <AppInput :value="client.currency" @change="updateProp({ currency: $event })"
-                              label="Currency" field="currency" :errors="errors" class="col-sm-4"/>
+                              :label="$t('invoicing.currency')" field="currency" :errors="errors" class="col-sm-4"/>
                     <AppInput :value="client.rate" @change="updateProp({ rate: $event })"
-                              label="Hourly rate" field="rate" :errors="errors" class="col-sm-4"/>
+                              :label="$t('invoicing.rate')" field="rate" :errors="errors" class="col-sm-4"/>
                     <AppCheckbox :value="client.has_tax" @input="updateProp({ has_tax: $event })"
-                                 label="Apply taxes" field="has_tax" :errors="errors" class="col-sm-4"/>
+                                 :label="$t('invoicing.has_tax')" field="has_tax" :errors="errors" class="col-sm-4"/>
                     <AppSelect :value="client.bank_account"
                                track-by="id"
-                               label="Bank account"
+                               :label="$t('invoicing.bank_account')"
                                label-field="bank_name"
                                :options="bankAccounts || []"
                                @input="bankAccountChanged"
@@ -53,27 +54,30 @@
                 </div>
             </b-tab>
 
-            <b-tab title="Address" class="col-12">
+            <b-tab :title="$t('address.title')" class="col-12">
                 <div class="row">
                     <AppInput :value="client.company_address" @change="updateProp({ company_address: $event })"
-                              label="Company Address" field="company_address" :errors="errors"
+                              :label="$t('address.company_address')" field="company_address" :errors="errors"
                               class="col-12"/>
                     <AppInput :value="client.company_postal_code"
                               @change="updateProp({ company_postal_code: $event })"
-                              label="Postal code" field="company_postal_code" :errors="errors"
+                              :label="$t('address.company_postal_code')" field="company_postal_code" :errors="errors"
                               class="col-sm-5"/>
                     <AppInput :value="client.company_city" @change="updateProp({ company_city: $event })"
-                              label="City" field="company_city" :errors="errors" class="col-sm-7"/>
+                              :label="$t('address.company_city')" field="company_city" :errors="errors"
+                              class="col-sm-7"/>
                     <AppInput :value="client.company_county" @change="updateProp({ company_county: $event })"
-                              label="County/State" field="company_county" :errors="errors" class="col-sm-6"/>
+                              :label="$t('address.company_county')" field="company_county" :errors="errors"
+                              class="col-sm-6"/>
                     <AppInput :value="client.company_country" @change="updateProp({ company_country: $event })"
-                              label="Country" field="company_country" :errors="errors" class="col-sm-6"/>
+                              :label="$t('address.company_country')" field="company_country" :errors="errors"
+                              class="col-sm-6"/>
                 </div>
             </b-tab>
 
         </b-tabs>
 
-        <div v-if="!client">Loading</div>
+        <div v-if="!client">{{ $t('loading') }}</div>
     </div>
 </template>
 <script>
@@ -89,6 +93,7 @@ import AppCheckbox from '@/components/form/AppCheckbox';
 import ClientFields from '@/components/clients/ClientFields';
 
 export default {
+  i18nOptions: { namespaces: 'client-form' },
   components: {
     ClientFields,
     AppCheckbox,
@@ -135,7 +140,7 @@ export default {
         clientId: this.client.id,
       })
         .then(() => {
-          NotificationService.success('Updated');
+          NotificationService.success(this.$t('notification_updated'));
         })
         .catch(err => this.errors.set(err.errors));
     },
@@ -164,10 +169,10 @@ export default {
         });
     },
     async deleteClient() {
-      const confirmed = await this.$bvModal.msgBoxConfirm(`Delete client ${this.client.company_name}?`, {
-        okTitle: 'Delete',
+      const confirmed = await this.$bvModal.msgBoxConfirm(`${this.$t('delete_modal.title')} ${this.client.company_name}?`, {
+        okTitle: this.$t('ok_title'),
         okVariant: 'danger',
-        cancelTitle: 'Dismiss',
+        cancelTitle: this.$t('cancel_title'),
         cancelVariant: 'btn-link',
         contentClass: 'bg-base dp--24',
       });
@@ -175,7 +180,7 @@ export default {
         this.$emit('done');
         await this.$store.dispatch('clients/deleteClient', this.client.id);
         try {
-          NotificationService.success('Deleted');
+          NotificationService.success(this.$t('notification_deleted'));
         } catch (err) {
           NotificationService.error(err.message);
         }

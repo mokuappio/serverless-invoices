@@ -1,0 +1,8 @@
+{
+  "client_address": "Address",
+  "client_postal_code": "Postal code",
+  "client_city": "City",
+  "client_county": "County/State",
+  "client_country": "Country",
+  "client_email": "Client's email"
+}

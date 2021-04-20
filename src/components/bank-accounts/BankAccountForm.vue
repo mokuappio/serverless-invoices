@@ -2,38 +2,38 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <h4>Bank account</h4>
+                <h4>{{ $t('bank_account') }}</h4>
             </div>
         </div>
         <div v-if="bankAccount" class="row">
             <AppInput :value="bankAccount.bank_name"
                       @change="updateProp({ bank_name: $event })"
-                      label="Bank name"
+                      :label="$t('bank_name')"
                       field="bank_name"
                       :errors="errors"
                       class="col-sm-10"/>
             <AppTextarea :value="bankAccount.account_no"
-                      @change="updateProp({ account_no: $event })"
-                      label="Bank account details"
-                      field="account_no"
-                      :errors="errors"
-                      class="col-12"/>
+                         @change="updateProp({ account_no: $event })"
+                         :label="$t('account_no')"
+                         field="account_no"
+                         :errors="errors"
+                         class="col-12"/>
         </div>
 
         <div v-else class="row">
             <div class="col-12 pt-3">
-                <p>Loading..</p>
+                <p>{{ $t('loading') }} ..</p>
             </div>
         </div>
 
         <div class="row mt-3 text-right">
             <div class="col-12">
                 <button v-if="!isNew" class="btn btn-primary"
-                        @click="$emit('done')">Done
+                        @click="$emit('done')">{{ $t('done') }}
                 </button>
                 <button v-if="isNew" class="btn btn-primary ml-2"
                         :disabled="loading"
-                        @click="createBankAccount">Create
+                        @click="createBankAccount">{{ $t('create') }}
                 </button>
             </div>
         </div>
@@ -47,6 +47,7 @@ import AppTextarea from '@/components/form/AppTextarea';
 import Errors from '@/utils/errors';
 
 export default {
+  i18nOptions: { namespaces: 'bank-account-form' },
   components: {
     AppInput,
     AppTextarea,
@@ -74,7 +75,7 @@ export default {
 
       return this.$store.dispatch('bankAccounts/updateBankAccount', props)
         .then(() => {
-          NotificationService.success('Updated');
+          NotificationService.success(this.$t('notification_updated'));
         })
         .catch(err => this.errors.set(err.errors));
     },

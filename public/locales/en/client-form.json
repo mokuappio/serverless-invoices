@@ -1,0 +1,34 @@
+{
+  "title": "Client",
+  "delete": "Delete",
+  "done": "Done",
+  "create": "Create",
+  "loading": "Loading",
+  "general": {
+    "title": "General",
+    "company_name": "Company name",
+    "invoice_email": "Email"
+  },
+  "invoicing": {
+    "title": "Invoicing",
+    "currency": "Currency",
+    "rate": "Hourly rate",
+    "has_tax": "Apply taxes",
+    "bank_account": "Bank account"
+  },
+  "address": {
+    "title": "Address",
+    "company_address": "Company address",
+    "company_postal_code": "Postal code",
+    "company_city": "City",
+    "company_county": "County/State",
+    "company_country": "Country"
+  },
+  "delete_modal": {
+    "title": "Delete client",
+    "ok_title": "Delete",
+    "cancel_title": "Dismiss"
+  },
+  "notification_deleted": "Deleted",
+  "notification_updated": "Updated"
+}

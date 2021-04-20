@@ -11,7 +11,7 @@
             <AppEditable :value="row.quantity"
                          :errors="errors"
                          :field="`rows.${index}.quantity`"
-                         :placeholder="$('enter_quantity')"
+                         :placeholder="$t('enter_quantity')"
                          @change="updateProp({ quantity: $event })"/>
         </td>
         <td>

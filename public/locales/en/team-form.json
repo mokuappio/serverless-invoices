@@ -1,0 +1,27 @@
+{
+  "title": "Team",
+  "done": "Done",
+  "updated": "Updated",
+  "loading": "Loading",
+  "general": {
+    "title": "General",
+    "company_name": "Company Name",
+    "contact_email": "Email",
+    "contact_phone": "Phone",
+    "website": "Website"
+  },
+  "invoicing": {
+    "title": "Invoicing",
+    "invoice_late_fee": "Late fee (%)",
+    "invoice_due_days": "Payment terms, days",
+    "currency": "Default currency"
+  },
+  "address": {
+    "title": "Address",
+    "company_address": "Company Address",
+    "company_postal_code": "Postal code",
+    "company_city": "City",
+    "company_county": "County/State",
+    "company_country": "Country"
+  }
+}

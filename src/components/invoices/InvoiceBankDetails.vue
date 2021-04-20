@@ -6,7 +6,7 @@
                          :errors="errors"
                          :disabled="true"
                          field="bank_name"
-                         placeholder="Add bank"
+                         :placeholder="$t('bank_name')"
                          class="break-line"/>
         </strong>
         <AppEditable :value="invoice.bank_account_no"
@@ -14,11 +14,11 @@
                      :errors="errors"
                      :disabled="true"
                      field="bank_account_no"
-                     placeholder="Add bank details"
+                     :placeholder="$t('bank_account_no')"
                      class="break-line"/>
         <BModal id="bank_account_no"
                 centered
-                title="Choose bank account"
+                :title="$t('bank_account_modal_title')"
                 hide-footer
                 size="lg"
                 content-class="bg-base dp--24">
@@ -32,6 +32,7 @@ import BankAccountsList from '@/components/bank-accounts/BankAccountsList';
 import AppEditable from '@/components/form/AppEditable';
 
 export default {
+  i18nOptions: { namespaces: 'invoice-bank-details' },
   props: ['invoice', 'errors'],
   components: {
     AppEditable,

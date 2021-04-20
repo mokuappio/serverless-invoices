@@ -1,0 +1,10 @@
+{
+  "label": "Label",
+  "field": "Field",
+  "delete_modal": {
+    "title": "Delete field",
+    "ok_title": "Delete",
+    "cancel_title": "Dismiss"
+  },
+  "notification_delete": "Deleted"
+}

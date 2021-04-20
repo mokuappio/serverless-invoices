@@ -15,7 +15,7 @@ const initialized = i18next.init({
   fallbackLng: 'en',
   whitelist: ['en', 'et'],
   backend: {
-    loadPath: 'locales/{{lng}}/{{ns}}.json',
+    loadPath: `${window.location.origin}/locales/{{lng}}/{{ns}}.json`,
   },
   detection: {
     order: ['querystring', 'path', 'localStorage', 'navigator'],

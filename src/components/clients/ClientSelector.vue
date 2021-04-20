@@ -5,7 +5,7 @@
              ref="button"
              :tabindex="tabindex"
              @click="toggleOpen">
-            <span v-if="!value">Client</span>
+            <span v-if="!value">{{ $t('client') }}</span>
             <span v-else>{{ value }}</span>
         </div>
         <div class="search-popover__overlay" v-if="isOpen" @click="toggleOpen"></div>
@@ -13,7 +13,7 @@
                 class="search-popover__select"
                 v-show="isOpen"
                 ref="suggest"
-                :input-props="{placeholder: 'Search client', class: 'form-control'}"
+                :input-props="{placeholder: $t('suggest_placeholder'), class: 'form-control'}"
                 :suggestions="suggestions"
                 :value="query"
                 :get-suggestion-value="getSuggestionValue"
@@ -35,7 +35,7 @@
                         @click="createNewClient"
                         @keydown.up="returnToSuggestions">
                     <i class="material-icons material-icons-round md-18">add</i>
-                    Create {{this.query ? `"${this.query}"` : 'new'}}
+                    {{ $t('create') }} {{this.query ? `"${this.query}"` : $t('new')}}
                     <code class="ml-2 badge badge-secondary">ctrl + enter</code>
                 </button>
             </template>
@@ -47,6 +47,7 @@
 import { VueAutosuggest } from 'vue-autosuggest';
 
 export default {
+  i18nOptions: { namespaces: 'client-selector' },
   components: {
     VueAutosuggest,
   },

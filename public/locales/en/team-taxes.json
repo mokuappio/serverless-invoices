@@ -1,0 +1,10 @@
+{
+  "label": "Label",
+  "tax": "Tax",
+  "delete_modal": {
+    "title": "Delete tax",
+    "ok_title": "Delete",
+    "cancel_title": "Dismiss"
+  },
+  "notification_deleted": "Deleted"
+}
