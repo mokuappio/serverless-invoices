@@ -13,6 +13,8 @@ export default {
   },
   actions: {
     async init({ dispatch }) {
+      await dispatch('data/migrate', null, { root: true });
+
       await Promise.all([
         dispatch('clients/terminate', null, { root: true }),
         dispatch('bankAccounts/terminate', null, { root: true }),

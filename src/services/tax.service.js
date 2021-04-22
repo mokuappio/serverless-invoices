@@ -25,7 +25,7 @@ class TaxService {
     const taxes = await this.getTaxes();
     const index = taxes.findIndex(item => item.id === taxId);
     taxes.splice(index, 1);
-    return storage.setItem('taxes', taxes);
+    return this.setTaxes(taxes);
   }
 
   async saveTax(tax) {
@@ -37,8 +37,12 @@ class TaxService {
     } else {
       taxes[index] = tax;
     }
-    await storage.setItem('taxes', taxes);
+    await this.setTaxes(taxes);
     return tax;
+  }
+
+  setTaxes(taxes) {
+    return storage.setItem('taxes', taxes);
   }
 }
 

@@ -1,4 +1,5 @@
 import localForage from 'localforage';
+import MigrationService from '@/services/migration.service';
 import { download } from '../utils/helpers';
 
 export default {
@@ -12,6 +13,9 @@ export default {
     },
   },
   actions: {
+    async migrate() {
+      return MigrationService.migrate();
+    },
     async exportJson() {
       let results = [];
       const keys = await localForage.keys();
