@@ -26,5 +26,11 @@
     "company_city": "City",
     "company_county": "County/State",
     "company_country": "Country"
+  },
+  "tax_modal": {
+    "title": "Overwrite taxes for current invoice rows?",
+    "ok_title": "Overwrite",
+    "cancel_title": "Dismiss",
+    "taxes_updated": "Taxes updated"
   }
 }

@@ -26,5 +26,11 @@
     "company_city": "Linn",
     "company_county": "Maakond",
     "company_country": "Riik"
+  },
+  "tax_modal": {
+    "title": "Kirjuta antud arve ridade maksud üle?",
+    "ok_title": "Kirjuta üle",
+    "cancel_title": "Sulge",
+    "taxes_updated": "Maksud uuendatud"
   }
 }

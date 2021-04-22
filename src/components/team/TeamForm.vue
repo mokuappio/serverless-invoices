@@ -5,7 +5,7 @@
                 <h4>{{ $t('title') }}</h4>
                 <div v-if="team">
                     <button class="btn btn-sm btn-primary"
-                            @click="$emit('done')">{{ $t('done') }}
+                            @click="done">{{ $t('done') }}
                     </button>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             </b-tab>
 
             <b-tab :title="$t('tabs.taxes')" class="col-12">
-                <TeamTaxes class="row"/>
+                <TeamTaxes class="row" @changed="taxesChanged = true"/>
             </b-tab>
 
         </b-tabs>
@@ -96,6 +96,7 @@ export default {
     return {
       errors: new Errors(),
       loading: false,
+      taxesChanged: false,
     };
   },
   computed: {
@@ -112,6 +113,25 @@ export default {
           NotificationService.success(this.$t('updated'));
         })
         .catch(err => this.errors.set(err.errors));
+    },
+    async done() {
+      if (this.taxesChanged) {
+        await this.promptUpdateInvoiceRowTaxes();
+      }
+      this.$emit('done');
+    },
+    async promptUpdateInvoiceRowTaxes() {
+      const confirmed = await this.$bvModal.msgBoxConfirm(this.$t('tax_modal.title'), {
+        okTitle: this.$t('tax_modal.ok_title'),
+        okVariant: 'primary',
+        cancelTitle: this.$t('tax_modal.cancel_title'),
+        cancelVariant: 'btn-link',
+        contentClass: 'bg-base dp--24',
+      });
+      if (confirmed) {
+        await this.$store.dispatch('invoiceRows/overwriteTaxes');
+        NotificationService.success(this.$t('tax_modal.taxes_updated'));
+      }
     },
   },
 };

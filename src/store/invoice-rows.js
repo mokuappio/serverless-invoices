@@ -2,6 +2,16 @@ import InvoiceRow from '@/store/models/invoice-row';
 import InvoiceRowTax from '@/store/models/invoice-row-tax';
 import { flatten, uniqBy } from 'lodash';
 
+function addTaxes(taxes, row) {
+  taxes.forEach((tax) => {
+    const rowTax = new InvoiceRowTax();
+    rowTax.label = tax.label;
+    rowTax.value = tax.value;
+    rowTax.row_id = row.id;
+    rowTax.$save();
+  });
+}
+
 export default {
   namespaced: true,
   state: {},
@@ -35,15 +45,20 @@ export default {
       if (client && client.has_tax) {
         const taxes = getters.taxes.length > 0
           ? getters.taxes
-          : rootGetters['taxes/all'];
-        taxes.forEach((tax) => {
-          const rowTax = new InvoiceRowTax();
-          rowTax.label = tax.label;
-          rowTax.value = tax.value;
-          rowTax.row_id = row.id;
-          rowTax.$save();
-        });
+          : rootGetters['taxes/allWithLabels'];
+        addTaxes(taxes, row);
       }
+    },
+    overwriteTaxes({ rootGetters, rootState }) {
+      const taxes = rootGetters['taxes/allWithLabels'];
+      const rows = InvoiceRow.query()
+        .where('invoice_id', rootState.invoices.invoiceId)
+        .get();
+
+      rows.forEach((row) => {
+        InvoiceRowTax.delete(tax => tax.row_id === row.id)
+          .then(() => addTaxes(taxes, row));
+      });
     },
     async removeRow(store, rowId) {
       await InvoiceRow.delete(rowId);

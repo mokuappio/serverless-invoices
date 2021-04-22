@@ -48,6 +48,7 @@ export default {
       if (confirmed) {
         await this.$store.dispatch('taxes/deleteTax', field.id);
         try {
+          this.$emit('changed');
           NotificationService.success(this.$t('notification_deleted'));
         } catch (err) {
           NotificationService.error(err.message);
@@ -59,6 +60,7 @@ export default {
         props,
         taxId: tax.id,
       });
+      this.$emit('changed');
     },
   },
 };

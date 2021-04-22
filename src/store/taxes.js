@@ -40,5 +40,8 @@ export default {
     all() {
       return Tax.all();
     },
+    allWithLabels() {
+      return Tax.all().filter(tax => !!tax.label);
+    },
   },
 };
