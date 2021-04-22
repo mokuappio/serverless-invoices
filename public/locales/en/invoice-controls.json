@@ -4,16 +4,9 @@
   "download_pdf": "Download PDF",
   "delete": "Delete",
   "delete_modal": {
-    "title": "Delete client",
+    "title": "Delete invoice",
     "ok_title": "Delete",
     "cancel_title": "Dismiss"
-  },
-  "statuses": {
-    "draft": "draft",
-    "booked": "booked",
-    "sent": "sent",
-    "paid": "paid",
-    "cancelled": "cancelled"
   },
   "notification_deleted": "Deleted"
 }

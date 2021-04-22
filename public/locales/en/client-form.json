@@ -4,20 +4,22 @@
   "done": "Done",
   "create": "Create",
   "loading": "Loading",
+  "tabs": {
+    "general": "General",
+    "invoicing": "Invoicing",
+    "address": "Address"
+  },
   "general": {
-    "title": "General",
     "company_name": "Company name",
     "invoice_email": "Email"
   },
   "invoicing": {
-    "title": "Invoicing",
     "currency": "Currency",
     "rate": "Hourly rate",
     "has_tax": "Apply taxes",
     "bank_account": "Bank account"
   },
   "address": {
-    "title": "Address",
     "company_address": "Company address",
     "company_postal_code": "Postal code",
     "company_city": "City",

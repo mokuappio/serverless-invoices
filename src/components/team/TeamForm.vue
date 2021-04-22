@@ -12,7 +12,7 @@
         </div>
 
         <b-tabs v-if="team" nav-class="nav-tabs--simple mb-4" active-tab-class="active" class="row">
-            <b-tab :title="$t('general.title')" class="col-12">
+            <b-tab :title="$t('tabs.general')" class="col-12">
                 <div class="row">
                     <TeamLogo :errors="errors" class="col-sm-4"/>
                 </div>
@@ -20,17 +20,17 @@
                     <AppInput :value="team.company_name" @change="updateProp({ company_name: $event })"
                               :label="$t('general.company_name')" field="company_name" :errors="errors" class="col-12"/>
                     <AppInput :value="team.contact_email" @change="updateProp({ contact_email: $event })"
-                              :label="$t('email')" field="contact_email" :errors="errors" class="col-sm-7"/>
+                              :label="$t('general.contact_email')" field="contact_email" :errors="errors" class="col-sm-7"/>
                     <AppInput :value="team.contact_phone" @change="updateProp({ contact_phone: $event })"
-                              :label="$t('contact_phone')" field="contact_phone" :errors="errors" class="col-sm-7"/>
+                              :label="$t('general.contact_phone')" field="contact_phone" :errors="errors" class="col-sm-7"/>
                     <AppInput :value="team.website" @change="updateProp({ website: $event })"
-                              :label="$t('website')" field="website" :errors="errors" class="col-sm-7"/>
+                              :label="$t('general.website')" field="website" :errors="errors" class="col-sm-7"/>
                 </div>
 
                 <TeamFields class="row" :team="team"/>
             </b-tab>
 
-            <b-tab :title="$t('invoicing.title')" class="col-12">
+            <b-tab :title="$t('tabs.invoicing')" class="col-12">
                 <div class="row">
                     <AppInput :value="team.invoice_late_fee" @change="updateProp({ invoice_late_fee: $event })"
                               type="number"
@@ -43,7 +43,7 @@
                 </div>
             </b-tab>
 
-            <b-tab :title="$t('address.title')" class="col-12">
+            <b-tab :title="$t('tabs.address')" class="col-12">
                 <div class="row">
                     <AppInput :value="team.company_address" @change="updateProp({ company_address: $event })"
                               :label="$t('address.company_address')" field="company_address" :errors="errors"
@@ -61,7 +61,7 @@
                 </div>
             </b-tab>
 
-            <b-tab title="Taxes" class="col-12">
+            <b-tab :title="$t('tabs.taxes')" class="col-12">
                 <TeamTaxes class="row"/>
             </b-tab>
 

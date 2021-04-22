@@ -35,7 +35,7 @@ import { BDropdown, BDropdownItemButton } from 'bootstrap-vue';
 import AppSelect from '@/components/form/AppSelect';
 
 export default {
-  i18nOptions: { namespaces: 'invoice-controls' },
+  i18nOptions: { namespaces: ['invoice-controls', 'statuses'] },
   components: {
     BDropdown,
     BDropdownItemButton,
@@ -46,9 +46,8 @@ export default {
       invoice: 'invoices/invoice',
     }),
     getStatusObj() {
-      const test = this.invoiceStatuses
+      return this.invoiceStatuses
         .find(obj => obj.value === this.invoice.status);
-      return test;
     },
     invoiceStatuses() {
       return [{

@@ -22,12 +22,12 @@
                            :inline="true"
                            field="issued_at"/>
         </BModal>
-        <br>{{ $t('due_at') }}:
+        <br>{{ $t('due_at') }}
         <span class="editable__item"
               v-b-modal.modal_due_at>{{ invoice.due_at | date('D. MMM YYYY', 'YYYY-MM-DD') }}</span>
         <BModal id="modal_due_at"
                 centered
-                :title="$t('due_at')"
+                :title="$t('modal_due_at_title')"
                 hide-footer
                 size="sm"
                 content-class="bg-base dp--24">
@@ -37,7 +37,7 @@
                            :inline="true"
                            field="due_at"/>
         </BModal>
-        <br>{{ $t('due_at') }}
+        <br>{{ $t('late_fee') }}
         <AppEditable :value="invoice.late_fee | currency"
                      :errors="errors"
                      suffix="%"

@@ -1,7 +1,7 @@
 <template>
     <footer class="col-12 d-flex justify-content-between align-items-center text-secondary px-0 mt-3 d-print-none">
         <button class="btn btn-sm text-secondary" @click="toggleTheme">
-            {{ $t('lights') }}{{ theme === 'dark' ? 'on' : 'off' }}
+            {{ theme === 'dark' ? $t('lights-on') : $t('lights-off') }}
             <i class="material-icons material-icons-round md-14 align-text-bottom ml-1">
                 {{ theme === 'dark' ? 'wb_sunny' : 'brightness_2' }}
             </i>

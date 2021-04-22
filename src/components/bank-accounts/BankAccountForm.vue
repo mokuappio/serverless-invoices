@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <h4>{{ $t('bank_account') }}</h4>
+                <h4>{{ $t('title') }}</h4>
             </div>
         </div>
         <div v-if="bankAccount" class="row">

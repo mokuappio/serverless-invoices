@@ -1,7 +1,7 @@
 {
   "modal_title": "Choose logo",
   "button_text": "Select from files",
-  "logo_url": "Insert web url",
+  "logo_url": "Insert image web url",
   "logo_url_err": "Logo has to be under 512kb.",
   "or": "or"
 }

@@ -24,7 +24,7 @@
         </div>
 
         <b-tabs v-if="client" nav-class="nav-tabs--simple mb-4" active-tab-class="active" class="row">
-            <b-tab :title="$t('general.title')" class="col-12">
+            <b-tab :title="$t('tabs.general')" class="col-12">
                 <div class="row">
                     <AppInput :value="client.company_name" @change="updateProp({ company_name: $event })"
                               :label="$t('general.company_name')" field="company_name" :errors="errors" class="col-12"/>
@@ -36,7 +36,7 @@
                 <ClientFields class="row" :client="client"/>
             </b-tab>
 
-            <b-tab :title="$t('invoicing.title')" class="col-12">
+            <b-tab :title="$t('tabs.invoicing')" class="col-12">
                 <div class="row">
                     <AppInput :value="client.currency" @change="updateProp({ currency: $event })"
                               :label="$t('invoicing.currency')" field="currency" :errors="errors" class="col-sm-4"/>
@@ -54,7 +54,7 @@
                 </div>
             </b-tab>
 
-            <b-tab :title="$t('address.title')" class="col-12">
+            <b-tab :title="$t('tabs.address')" class="col-12">
                 <div class="row">
                     <AppInput :value="client.company_address" @change="updateProp({ company_address: $event })"
                               :label="$t('address.company_address')" field="company_address" :errors="errors"
@@ -170,9 +170,9 @@ export default {
     },
     async deleteClient() {
       const confirmed = await this.$bvModal.msgBoxConfirm(`${this.$t('delete_modal.title')} ${this.client.company_name}?`, {
-        okTitle: this.$t('ok_title'),
+        okTitle: this.$t('delete_modal.ok_title'),
         okVariant: 'danger',
-        cancelTitle: this.$t('cancel_title'),
+        cancelTitle: this.$t('delete_modal.cancel_title'),
         cancelVariant: 'btn-link',
         contentClass: 'bg-base dp--24',
       });

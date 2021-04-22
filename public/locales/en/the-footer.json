@@ -1,5 +1,6 @@
 {
-  "lights": "Lights",
+  "lights-on": "Lights on",
+  "lights-off": "Lights off",
   "title": "All your data is saved in your browser and not on any server.\n                                   This application is truly serverless and only you have access to your data.",
   "what_about_my_data": "What about my data? ",
   "made_with": "Made with",

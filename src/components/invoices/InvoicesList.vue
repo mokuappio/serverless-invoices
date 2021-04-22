@@ -1,4 +1,4 @@
-<template>
+    <template>
     <div>
         <div v-if="!invoices" class="col-12">{{ $t('loading') }}</div>
         <table class="table table--card table-hover" v-else-if="invoices && invoices.length > 0">
@@ -29,7 +29,7 @@
                        v-b-tooltip.hover title="Overdue">warning</i>
                     <i class="material-icons material-icons-round md-18 mr-2 text-success"
                        v-else-if="invoice.status === 'paid'">done</i>
-                    {{ invoice.status }}
+                    {{ $t(`statuses.${invoice.status}`) }}
                 </td>
             </tr>
             </tbody>
@@ -46,7 +46,7 @@ import dayjs from 'dayjs';
 import { VBTooltip } from 'bootstrap-vue';
 
 export default {
-  i18nOptions: { namespaces: 'invoices-list' },
+  i18nOptions: { namespaces: ['invoices-list', 'statuses'] },
   components: {
     EmptyState,
   },
