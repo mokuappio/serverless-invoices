@@ -1,0 +1,7 @@
+{
+  "modal_title": "Vali logo",
+  "button_text": "Vali oma failidest",
+  "logo_url": "Sisesta pildifaili url",
+  "logo_url_err": "Logo peab olema väiksem kui 512kb.",
+  "or": "või"
+}

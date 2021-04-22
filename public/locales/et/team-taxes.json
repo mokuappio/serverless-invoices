@@ -1,0 +1,10 @@
+{
+  "label": "Nimetus",
+  "tax": "Maks",
+  "delete_modal": {
+    "title": "Kustuta maks",
+    "ok_title": "Kustuta",
+    "cancel_title": "Sulge"
+  },
+  "notification_deleted": "Kustutatud"
+}

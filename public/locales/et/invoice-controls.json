@@ -1,0 +1,12 @@
+{
+  "back": "Tagasi",
+  "book": "Kinnita",
+  "download_pdf": "Lae alla PDF",
+  "delete": "Kustuta",
+  "delete_modal": {
+    "title": "Kustuta arve",
+    "ok_title": "Kustuta",
+    "cancel_title": "Sulge"
+  },
+  "notification_deleted": "Kustutatud"
+}

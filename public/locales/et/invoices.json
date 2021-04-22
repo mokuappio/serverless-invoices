@@ -1,4 +1,6 @@
 {
   "title": "Arved",
-  "new_invoice": "Uus arve"
+  "new_invoice": "Uus arve",
+  "export": "Ekspordi",
+  "import": "Impordi"
 }

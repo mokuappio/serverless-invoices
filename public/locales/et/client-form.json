@@ -1,0 +1,36 @@
+{
+  "title": "Klient",
+  "delete": "Kustuta",
+  "done": "Tehtud",
+  "create": "Loo",
+  "loading": "Laeb",
+  "tabs": {
+    "general": "Üldine",
+    "invoicing": "Arveldamine",
+    "address": "Aadress"
+  },
+  "general": {
+    "company_name": "Firma nimi",
+    "invoice_email": "E-mail"
+  },
+  "invoicing": {
+    "currency": "Valuuta",
+    "rate": "Tunni hind",
+    "has_tax": "Kasuta maksusid",
+    "bank_account": "Maksmise pangakonto"
+  },
+  "address": {
+    "company_address": "Firma aadress",
+    "company_postal_code": "Postiindeks",
+    "company_city": "Linn",
+    "company_county": "Maakond",
+    "company_country": "Riik"
+  },
+  "delete_modal": {
+    "title": "Kustuta klient",
+    "ok_title": "Kustuta",
+    "cancel_title": "Sulge"
+  },
+  "notification_deleted": "Kustutatud",
+  "notification_updated": "Uuendatud"
+}

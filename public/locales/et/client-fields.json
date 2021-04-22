@@ -1,0 +1,10 @@
+{
+  "label": "Nimetus",
+  "field": "Väli",
+  "delete_modal": {
+    "title": "Kustuta väli",
+    "ok_title": "Kustuta",
+    "cancel_title": "Sulge"
+  },
+  "notification_deleted": "Kustutatud"
+}

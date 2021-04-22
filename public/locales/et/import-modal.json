@@ -1,0 +1,6 @@
+{
+  "title": "Impordi andmed",
+  "warning": "Andmed eemaldatakse ja kirjutatakse üle imporditud andmetega!",
+  "button_text": "Vali import fail",
+  "import-error": "Ebasobiv JSON formaat"
+}

@@ -1,0 +1,8 @@
+{
+  "client_address": "Aadress",
+  "client_postal_code": "Postiindeks",
+  "client_city": "Linn",
+  "client_county": "Maakond",
+  "client_country": "Riik",
+  "client_email": "Kliendi e-mail"
+}

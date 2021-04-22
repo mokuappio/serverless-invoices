@@ -1,0 +1,10 @@
+{
+  "invoice_title": "Arve ",
+  "invoice_number": "#",
+  "issued_at": "Kuupäev:",
+  "due_at": "Maksetähtaeg:",
+  "late_fee": "Viivis:",
+  "add_late_fee": "Lisa viivis",
+  "modal_issued_at_title": "Kuupäev",
+  "modal_due_at_title": "Maksetähtaeg"
+}
