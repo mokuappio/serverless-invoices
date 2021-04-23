@@ -1,8 +1,10 @@
 <template>
-    <b-dropdown v-if="selectedLang" variant="link" size="sm" no-caret right>
+    <b-dropdown v-if="selectedLang" variant="link" size="sm" right no-caret custom-class="text-secondary">
         <template slot="button-content">
-            {{ selectedLang.code }}
-            <i class="material-icons">keyboard_arrow_down</i>
+            <span class="text-secondary">
+                <span class="text-uppercase">{{ selectedLang.code }}</span>
+                <i class="material-icons md-18">expand_more</i>
+            </span>
         </template>
         <template v-for="lang in languages" >
             <b-dropdown-item-button @click="langChanged(lang)" :key="lang.code">{{ lang.name }}</b-dropdown-item-button>
