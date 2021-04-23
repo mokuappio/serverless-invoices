@@ -1,0 +1,8 @@
+{
+  "client_address": "نشانی",
+  "client_postal_code": "کد پستی",
+  "client_city": "شهر",
+  "client_county": "شهرستان / ایالت",
+  "client_country": "کشور",
+  "client_email": "ایمیل مشتری"
+}

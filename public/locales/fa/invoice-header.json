@@ -1,0 +1,10 @@
+{
+  "invoice_title": "صورتحساب ",
+  "invoice_number": "شماره",
+  "issued_at": "صادر شده در: ",
+  "due_at": "سر رسید در:",
+  "late_fee": "هزینه دیرهنگام:",
+  "add_late_fee": "هزینه دیرکرد اضافه کنید",
+  "modal_issued_at_title": "صادر شده در",
+  "modal_due_at_title": "سر رسید در"
+}

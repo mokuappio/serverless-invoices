@@ -1,0 +1,10 @@
+{
+  "label": "برچسب",
+  "field": "رشته",
+  "delete_modal": {
+    "title": "قسمت را حذف کنید",
+    "ok_title": "حذف",
+    "cancel_title": "رد"
+  },
+  "notification_delete": "حذف شده"
+}
