@@ -53,6 +53,9 @@ export default {
     async createNewInvoice({ dispatch }) {
       const invoice = await Invoice.createNew();
       await InvoiceService.createInvoice(invoice);
+      await dispatch('prefillInvoice', {
+        invoiceId: invoice.id,
+      });
       await dispatch('prefillTeam', {
         invoiceId: invoice.id,
       });
@@ -167,7 +170,26 @@ export default {
         },
       });
     },
-    prefillTeam({ dispatch, getters, rootGetters }, payload) {
+    prefillInvoice({ dispatch, getters, rootGetters }, payload) {
+      const team = rootGetters['teams/team'];
+
+      const props = {
+        issued_at: dayjs()
+          .format('YYYY-MM-DD'),
+        due_at: dayjs()
+          .add(team.invoice_due_days || 14, 'days')
+          .format('YYYY-MM-DD'),
+        number: generateInvoiceNumber(getters.all),
+        late_fee: team.invoice_late_fee || 0.5,
+        currency: team.currency || 'USD',
+      };
+
+      return dispatch('updateInvoice', {
+        invoiceId: payload.invoiceId,
+        props,
+      });
+    },
+    prefillTeam({ dispatch, rootGetters }, payload) {
       const team = rootGetters['teams/team'];
       dispatch('invoiceTeamFields/removeInvoiceTeamFields', payload.invoiceId, { root: true });
 
@@ -182,27 +204,21 @@ export default {
         }, { root: true });
       });
 
+      const props = {
+        from_name: team.company_name,
+        from_address: team.company_address,
+        from_postal_code: team.company_postal_code,
+        from_city: team.company_city,
+        from_country: team.company_country,
+        from_county: team.company_county,
+        from_website: team.website,
+        from_email: team.contact_email,
+        from_phone: team.contact_phone,
+      };
+
       return dispatch('updateInvoice', {
         invoiceId: payload.invoiceId,
-        props: {
-          issued_at: dayjs()
-            .format('YYYY-MM-DD'),
-          due_at: dayjs()
-            .add(team.invoice_due_days || 14, 'days')
-            .format('YYYY-MM-DD'),
-          number: generateInvoiceNumber(getters.all),
-          late_fee: team.invoice_late_fee || 0.5,
-          from_name: team.company_name,
-          from_address: team.company_address,
-          from_postal_code: team.company_postal_code,
-          from_city: team.company_city,
-          from_country: team.company_country,
-          from_county: team.company_county,
-          from_website: team.website,
-          from_email: team.contact_email,
-          from_phone: team.contact_phone,
-          currency: team.currency || 'USD',
-        },
+        props,
       });
     },
   },
