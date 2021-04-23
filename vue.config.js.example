@@ -11,5 +11,8 @@ module.exports = {
     themeColor: '#edeff1',
     appleMobileWebAppCapable: 'yes',
     workboxPluginMode: 'GenerateSW',
+    workboxOptions: {
+      exclude: [/htaccess/],
+    },
   },
 };
