@@ -1,0 +1,10 @@
+{
+  "label": "برچسب",
+  "tax": "مالیات",
+  "delete_modal": {
+    "title": "حذف مالیات",
+    "ok_title": "حذف",
+    "cancel_title": "رد"
+  },
+  "notification_deleted": "حذف شده"
+}

@@ -1,0 +1,36 @@
+{
+  "title": "شرکت شما",
+  "done": "انجام شده",
+  "updated": "به روز شده",
+  "loading": "بارگذاری",
+  "tabs": {
+    "general": "عمومی",
+    "invoicing": "صورتحساب",
+    "address": "نشانی",
+    "taxes": "مالیات"
+  },
+  "general": {
+    "company_name": "نام شرکت",
+    "contact_email": "پست الکترونیک",
+    "contact_phone": "تلفن",
+    "website": "سایت اینترنتی"
+  },
+  "invoicing": {
+    "invoice_late_fee": "هزینه دیرهنگام (%)",
+    "invoice_due_days": "شرایط پرداخت ، روزها",
+    "currency": "ارز پیش فرض"
+  },
+  "address": {
+    "company_address": "آدرس شرکت",
+    "company_postal_code": "کد پستی",
+    "company_city": "شهر",
+    "company_county": "شهرستان / ایالت",
+    "company_country": "کشور"
+  },
+  "tax_modal": {
+    "title": "برای ردیف های فاکتور فعلی مالیات بازنویسی شود؟",
+    "ok_title": "زیاد نوشتن",
+    "cancel_title": "رد",
+    "taxes_updated": "مالیات به روز شد"
+  }
+}

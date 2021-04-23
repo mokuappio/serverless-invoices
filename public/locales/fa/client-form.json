@@ -1,0 +1,36 @@
+{
+  "title": "مشتری",
+  "delete": "حذف",
+  "done": "انجام شده",
+  "create": "ايجاد كردن",
+  "loading": "بارگذاری",
+  "tabs": {
+    "general": "عمومی",
+    "invoicing": "صورتحساب",
+    "address": "نشانی"
+  },
+  "general": {
+    "company_name": "نام شرکت",
+    "invoice_email": "پست الکترونیک"
+  },
+  "invoicing": {
+    "currency": "واحد پول",
+    "rate": "نرخ ساعتی",
+    "has_tax": "مالیات اعمال کنید",
+    "bank_account": "حساب بانکی"
+  },
+  "address": {
+    "company_address": "آدرس شرکت",
+    "company_postal_code": "کد پستی",
+    "company_city": "شهر",
+    "company_county": "شهرستان / ایالت",
+    "company_country": "کشور"
+  },
+  "delete_modal": {
+    "title": "حذف مشتری",
+    "ok_title": "حذف",
+    "cancel_title": "رد"
+  },
+  "notification_deleted": "حذف شده",
+  "notification_updated": "به روز شده"
+}

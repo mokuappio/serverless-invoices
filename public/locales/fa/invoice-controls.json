@@ -1,0 +1,12 @@
+{
+  "back": "بازگشت",
+  "book": "کتاب",
+  "download_pdf": "بارگیری PDF",
+  "delete": "حذف",
+  "delete_modal": {
+    "title": "فاکتور را حذف کنید",
+    "ok_title": "حذف",
+    "cancel_title": "رد"
+  },
+  "notification_deleted": "حذف شده"
+}
