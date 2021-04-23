@@ -10,7 +10,7 @@
                 <AppSelect :value="getStatusObj"
                            class="mb-0 mr-2 text-capitalize multiselect--capitalize"
                            :options="invoiceStatuses"
-                           label-field="value"
+                           label-field="name"
                            @input="updateProp({status: $event.value})"/>
                 <button class="btn btn-outline-dark"
                         v-if="invoice.status === 'draft'"
