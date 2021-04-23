@@ -1,0 +1,7 @@
+{
+  "invoice_number": "No.",
+  "client": "Cliente",
+  "issued_at": "Emitido en",
+  "total": "Total",
+  "status": "Estado"
+}

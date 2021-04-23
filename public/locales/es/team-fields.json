@@ -1,0 +1,10 @@
+{
+  "label": "Etiqueta",
+  "field": "Campo",
+  "delete_modal": {
+    "title": "Eliminar campo",
+    "ok_title": "Eliminar",
+    "cancel_title": "Descartar"
+  },
+  "notification_delete": "Eliminado"
+}

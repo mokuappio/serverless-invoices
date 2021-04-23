@@ -1,0 +1,12 @@
+{
+  "back": "Atrás",
+  "book": "Libro",
+  "download_pdf": "Descargar PDF",
+  "delete": "Eliminar",
+  "delete_modal": {
+    "title": "Eliminar factura",
+    "ok_title": "Eliminar",
+    "cancel_title": "Descartar"
+  },
+  "notification_deleted": "Eliminado"
+}

@@ -1,0 +1,10 @@
+{
+  "invoice_title": "Factura ",
+  "invoice_number": "No.",
+  "issued_at": "Emitido en: ",
+  "due_at": "Debido a:",
+  "late_fee": "Cargo por demora:",
+  "add_late_fee": "Agregar cargo por demora",
+  "modal_issued_at_title": "Emitido en",
+  "modal_due_at_title": "Debido a"
+}

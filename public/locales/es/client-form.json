@@ -1,0 +1,36 @@
+{
+  "title": "Cliente",
+  "delete": "Eliminar",
+  "done": "Listo",
+  "create": "Crear",
+  "loading": "Cargando",
+  "tabs": {
+    "general": "General",
+    "invoicing": "Facturación",
+    "address": "Dirección"
+  },
+  "general": {
+    "company_name": "Nombre de la compañia",
+    "invoice_email": "Correo electrónico"
+  },
+  "invoicing": {
+    "currency": "Divisa",
+    "rate": "Tarifa por hora",
+    "has_tax": "Aplica Impuestos",
+    "bank_account": "Cuenta Bancaria"
+  },
+  "address": {
+    "company_address": "Dirección de la empresa",
+    "company_postal_code": "Código postal",
+    "company_city": "Ciudad",
+    "company_county": "Condado/Estado",
+    "company_country": "Pais"
+  },
+  "delete_modal": {
+    "title": "Eliminar cliente",
+    "ok_title": "Eliminar",
+    "cancel_title": "Descartar"
+  },
+  "notification_deleted": "Eliminado",
+  "notification_updated": "Actualizado"
+}
