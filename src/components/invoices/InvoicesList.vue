@@ -1,5 +1,5 @@
-    <template>
-    <div>
+<template>
+    <div class="table-responsive">
         <div v-if="!invoices" class="col-12">{{ $t('loading') }}</div>
         <table class="table table--card table-hover" v-else-if="invoices && invoices.length > 0">
             <thead>

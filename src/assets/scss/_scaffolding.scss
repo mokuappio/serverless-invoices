@@ -1,8 +1,8 @@
 .app {
   &__content {
     //padding-top: 32px;
-    padding-right: 66px;
-    padding-left: 66px;
+    padding-right: 16px;
+    padding-left: 16px;
     will-change: padding-left;
     transition: padding-left 0.2s $base-ease;
 

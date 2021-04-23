@@ -10,13 +10,13 @@
                 <AppSelect :value="getStatusObj"
                            class="mb-0 mr-2 text-capitalize multiselect--capitalize"
                            :options="invoiceStatuses"
-                           label-field="name"
+                           label-field="value"
                            @input="updateProp({status: $event.value})"/>
-                <button class="btn btn-sm btn-outline-dark"
+                <button class="btn btn-outline-dark"
                         v-if="invoice.status === 'draft'"
                         @click="bookInvoice">{{ $t('book') }}
                 </button>
-                <b-dropdown variant="link" size="sm" no-caret right>
+                <b-dropdown variant="link" no-caret right>
                     <template slot="button-content">
                         <i class="material-icons">more_vert</i>
                     </template>

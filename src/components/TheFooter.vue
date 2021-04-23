@@ -1,7 +1,7 @@
 <template>
-    <footer class="col-12 d-flex justify-content-between align-items-center text-secondary px-0 mt-3 d-print-none">
-        <div>
-            <LanguageSwitcher/>
+    <footer class="row text-secondary px-0 mt-3 d-print-none">
+        <div class="col-md-4">
+            <LanguageSwitcher class="ml-n2 ml-md-0"/>
             <button class="btn btn-sm text-secondary" @click="toggleTheme">
                 {{ theme === 'dark' ? $t('lights-on') : $t('lights-off') }}
                 <i class="material-icons material-icons-round md-14 align-text-bottom ml-1">
@@ -9,7 +9,7 @@
                 </i>
             </button>
         </div>
-        <div>
+        <div class="col-md-8 text-left text-md-right">
             <small v-b-tooltip.hover
                    :title="$t('title')"
                    class="pointer">
@@ -22,7 +22,7 @@
                 <a href="https://mokuapp.io/" class="text-secondary" target="_blank">Moku</a>.
             </small>
             <a href="https://github.com/mokuappio/serverless-invoices"
-               class="btn btn-sm btn--icon ml-2"
+               class="btn btn-sm btn--icon ml-0 ml-md-2"
                target="_blank">
                 <img src="@/assets/img/github.png"
                      alt="Serverless Invoices Github"

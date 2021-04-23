@@ -1,40 +1,44 @@
 <template>
-    <div class="card bg-base dp--02 invoice-box" v-if="invoice">
-        <div class="card-body">
-            <div class="row mb-5">
-                <TeamLogo class="col-sm-4" :errors="errors"/>
-                <InvoiceHeader :invoice="invoice" :errors="errors" @update="updateProp"
-                               class="col-8 text-right mb-2"/>
-            </div>
-            <div class="row">
-                <InvoiceClientDetails :invoice="invoice" :errors="errors" @update="updateProp"
-                                      class="col-6"/>
-                <InvoiceCompanyDetails :invoice="invoice" :errors="errors" @update="updateProp"
-                                       class="col-6 text-right"/>
-            </div>
-            <div class="row mt-3">
-                <AppEditable :value="invoice.notes"
-                             class="col-12"
-                             :placeholder="$t('insert_note')"
-                             @change="updateProp({ notes: $event })"/>
-            </div>
-            <div class="row">
-                <table class="table">
-                    <InvoiceRowsHeader :invoice="invoice"/>
-                    <tbody>
-                    <InvoiceRow v-for="(row, index) in invoice.rows" :errors="errors"
-                                :row="row" :index="index" :key="row.id"/>
-                    <InvoiceAddRowBtn :invoice="invoice" :errors="errors"/>
-                    </tbody>
-                    <InvoiceTotals :invoice="invoice" :errors="errors" @update="updateProp"/>
-                </table>
-            </div>
-            <hr>
-            <div class="row">
-                <InvoiceBankDetails :invoice="invoice" :errors="errors" @update="updateProp"
-                                    class="col-8"/>
-                <InvoiceContactDetails :invoice="invoice" :errors="errors" @update="updateProp"
-                                       class="col-4 text-right"/>
+    <div class="row">
+        <div class="col-12 scrollbar invoice-container">
+            <div class="card bg-base dp--02 invoice-box" v-if="invoice">
+                <div class="card-body">
+                    <div class="row mb-5">
+                        <TeamLogo class="col-4" :errors="errors"/>
+                        <InvoiceHeader :invoice="invoice" :errors="errors" @update="updateProp"
+                                       class="col-8 text-right mb-2"/>
+                    </div>
+                    <div class="row">
+                        <InvoiceClientDetails :invoice="invoice" :errors="errors" @update="updateProp"
+                                              class="col-6"/>
+                        <InvoiceCompanyDetails :invoice="invoice" :errors="errors" @update="updateProp"
+                                               class="col-6 text-right"/>
+                    </div>
+                    <div class="row mt-3">
+                        <AppEditable :value="invoice.notes"
+                                     class="col-12"
+                                     :placeholder="$t('insert_note')"
+                                     @change="updateProp({ notes: $event })"/>
+                    </div>
+                    <div class="row">
+                        <table class="table">
+                            <InvoiceRowsHeader :invoice="invoice"/>
+                            <tbody>
+                            <InvoiceRow v-for="(row, index) in invoice.rows" :errors="errors"
+                                        :row="row" :index="index" :key="row.id"/>
+                            <InvoiceAddRowBtn :invoice="invoice" :errors="errors"/>
+                            </tbody>
+                            <InvoiceTotals :invoice="invoice" :errors="errors" @update="updateProp"/>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <InvoiceBankDetails :invoice="invoice" :errors="errors" @update="updateProp"
+                                            class="col-8"/>
+                        <InvoiceContactDetails :invoice="invoice" :errors="errors" @update="updateProp"
+                                               class="col-4 text-right"/>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
