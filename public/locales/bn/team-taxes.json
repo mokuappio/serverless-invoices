@@ -1,0 +1,10 @@
+{
+  "label": "লেবেল",
+  "tax": "ট্যাক্স",
+  "delete_modal": {
+    "title": "ডিলিট ট্যাক্স",
+    "ok_title": "ডিলিট",
+    "cancel_title": "ডিস্‌মিস্‌"
+  },
+  "notification_deleted": "ডিলিটেড"
+}

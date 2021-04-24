@@ -1,0 +1,12 @@
+{
+  "back": "ব্যাক",
+  "book": "বুক",
+  "download_pdf": "ডাউনলোড পিডিএফ",
+  "delete": "ডিলিট",
+  "delete_modal": {
+    "title": "ডিলিট চালান",
+    "ok_title": "ডিলিট",
+    "cancel_title": "ডিস্‌মিস্‌"
+  },
+  "notification_deleted": "ডিলিটেড"
+}

@@ -1,0 +1,10 @@
+{
+  "label": "লেবেল",
+  "field": "ফিল্ড",
+  "delete_modal": {
+    "title": "ডিলিট ফিল্ড",
+    "ok_title": "ডিলিট",
+    "cancel_title": "ডিস্‌মিস্‌"
+  },
+  "notification_deleted": "ডিলিটেড"
+}
