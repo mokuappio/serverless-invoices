@@ -1,0 +1,36 @@
+{
+  "title": "Tu compañía",
+  "done": "Listo",
+  "updated": "Actualizado",
+  "loading": "Cargando",
+  "tabs": {
+    "general": "General",
+    "invoicing": "Facturación",
+    "address": "Dirección",
+    "taxes": "Impuestos"
+  },
+  "general": {
+    "company_name": "Nombre de la compañía",
+    "contact_email": "Correo electrónico",
+    "contact_phone": "Teléfono",
+    "website": "Sitio web"
+  },
+  "invoicing": {
+    "invoice_late_fee": "Cargo por demora (%)",
+    "invoice_due_days": "Condiciones de pago, días",
+    "currency": "Mondea predeterminada"
+  },
+  "address": {
+    "company_address": "Dirección de la compañía",
+    "company_postal_code": "Códiog postal",
+    "company_city": "Ciudad",
+    "company_county": "Condado/Estado",
+    "company_country": "País"
+  },
+  "tax_modal": {
+    "title": "¿Sobreescribir los impuestos para las filas de facturas actuales?",
+    "ok_title": "Sobreescribir",
+    "cancel_title": "Descartar",
+    "taxes_updated": "Impuestos actualizados"
+  }
+}

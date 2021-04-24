@@ -1,0 +1,8 @@
+{
+  "client_address": "Dirreción",
+  "client_postal_code": "Código postal",
+  "client_city": "Ciudad",
+  "client_county": "Condado/Estado",
+  "client_country": "País",
+  "client_email": "Correo electrónico del cliente"
+}
