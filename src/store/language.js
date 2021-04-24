@@ -7,6 +7,9 @@ export default {
     all: [
       { name: 'English', code: 'en' },
       { name: 'Estonian', code: 'et' },
+      { name: 'Persian', code: 'fa' },
+      { name: 'Spanish', code: 'es' },
+      { name: 'Bangla', code: 'bn' },
     ],
   },
   mutations: {
