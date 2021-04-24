@@ -1,0 +1,36 @@
+{
+  "title": "আপনার কোম্পানী",
+  "done": "সম্পন্ন",
+  "updated": "আপডেটেড",
+  "loading": "লোডিং",
+  "tabs": {
+    "general": "জেনারেল",
+    "invoicing": "চালান",
+    "address": "ঠিকানা",
+    "taxes": "ট্যাক্স"
+  },
+  "general": {
+    "company_name": "কোম্পানীর নাম",
+    "contact_email": "ইমেইল",
+    "contact_phone": "ফোন",
+    "website": "ওয়েবসাইট"
+  },
+  "invoicing": {
+    "invoice_late_fee": "জরিমানা (%)",
+    "invoice_due_days": "পরিশোধের শর্ত, দিন",
+    "currency": "প্রচলিত মুদ্রা"
+  },
+  "address": {
+    "company_address": "কোম্পানীর ঠিকানা",
+    "company_postal_code": "পোস্টাল কোড",
+    "company_city": "শহর",
+    "company_county": "বিভাগ/রাষ্ট্র",
+    "company_country": "দেশ"
+  },
+  "tax_modal": {
+    "title": "বর্তমান চালান সারিগুলির জন্য ট্যাক্স ওভাররাইট করবেন?",
+    "ok_title": "ওভাররাইট",
+    "cancel_title": "ডিস্‌মিস্‌",
+    "taxes_updated": "ট্যাক্স আপডেটেড"
+  }
+}

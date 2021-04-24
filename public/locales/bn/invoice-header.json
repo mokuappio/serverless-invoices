@@ -1,0 +1,10 @@
+{
+  "invoice_title": "চালান",
+  "invoice_number": "নাম্বার",
+  "issued_at": "জারি: ",
+  "due_at": "পরিশোধনীয়:",
+  "late_fee": "জরিমানা:",
+  "add_late_fee": "জরিমানা যোগ করুন",
+  "modal_issued_at_title": "জারি",
+  "modal_due_at_title": "পরিশোধনীয়"
+}
