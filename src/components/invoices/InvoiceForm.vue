@@ -21,7 +21,7 @@
                                      @change="updateProp({ notes: $event })"/>
                     </div>
                     <div class="row">
-                        <table class="table">
+                        <table class="table" :class="{'invoice__rows--compact': invoice.is_compact}">
                             <InvoiceRowsHeader :invoice="invoice"/>
                             <tbody>
                             <InvoiceRow v-for="(row, index) in invoice.rows" :errors="errors"

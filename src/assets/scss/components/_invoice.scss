@@ -1,15 +1,36 @@
-.invoice-container {
-  overflow-x: auto;
-}
+.invoice {
+  &-container {
+    overflow-x: auto;
+  }
 
-.invoice-box {
-  margin: auto;
-  padding: 30px;
-  min-width: var(--breakpoint-md);
-  box-shadow: $box-shadow-light-1;
-  font-size: 16px;
-  line-height: 24px;
-  font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  &-box {
+    margin: auto;
+    padding: 30px;
+    min-width: var(--breakpoint-md);
+    box-shadow: $box-shadow-light-1;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  }
+
+  &__row {
+    &-control {
+      position: absolute;
+      top: 12px;
+      right: -30px;
+    }
+  }
+
+  &__rows {
+    &--compact {
+      th, td {
+        padding: 4px 16px;
+      }
+      .invoice__row-control {
+        top: 0;
+      }
+    }
+  }
 }
 
 @page {
@@ -29,10 +50,4 @@
   .invoice-box {
     box-shadow: none;
   }
-}
-
-.remove-invoice-row {
-  position: absolute;
-  right: -30px;
-  top: 10px;
 }

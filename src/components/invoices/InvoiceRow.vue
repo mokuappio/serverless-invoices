@@ -38,7 +38,8 @@
         </td>
         <td class="text-right position-relative">
             {{ (row.quantity * row.price) | currency }}
-            <button class="btn btn-sm remove-invoice-row d-print-none" @click="removeRow(row)">
+            <button class="btn btn-sm d-print-none invoice__row-control"
+                    @click="removeRow(row)">
                 <i class="material-icons md-18 pointer">remove</i>
             </button>
         </td>

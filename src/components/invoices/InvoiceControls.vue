@@ -20,7 +20,13 @@
                     <template slot="button-content">
                         <i class="material-icons">more_vert</i>
                     </template>
-                    <b-dropdown-item-button @click="print">{{ $t('download_pdf') }} </b-dropdown-item-button>
+                    <b-dropdown-group :header="$t('density')">
+                        <b-dropdown-item-button @click="toggleCompact">
+                            {{ invoice.is_compact ? $t('comfortable') : $t('compact') }}
+                        </b-dropdown-item-button>
+                    </b-dropdown-group>
+                    <b-dropdown-divider/>
+                    <b-dropdown-item-button @click="print">{{ $t('download_pdf') }}</b-dropdown-item-button>
                     <b-dropdown-item-button @click="deleteInvoice">{{ $t('delete') }}</b-dropdown-item-button>
                 </b-dropdown>
             </div>
@@ -31,14 +37,17 @@
 <script>
 import { mapGetters } from 'vuex';
 import NotificationService from '@/services/notification.service';
-import { BDropdown, BDropdownItemButton } from 'bootstrap-vue';
+import { BDropdown, BDropdownDivider, BDropdownGroup, BDropdownItemButton } from 'bootstrap-vue';
 import AppSelect from '@/components/form/AppSelect';
 
 export default {
   i18nOptions: { namespaces: ['invoice-controls', 'statuses'] },
   components: {
     BDropdown,
+    BDropdownDivider,
     BDropdownItemButton,
+    BDropdownGroup,
+
     AppSelect,
   },
   computed: {
@@ -93,6 +102,9 @@ export default {
         props,
         invoiceId: this.invoice.id,
       });
+    },
+    toggleCompact() {
+      this.updateProp({ is_compact: !this.invoice.is_compact });
     },
     print() {
       window.print();
