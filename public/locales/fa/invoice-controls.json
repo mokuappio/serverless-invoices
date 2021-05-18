@@ -1,6 +1,10 @@
 {
   "back": "بازگشت",
   "book": "کتاب",
+  "design_and_layout": "Design & layout",
+  "compact": "Compact",
+  "comfortable": "Comfortable",
+  "customize": "Customize",
   "download_pdf": "بارگیری PDF",
   "delete": "حذف",
   "delete_modal": {

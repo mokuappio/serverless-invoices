@@ -1,6 +1,10 @@
 {
   "back": "Tagasi",
   "book": "Kinnita",
+  "design_and_layout": "Design & layout",
+  "compact": "Compact",
+  "comfortable": "Comfortable",
+  "customize": "Customize",
   "download_pdf": "Lae alla PDF",
   "delete": "Kustuta",
   "delete_modal": {

@@ -10,7 +10,6 @@
     box-shadow: $box-shadow-light-1;
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
   }
 
   &__row {
@@ -36,18 +35,26 @@
 @page {
   size: A4;
   margin: 0;
+  //-webkit-print-color-adjust: exact;
 }
 
 @media print {
   html, body {
     width: 210mm;
     height: 297mm;
-    color: $dark;
+    //color: $dark;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .table {
-    color: $dark;
+    //color: $dark;
+    td, th {
+      background-color: inherit !important;
+    }
   }
   .invoice-box {
     box-shadow: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

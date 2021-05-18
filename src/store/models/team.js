@@ -2,6 +2,18 @@ import { Model } from '@vuex-orm/core';
 import { uuidv4 } from '@/utils/helpers';
 import TeamField from '@/store/models/team-field';
 
+const customCSS = `
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+.invoice-box:after {
+    background: linear-gradient(to bottom, #1C7CE0, #150051);
+}
+
+.invoice-box {
+    font-family: 'Work Sans', sans-serif;
+} */
+`;
+
 export default class Team extends Model {
   // This is the name used as module name of the Vuex Store.
   static entity = 'teams';
@@ -25,6 +37,7 @@ export default class Team extends Model {
       updated_at: this.attr(''),
       created_at: this.attr(''),
       logo_url: this.attr(''),
+      custom_css: this.attr(customCSS),
     };
   }
 }

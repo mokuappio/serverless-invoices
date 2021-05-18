@@ -1,9 +1,10 @@
 {
   "back": "Back",
   "book": "Book",
-  "density": "Density",
+  "design_and_layout": "Design & layout",
   "compact": "Compact",
   "comfortable": "Comfortable",
+  "customize": "Customize",
   "download_pdf": "Download PDF",
   "delete": "Delete",
   "delete_modal": {

@@ -10,6 +10,7 @@
                 </div>
             </div>
         </div>
+        <CustomizationsModal/>
         <ClientModal v-if="team"/>
         <TeamModal v-if="team"/>
         <BankAccountModal v-if="team"/>
@@ -24,6 +25,7 @@ import BankAccountModal from '@/components/bank-accounts/BankAccountModal';
 import { VBTooltip } from 'bootstrap-vue';
 import TeamModal from '@/components/team/TeamModal';
 import TheFooter from '@/components/TheFooter';
+import CustomizationsModal from '@/components/invoices/CustomizationsModal';
 import ImportModal from '../../components/ImportModal';
 
 export default {
@@ -36,6 +38,7 @@ export default {
     ImportModal,
     BankAccountModal,
     ClientModal,
+    CustomizationsModal,
   },
   computed: {
     ...mapGetters({

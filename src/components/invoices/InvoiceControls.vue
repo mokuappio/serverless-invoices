@@ -20,9 +20,12 @@
                     <template slot="button-content">
                         <i class="material-icons">more_vert</i>
                     </template>
-                    <b-dropdown-group :header="$t('density')">
+                    <b-dropdown-group :header="$t('design_and_layout')">
                         <b-dropdown-item-button @click="toggleCompact">
                             {{ invoice.is_compact ? $t('comfortable') : $t('compact') }}
+                        </b-dropdown-item-button>
+                        <b-dropdown-item-button @click="openCustomizationsModal">
+                            {{ $t('customize') }}
                         </b-dropdown-item-button>
                     </b-dropdown-group>
                     <b-dropdown-divider/>
@@ -37,11 +40,18 @@
 <script>
 import { mapGetters } from 'vuex';
 import NotificationService from '@/services/notification.service';
-import { BDropdown, BDropdownDivider, BDropdownGroup, BDropdownItemButton } from 'bootstrap-vue';
+import {
+  BDropdown,
+  BDropdownDivider,
+  BDropdownGroup,
+  BDropdownItemButton,
+} from 'bootstrap-vue';
 import AppSelect from '@/components/form/AppSelect';
 
 export default {
-  i18nOptions: { namespaces: ['invoice-controls', 'statuses'] },
+  i18nOptions: {
+    namespaces: ['invoice-controls', 'statuses'],
+  },
   components: {
     BDropdown,
     BDropdownDivider,
@@ -105,6 +115,9 @@ export default {
     },
     toggleCompact() {
       this.updateProp({ is_compact: !this.invoice.is_compact });
+    },
+    openCustomizationsModal() {
+      this.$store.commit('invoices/isCustomizationsModalOpen', true);
     },
     print() {
       window.print();

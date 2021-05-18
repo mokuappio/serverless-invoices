@@ -16,14 +16,14 @@ export default {
   state: {
     errors: new Errors(),
     invoiceId: null,
-    isSendModalOpen: false,
+    isCustomizationsModalOpen: false,
   },
   mutations: {
     invoiceId(state, invoiceId) {
       state.invoiceId = invoiceId;
     },
-    isSendModalOpen(state, isSendModalOpen) {
-      state.isSendModalOpen = isSendModalOpen;
+    isCustomizationsModalOpen(state, isCustomizationsModalOpen) {
+      state.isCustomizationsModalOpen = isCustomizationsModalOpen;
     },
     setErrors(state, errors) {
       state.errors.set(errors);
