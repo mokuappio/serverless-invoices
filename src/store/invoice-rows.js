@@ -42,7 +42,7 @@ export default {
       });
 
       const client = rootGetters['invoices/invoice'].client;
-      if (client && client.has_tax) {
+      if ((client && client.has_tax) || !client) {
         const taxes = getters.taxes.length > 0
           ? getters.taxes
           : rootGetters['taxes/allWithLabels'];
