@@ -52,7 +52,7 @@ export default {
   watch: {
     team() {
       this.updateStyleEl(this.team.custom_css);
-    }
+    },
   },
   created() {
     this.initStyleEl();
