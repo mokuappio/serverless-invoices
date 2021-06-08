@@ -3,7 +3,7 @@
         <div v-for="tax in taxes" :key="tax.id">
             <AppEditable :value="tax.label"
                          :placeholder="$t('label')"
-                         @change="updateTaxProp({ label: $event }, tax)"/>
+                         @change="updateTaxProp({ label: $event }, tax)"/> (%)
             <i class="material-icons md-18 float-right pointer" @click="removeTax(tax)">close</i>
             <AppInput :value="tax.value" @change="updateTaxProp({ value: $event }, tax)"
                       :placeholder="tax.label" type="number"/>
