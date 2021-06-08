@@ -1,19 +1,17 @@
 <template>
     <div>
-        <div v-for="tax in taxes" :key="tax.id" class="col-sm-6">
+        <div v-for="tax in taxes" :key="tax.id">
             <AppEditable :value="tax.label"
                          :placeholder="$t('label')"
                          @change="updateTaxProp({ label: $event }, tax)"/>
             <i class="material-icons md-18 float-right pointer" @click="removeTax(tax)">close</i>
             <AppInput :value="tax.value" @change="updateTaxProp({ value: $event }, tax)"
-                      :placeholder="tax.label"/>
+                      :placeholder="tax.label" type="number"/>
         </div>
-        <div class="col-12">
-            <button class="btn btn-sm btn-secondary " @click="addNewTax">
-                <i class="material-icons md-18">add</i>
-                {{ $t('tax') }}
-            </button>
-        </div>
+        <button type="button" class="btn btn-sm btn-secondary" @click="addNewTax">
+            <i class="material-icons md-18">add</i>
+            {{ $t('tax') }}
+        </button>
     </div>
 </template>
 <script>

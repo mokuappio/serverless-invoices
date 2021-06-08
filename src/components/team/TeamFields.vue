@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="field in team.fields" :key="field.id" class="col-sm-6">
+        <div v-for="field in team.fields" :key="field.id" class="col-12">
             <AppEditable :value="field.label"
                          :placeholder="$t('label')"
                          @change="updateFieldProp({ label: $event }, field)"/>

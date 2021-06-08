@@ -6,8 +6,7 @@
     </tr>
     <tr class="text-right" v-for="tax in invoice.taxes" :key="tax.label">
         <td :colspan="colspan">
-            {{ tax.label }}
-            <!--({{ tax.rate | currency }}%)-->
+            {{ tax.label }} ({{ tax.rate }}%)
         </td>
         <td>{{ tax.total | currency }}</td>
     </tr>

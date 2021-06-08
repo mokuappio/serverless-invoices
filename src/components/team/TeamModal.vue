@@ -4,7 +4,7 @@
             hide-footer
             hide-header
             content-class="bg-base dp--24">
-        <TeamForm @done="close()"/>
+        <TeamForm @done="close"/>
     </BModal>
 </template>
 
