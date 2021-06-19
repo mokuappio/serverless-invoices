@@ -1,0 +1,10 @@
+{
+    "invoice_title": "Facture ",
+    "invoice_number": "No.",
+    "issued_at": "Facturé le: ",
+    "due_at": "Exigible le:",
+    "late_fee": "Intérets de retard:",
+    "add_late_fee": "Ajouter intérets de retard",
+    "modal_issued_at_title": "Facturé le",
+    "modal_due_at_title": "Exigible le"
+}

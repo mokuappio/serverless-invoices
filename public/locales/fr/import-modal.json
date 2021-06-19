@@ -1,0 +1,6 @@
+{
+    "title": "Importer vos données",
+    "warning": "Vos données actuelles seront supprimées et écrasées avec les données importées!",
+    "button_text": "Choisissez votre fichier à importer",
+    "import-error": "Format JSON invalide"
+}

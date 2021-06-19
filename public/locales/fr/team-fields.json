@@ -1,0 +1,10 @@
+{
+    "label": "Libellé",
+    "field": "Champ",
+    "delete_modal": {
+        "title": "Supprimer un champ",
+        "ok_title": "Supprimer",
+        "cancel_title": "Annuler"
+    },
+    "notification_delete": "Supprimé"
+}

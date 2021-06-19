@@ -1,0 +1,9 @@
+{
+    "statuses": {
+        "draft": "brouillon",
+        "booked": "signé",
+        "sent": "envoyé",
+        "paid": "payé",
+        "cancelled": "annulé"
+    }
+}

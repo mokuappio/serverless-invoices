@@ -1,0 +1,36 @@
+{
+    "title": "Client",
+    "delete": "Supprimer",
+    "done": "Terminé",
+    "create": "Créer",
+    "loading": "Chargement",
+    "tabs": {
+        "general": "Général",
+        "invoicing": "Facturation",
+        "address": "Adresse"
+    },
+    "general": {
+        "company_name": "Nom de la société",
+        "invoice_email": "E-mail"
+    },
+    "invoicing": {
+        "currency": "Devise",
+        "rate": "Taux horaire",
+        "has_tax": "Taxes à appliquer",
+        "bank_account": "Compte bancaire"
+    },
+    "address": {
+        "company_address": "Addresse de la société",
+        "company_postal_code": "Code postal",
+        "company_city": "Ville",
+        "company_county": "Province/Région",
+        "company_country": "Pays"
+    },
+    "delete_modal": {
+        "title": "Supprimer client",
+        "ok_title": "Supprimer",
+        "cancel_title": "Annuler"
+    },
+    "notification_deleted": "Supprimer",
+    "notification_updated": "Mis à jour"
+}

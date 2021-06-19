@@ -1,0 +1,36 @@
+{
+    "title": "Votre société",
+    "done": "Terminé",
+    "updated": "Mis à jour",
+    "loading": "Chargement",
+    "tabs": {
+        "general": "Général",
+        "invoicing": "Facturation",
+        "address": "Adresse",
+        "taxes": "Taxes"
+    },
+    "general": {
+        "company_name": "Nom de la société",
+        "contact_email": "E-mail",
+        "contact_phone": "Téléphone",
+        "website": "Site web"
+    },
+    "invoicing": {
+        "invoice_late_fee": "Intérêt de retard (%)",
+        "invoice_due_days": "Conditions de paiements, jours",
+        "currency": "Devise par défaut"
+    },
+    "address": {
+        "company_address": "Address de la société",
+        "company_postal_code": "Code postal",
+        "company_city": "Ville",
+        "company_county": "Province/Région",
+        "company_country": "Pays"
+    },
+    "tax_modal": {
+        "title": "Ecraser les taxes pour les lignes de la facture courante?",
+        "ok_title": "Ecraser",
+        "cancel_title": "Annuler",
+        "taxes_updated": "Taxes mises à jour"
+    }
+}
