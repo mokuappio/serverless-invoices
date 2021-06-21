@@ -1,0 +1,16 @@
+{
+    "back": "Retour",
+    "book": "Book",
+    "design_and_layout": "Apparence",
+    "compact": "Compacte",
+    "comfortable": "Comfortable",
+    "customize": "Customise",
+    "download_pdf": "Télécharger PDF",
+    "delete": "Supprimer",
+    "delete_modal": {
+        "title": "Supprimer facture",
+        "ok_title": "Supprimer",
+        "cancel_title": "Annuler"
+    },
+    "notification_deleted": "Supprimé"
+}

@@ -1,0 +1,10 @@
+{
+    "label": "Libellé",
+    "tax": "Taxe",
+    "delete_modal": {
+        "title": "Supprimer la taxe",
+        "ok_title": "Supprimer",
+        "cancel_title": "Annuler"
+    },
+    "notification_deleted": "Supprimé"
+}

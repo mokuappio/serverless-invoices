@@ -1,0 +1,7 @@
+{
+    "modal_title": "Choisissez un logo",
+    "button_text": "Choisissez dans vos fichiers",
+    "logo_url": "Insérez un image à partir d'une url",
+    "logo_url_err": "Le logo doit avoir une taille < 512kb.",
+    "or": "ou"
+}
