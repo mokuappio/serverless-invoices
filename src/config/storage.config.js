@@ -5,3 +5,7 @@ storage.config({
   version: 1.0,
   storeName: 'default',
 });
+
+export default {
+  type: 'local',
+};

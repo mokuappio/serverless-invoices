@@ -1,48 +1,28 @@
-import storage from 'localforage';
-import { removeVuexORMFlags } from '@/utils/helpers';
+import data from '@/services/data.service';
 
 class TaxService {
-  async getTaxes() {
-    const taxes = await storage.getItem('taxes');
-
-    return taxes || [];
+  getTaxes() {
+    return data.get('taxes');
   }
 
-  async getTax(taxId) {
-    const taxes = await this.getTaxes();
-    return taxes.find(tax => tax.id === taxId);
+  getTax(taxId) {
+    return data.get(`taxes/${taxId}`);
   }
 
-  async createTax(tax) {
-    return this.saveTax(tax);
+  createTax(tax) {
+    return data.post('taxes', tax);
   }
 
-  async updateTax(tax) {
-    return this.saveTax(tax);
+  updateTax(tax) {
+    return data.patch(`taxes/${tax.id}`, tax);
   }
 
-  async deleteTax(taxId) {
-    const taxes = await this.getTaxes();
-    const index = taxes.findIndex(item => item.id === taxId);
-    taxes.splice(index, 1);
-    return this.setTaxes(taxes);
-  }
-
-  async saveTax(tax) {
-    const taxes = await this.getTaxes();
-    const index = taxes.findIndex(item => item.id === tax.id);
-    removeVuexORMFlags(tax);
-    if (index === -1) {
-      taxes.push(tax);
-    } else {
-      taxes[index] = tax;
-    }
-    await this.setTaxes(taxes);
-    return tax;
+  deleteTax(taxId) {
+    return data.delete(`taxes/${taxId}`);
   }
 
   setTaxes(taxes) {
-    return storage.setItem('taxes', taxes);
+    return data.put('taxes', taxes);
   }
 }
 

@@ -1,22 +1,19 @@
-import storage from 'localforage';
-import {
-  validate, removeVuexORMFlags,
-} from '@/utils/helpers';
+import { validate } from '@/utils/helpers';
+import data from '@/services/data.service';
 
 class InvoiceService {
   async getInvoices() {
-    const invoices = await storage.getItem('invoices');
-    return invoices || [];
+    return data.get('invoices');
   }
 
   async getInvoice(invoiceId) {
-    const invoices = await this.getInvoices();
-    return invoices.find(invoice => invoice.id === invoiceId);
+    return data.get(`invoices/${invoiceId}`);
   }
 
   async createInvoice(invoice) {
     delete invoice.client;
-    return this.saveInvoice(invoice);
+
+    return data.post('invoices', invoice);
   }
 
   async updateInvoice(invoice) {
@@ -33,14 +30,11 @@ class InvoiceService {
       return Promise.reject(res);
     }
 
-    return this.saveInvoice(invoice);
+    return data.patch(`invoices/${invoice.id}`, invoice);
   }
 
   async deleteInvoice(invoiceId) {
-    const invoices = await this.getInvoices();
-    const index = invoices.findIndex(item => item.id === invoiceId);
-    invoices.splice(index, 1);
-    return storage.setItem('invoices', invoices);
+    return data.delete(`invoices/${invoiceId}`);
   }
 
   async bookInvoice(invoice) {
@@ -82,22 +76,6 @@ class InvoiceService {
 
     invoice.status = 'booked';
     return this.updateInvoice(invoice);
-  }
-
-  async saveInvoice(invoice) {
-    const invoices = await this.getInvoices();
-    const index = invoices.findIndex(item => item.id === invoice.id);
-
-    delete invoice.client;
-    removeVuexORMFlags(invoice);
-
-    if (index === -1) {
-      invoices.push(invoice);
-    } else {
-      invoices[index] = invoice;
-    }
-    await storage.setItem('invoices', invoices);
-    return invoice;
   }
 }
 

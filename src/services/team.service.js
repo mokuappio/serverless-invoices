@@ -1,8 +1,8 @@
-import storage from 'localforage';
+import data from '@/services/data.service';
 
 class TeamService {
   async getTeam() {
-    let team = await storage.getItem('team');
+    let team = await data.get('team');
     if (!team) {
       team = {
         company_name: null,
@@ -26,7 +26,7 @@ class TeamService {
   }
 
   async updateTeam(team) {
-    return storage.setItem('team', team);
+    return data.put('team', team);
   }
 }
 
