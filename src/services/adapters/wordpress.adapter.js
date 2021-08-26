@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { removeVuexORMFlags } from '@/utils/helpers';
-import config from '@/config/app.config';
+
+const config = JSON.parse(window.name);
 
 const http = axios.create({
-  baseURL: config.wordpress_url,
+  baseURL: config.api_url,
+  headers: {
+    'X-WP-Nonce': config.nonce,
+  },
 });
 
 class WordpressAdapter {
