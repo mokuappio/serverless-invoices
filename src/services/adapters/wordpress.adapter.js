@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { removeVuexORMFlags } from '@/utils/helpers';
 
-const config = JSON.parse(window.name);
+const config = window.name ? JSON.parse(window.name) : { api_url: '', nonce: '' };
 
 const http = axios.create({
   baseURL: config.api_url,
