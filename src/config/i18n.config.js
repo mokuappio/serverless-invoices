@@ -28,7 +28,7 @@ const initialized = i18next.init({
 initialized.then(() => app.$store.dispatch('language/initLanguage', i18next.language));
 
 const i18n = new VueI18Next(i18next, {
-  loadComponentNamespace: true,
+  // loadComponentNamespace: true,
 });
 
 i18n.initialized = initialized;
