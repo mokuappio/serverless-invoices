@@ -23,7 +23,9 @@ class LocalAdapter {
     removeVuexORMFlags(data);
     items.push(data);
 
-    return storage.setItem(uri, items);
+    await storage.setItem(uri, items);
+
+    return data;
   }
 
   async patch(uri, data) {
@@ -36,7 +38,9 @@ class LocalAdapter {
       removeVuexORMFlags(data);
       items[index] = data;
 
-      return storage.setItem(parts[0], items);
+      await storage.setItem(parts[0], items);
+
+      return data;
     }
 
     return null;
