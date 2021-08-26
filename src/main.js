@@ -1,5 +1,5 @@
 import 'es6-promise';
-import '@/config/storage.config';
+import '@/config/local-storage.config';
 import { BVModalPlugin } from 'bootstrap-vue';
 import Vue from 'vue';
 import App from '@/App.vue';
