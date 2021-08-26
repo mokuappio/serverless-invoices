@@ -1,4 +1,4 @@
-import storage from '@/config/storage.config';
+import config from '@/config/app.config';
 import local from '@/services/adapters/local.adapter';
 import http from '@/services/adapters/http.adapter';
 import wordpress from '@/services/adapters/wordpress.adapter';
@@ -7,11 +7,11 @@ class DataService {
   adapter = null;
 
   constructor() {
-    if (storage.type === 'local') {
+    if (config.storageType === 'local') {
       this.adapter = local;
-    } else if (storage.type === 'http') {
+    } else if (config.storageType === 'http') {
       this.adapter = http;
-    } else if (storage.type === 'wordpress') {
+    } else if (config.storageType === 'wordpress') {
       this.adapter = wordpress;
     }
   }
