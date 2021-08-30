@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import store from '@/store/store';
 import i18n from '@/config/i18n.config';
+import config from '@/config/app.config';
 
 Vue.use(Router);
 
@@ -37,7 +38,7 @@ const routes = [
 
 const router = new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: config.base_url,
   routes,
 });
 
