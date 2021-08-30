@@ -7,11 +7,13 @@ class DataService {
   adapter = null;
 
   constructor() {
-    if (config.storageType === 'local') {
+    const type = config.storageType || 'local';
+
+    if (type === 'local') {
       this.adapter = local;
-    } else if (config.storageType === 'http') {
+    } else if (type === 'http') {
       this.adapter = http;
-    } else if (config.storageType === 'wordpress') {
+    } else if (type === 'wordpress') {
       this.adapter = wordpress;
     }
   }

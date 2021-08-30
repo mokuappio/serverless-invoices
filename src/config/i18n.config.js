@@ -4,6 +4,7 @@ import VueI18Next from '@panter/vue-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import app from '@/main';
+import config from '@/config/app.config';
 
 Vue.use(VueI18Next);
 
@@ -11,16 +12,11 @@ i18next
   .use(LanguageDetector)
   .use(Backend);
 
-const path = window.name
-  ? JSON.parse(window.name).front_url
-  : `${window.location.origin}${process.env.BASE_URL}`;
-
-
 const initialized = i18next.init({
   fallbackLng: 'en',
   whitelist: ['en', 'fr', 'et', 'fa', 'bn', 'es'],
   backend: {
-    loadPath: `${path}/locales/{{lng}}/{{ns}}.json`,
+    loadPath: config.locales_url || `${window.location.origin}${process.env.BASE_URL}/locales/{{lng}}/{{ns}}.json`,
   },
   detection: {
     order: ['querystring', 'path', 'localStorage', 'navigator'],

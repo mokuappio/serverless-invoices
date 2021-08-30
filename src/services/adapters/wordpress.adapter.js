@@ -1,14 +1,13 @@
 import axios from 'axios';
 import app from '@/main';
+import config from '@/config/app.config';
 import NotificationService from '@/services/notification.service';
 import { removeVuexORMFlags } from '@/utils/helpers';
 
-const config = window.name ? JSON.parse(window.name) : { front_url: '', api_url: '', nonce: '' };
-
 const http = axios.create({
-  baseURL: config.api_url,
+  baseURL: config.api_url || '',
   headers: {
-    'X-WP-Nonce': config.nonce,
+    'X-WP-Nonce': config.nonce || '',
   },
 });
 
