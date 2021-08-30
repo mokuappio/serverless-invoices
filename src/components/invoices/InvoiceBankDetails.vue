@@ -49,7 +49,7 @@ export default {
         bank_name: account.bank_name,
         bank_account_id: account.id,
       });
-      this.$bvModal.hide('account_no');
+      this.$bvModal.hide('bank_account_no');
     },
   },
 };
