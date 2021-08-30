@@ -1,6 +1,8 @@
 import 'es6-promise';
+import VueProgressBar from 'vue-progressbar';
+import progressbarConfig from '@/config/progressbar.config';
 import '@/config/local-storage.config';
-import { BVModalPlugin } from 'bootstrap-vue';
+import { VBModalPlugin } from 'bootstrap-vue';
 import Vue from 'vue';
 import App from '@/App.vue';
 import router from '@/router';
@@ -9,8 +11,9 @@ import VueNotifications from 'vue-notification';
 import './registerServiceWorker';
 import i18n from './config/i18n.config';
 
-Vue.use(BVModalPlugin);
+Vue.use(VBModalPlugin);
 Vue.use(VueNotifications);
+Vue.use(VueProgressBar, progressbarConfig);
 
 Vue.config.productionTip = false;
 

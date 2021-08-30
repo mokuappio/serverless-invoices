@@ -1,4 +1,6 @@
 import axios from 'axios';
+import app from '@/main';
+import NotificationService from '@/services/notification.service';
 import { removeVuexORMFlags } from '@/utils/helpers';
 
 const config = window.name ? JSON.parse(window.name) : { api_url: '', nonce: '' };
@@ -8,6 +10,34 @@ const http = axios.create({
   headers: {
     'X-WP-Nonce': config.nonce,
   },
+});
+
+http.interceptors.request.use((request) => {
+  if (typeof request.hideLoading === 'undefined' || !request.hideLoading) {
+    app.$Progress.start();
+  }
+  return request;
+}, (error) => {
+  app.$Progress.finish();
+
+  NotificationService.error('Network error. Check your connection');
+  return Promise.reject(error);
+});
+
+http.interceptors.response.use((response) => {
+  app.$Progress.finish();
+
+  return response;
+}, (error) => {
+  app.$Progress.finish();
+
+  // Server down
+  if (error.response.status >= 500) {
+    NotificationService.error('Server Unavailable.');
+    return Promise.reject(error);
+  }
+
+  return Promise.reject(error);
 });
 
 class WordpressAdapter {
