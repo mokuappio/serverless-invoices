@@ -11,12 +11,16 @@ i18next
   .use(LanguageDetector)
   .use(Backend);
 
-console.log(process.env.BASE_URL);
+const path = window.name
+  ? JSON.parse(window.name).front_url
+  : `${window.location.origin}${process.env.BASE_URL}`;
+
+
 const initialized = i18next.init({
   fallbackLng: 'en',
   whitelist: ['en', 'fr', 'et', 'fa', 'bn', 'es'],
   backend: {
-    loadPath: `${window.location.origin}${process.env.BASE_URL}/locales/{{lng}}/{{ns}}.json`,
+    loadPath: `${path}/locales/{{lng}}/{{ns}}.json`,
   },
   detection: {
     order: ['querystring', 'path', 'localStorage', 'navigator'],

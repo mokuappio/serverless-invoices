@@ -3,7 +3,7 @@ import app from '@/main';
 import NotificationService from '@/services/notification.service';
 import { removeVuexORMFlags } from '@/utils/helpers';
 
-const config = window.name ? JSON.parse(window.name) : { api_url: '', nonce: '' };
+const config = window.name ? JSON.parse(window.name) : { front_url: '', api_url: '', nonce: '' };
 
 const http = axios.create({
   baseURL: config.api_url,
