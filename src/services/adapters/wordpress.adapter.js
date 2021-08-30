@@ -7,7 +7,7 @@ import { removeVuexORMFlags } from '@/utils/helpers';
 const http = axios.create({
   baseURL: config.api_url || '',
   headers: {
-    'X-WP-Nonce': config.nonce || '',
+    'X-WP-Nonce': config.api_nonce || '',
   },
 });
 
