@@ -18,14 +18,28 @@ Built with [Vue.js](https://vuejs.org/) and [Bootstrap](https://getbootstrap.com
 ## Features
 - Truly serverless - data stored in your browser only, no network requests
 - No hosting required - works locally
-- Create, edit, delete invoices
-- Track invoice status and due date
-- Create, edit, delete bank accounts
-- Create, edit clients
-- Edit company
+- Invoices
+  - Create & manage invoices
+  - Track invoices by status and due date
+  - Multiple custom taxes
+  - Print to PDF
+  - Customizable logo and template, CSS
+- Bank accounts
+- Clients
+  - Create & manage clients
+  - Custom fields
+- Company details
+  - Edit default company details
+  - Custom fields
+  - Default taxes
 - Export & import json data
-- Print to PDF
 - Dark and light mode!
+- Multilingual
+- PWA support 
+- Ready-to-go backend adapters
+  - Local storage
+  - Wordpress
+  - Custom HTTP API
 
 ## Project setup
 
