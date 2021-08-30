@@ -2,6 +2,7 @@
     <div id="app"
          class="min-vh-100"
          :class="$route.name">
+        <vue-progress-bar/>
         <transition name="fade" mode="out-in">
             <router-view/>
         </transition>
