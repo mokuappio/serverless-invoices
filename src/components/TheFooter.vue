@@ -12,7 +12,8 @@
         <div class="col-md-8 text-left text-md-right">
             <small v-b-tooltip.hover
                    :title="$t('title')"
-                   class="pointer">
+                   class="pointer"
+                   v-if="!isStorageWordpress">
                 {{ $t('what_about_my_data') }}
             </small>
             <small class="pl-2">
@@ -23,7 +24,8 @@
             </small>
             <a href="https://github.com/mokuappio/serverless-invoices"
                class="btn btn-sm btn--icon ml-0 ml-md-2"
-               target="_blank">
+               target="_blank"
+               v-if="!isStorageWordpress">
                 <img src="@/assets/img/github.png"
                      alt="Serverless Invoices Github"
                      v-if="theme === 'dark'">
@@ -33,12 +35,14 @@
             </a>
             <a href="https://app.mokuapp.io/"
                class="btn btn-sm btn-primary ml-2"
-               target="_blank">{{ $t('upgrade') }}</a>
+               target="_blank"
+               v-if="!isStorageWordpress">{{ $t('upgrade') }}</a>
         </div>
     </footer>
 </template>
 
 <script>
+import config from '@/config/app.config';
 import { mapState } from 'vuex';
 import { VBTooltip } from 'bootstrap-vue';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -53,6 +57,9 @@ export default {
     ...mapState({
       theme: state => state.themes.theme,
     }),
+    isStorageWordpress() {
+      return config.storageType === 'wordpress';
+    },
   },
   methods: {
     toggleTheme() {
