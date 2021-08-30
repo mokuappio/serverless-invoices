@@ -6,7 +6,7 @@
                     <transition name="fade" mode="out-in">
                         <router-view/>
                     </transition>
-                    <TheFooter/>
+                    <TheFooter v-if="!isStorageWordpress"/>
                 </div>
             </div>
         </div>
@@ -27,6 +27,7 @@ import TeamModal from '@/components/team/TeamModal';
 import TheFooter from '@/components/TheFooter';
 import CustomizationsModal from '@/components/invoices/CustomizationsModal';
 import ImportModal from '../../components/ImportModal';
+import config from '@/config/app.config';
 
 export default {
   directives: {
@@ -44,6 +45,9 @@ export default {
     ...mapGetters({
       team: 'teams/team',
     }),
+    isStorageWordpress() {
+      return config.storageType === 'wordpress';
+    },
   },
 };
 </script>
