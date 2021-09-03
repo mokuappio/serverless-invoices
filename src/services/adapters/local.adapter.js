@@ -6,6 +6,9 @@ class LocalAdapter {
     const parts = uri.split('/');
 
     if (parts.length === 1) {
+      if (parts[0] === 'team') {
+        return storage.getItem(parts[0]);
+      }
       return (await storage.getItem(parts[0])) || [];
     }
 
