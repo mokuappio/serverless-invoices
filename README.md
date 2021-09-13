@@ -37,8 +37,10 @@ Built with [Vue.js](https://vuejs.org/) and [Bootstrap](https://getbootstrap.com
 - Multilingual
 - PWA support 
 - Ready-to-go backend adapters
-  - Local storage
-  - Wordpress
+  - [Browser Storage](https://invoices.mokuapp.io)
+  - [Wordpress](https://wordpress.org/plugins/beautiful-custom-invoices/)
+  - Woocommerce (coming soon)
+  - Google Drive (coming soon)
   - Custom HTTP API
 
 ## Project setup
