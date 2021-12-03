@@ -1,0 +1,8 @@
+{
+  "client_address": "Adresse",
+  "client_postal_code": "Postleitzahl",
+  "client_city": "Stadt",
+  "client_county": "Bundesland",
+  "client_country": "Land",
+  "client_email": "Kunden-E-Mail"
+}

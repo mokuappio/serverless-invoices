@@ -1,0 +1,36 @@
+{
+  "title": "Deine Firma",
+  "done": "Fertig",
+  "updated": "Aktualisiert",
+  "loading": "Lädt",
+  "tabs": {
+    "general": "Allgemein",
+    "invoicing": "Inrechnungsstellung",
+    "address": "Adresse",
+    "taxes": "Steuern"
+  },
+  "general": {
+    "company_name": "Firmenname",
+    "contact_email": "E-Mail",
+    "contact_phone": "Telefon",
+    "website": "Website"
+  },
+  "invoicing": {
+    "invoice_late_fee": "Verzugsgebühr (%)",
+    "invoice_due_days": "Bezahlungsbedingungen, Tage",
+    "currency": "Standardwährung"
+  },
+  "address": {
+    "company_address": "Firmenadresse",
+    "company_postal_code": "Postleitzahl",
+    "company_city": "Stadt",
+    "company_county": "Bundesland",
+    "company_country": "Land"
+  },
+  "tax_modal": {
+    "title": "Steuern für aktuelle Rechnungsreihen überschreiben?",
+    "ok_title": "Überschreiben",
+    "cancel_title": "Ablehnen",
+    "taxes_updated": "Steuern aktualisiert"
+  }
+}

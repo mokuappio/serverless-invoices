@@ -1,0 +1,36 @@
+{
+  "title": "Kunde",
+  "delete": "Löschen",
+  "done": "Fertig",
+  "create": "Erstellen",
+  "loading": "Lädt",
+  "tabs": {
+    "general": "Allgemein",
+    "invoicing": "Inrechnungsstellung",
+    "address": "Adresse"
+  },
+  "general": {
+    "company_name": "Firmenname",
+    "invoice_email": "E-Mail"
+  },
+  "invoicing": {
+    "currency": "Währung",
+    "rate": "Stundenlohn",
+    "has_tax": "Steuern anwenden",
+    "bank_account": "Bankkonto"
+  },
+  "address": {
+    "company_address": "Firmenadresse",
+    "company_postal_code": "Postleitzahl",
+    "company_city": "Stadt",
+    "company_county": "Bundesland",
+    "company_country": "Land"
+  },
+  "delete_modal": {
+    "title": "Kunden löschen",
+    "ok_title": "Löschen",
+    "cancel_title": "Ablehnen"
+  },
+  "notification_deleted": "Gelöscht",
+  "notification_updated": "Aktualisiert"
+}

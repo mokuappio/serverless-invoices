@@ -1,0 +1,16 @@
+{
+  "back": "Zurück",
+  "book": "Buchen",
+  "design_and_layout": "Design & Layout",
+  "compact": "Kompakt",
+  "comfortable": "Komfortabel",
+  "customize": "Deinen Wüschen anpassen",
+  "download_pdf": "PDF herunterladen",
+  "delete": "Löschen",
+  "delete_modal": {
+    "title": "Rechnung löschen",
+    "ok_title": "Löschen",
+    "cancel_title": "Ablehnen"
+  },
+  "notification_deleted": "Gelöscht"
+}

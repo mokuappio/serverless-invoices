@@ -1,0 +1,10 @@
+{
+  "label": "Kennung",
+  "field": "Feld",
+  "delete_modal": {
+    "title": "Feld löschen",
+    "ok_title": "Löschen",
+    "cancel_title": "Ablehnen"
+  },
+  "notification_delete": "Gelöscht"
+}

@@ -1,0 +1,7 @@
+{
+  "modal_title": "Logo auswählen",
+  "button_text": "Aus Dateien auswählen",
+  "logo_url": "Bild-Web-URL einfügen",
+  "logo_url_err": "Die Logogröße muss unter 512kb liegen.",
+  "or": "oder"
+}

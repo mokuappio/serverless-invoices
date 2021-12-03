@@ -1,0 +1,10 @@
+{
+  "label": "Kennung",
+  "tax": "Steuer",
+  "delete_modal": {
+    "title": "Steuer löschen",
+    "ok_title": "Löschen",
+    "cancel_title": "Ablehnen"
+  },
+  "notification_deleted": "Gelöscht"
+}

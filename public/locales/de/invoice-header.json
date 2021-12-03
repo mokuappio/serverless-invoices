@@ -1,0 +1,10 @@
+{
+  "invoice_title": "Rechnung ",
+  "invoice_number": "Nein.",
+  "issued_at": "Ausgestellt am: ",
+  "due_at": "Fällig am:",
+  "late_fee": "Verzugsgebühr:",
+  "add_late_fee": "Verzugsgebühr hinzufügen",
+  "modal_issued_at_title": "Ausgestellt am",
+  "modal_due_at_title": "Fällig am"
+}

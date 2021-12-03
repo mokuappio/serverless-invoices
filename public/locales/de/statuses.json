@@ -1,0 +1,9 @@
+{
+  "statuses": {
+    "draft": "Entwurf",
+    "booked": "Gebucht",
+    "sent": "Gesendet",
+    "paid": "Bezahlt",
+    "cancelled": "Abgebrochen"
+  }
+}
