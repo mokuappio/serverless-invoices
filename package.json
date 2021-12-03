@@ -17,6 +17,7 @@
     "core-js": "^2.6.5",
     "dayjs": "^1.10.3",
     "es6-promise": "^4.2.6",
+    "html2pdf.js": "^0.10.1",
     "i18next": "^20.2.1",
     "i18next-browser-languagedetector": "^6.1.0",
     "i18next-http-backend": "^1.2.1",

@@ -11,6 +11,7 @@ export default {
       { name: 'Persian', code: 'fa' },
       { name: 'Spanish', code: 'es' },
       { name: 'Bangla', code: 'bn' },
+      { name: 'German', code: 'de' },
     ],
   },
   mutations: {
