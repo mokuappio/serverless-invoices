@@ -1,0 +1,16 @@
+{
+  "back": "Voltar",
+  "book": "Registrar",
+  "design_and_layout": "Aparência e Layout",
+  "compact": "Compacto",
+  "comfortable": "Confortável",
+  "customize": "Personalizado",
+  "download_pdf": "Download PDF",
+  "delete": "Apagar",
+  "delete_modal": {
+    "title": "Apagar fatura",
+    "ok_title": "Apagar",
+    "cancel_title": "Cancelar"
+  },
+  "notification_deleted": "Apagado"
+}

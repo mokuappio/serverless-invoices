@@ -1,0 +1,36 @@
+{
+  "title": "Cliente",
+  "delete": "Apagar",
+  "done": "Concluir",
+  "create": "Create",
+  "loading": "Carregando",
+  "tabs": {
+    "general": "Geral",
+    "invoicing": "Faturamento",
+    "address": "Endereço"
+  },
+  "general": {
+    "company_name": "Nome do cliente",
+    "invoice_email": "Email"
+  },
+  "invoicing": {
+    "currency": "Moeda",
+    "rate": "Valor da Hora",
+    "has_tax": "Aplicar imposto",
+    "bank_account": "Conta Bancária"
+  },
+  "address": {
+    "company_address": "Endereço",
+    "company_postal_code": "Código Postal",
+    "company_city": "Cidade",
+    "company_county": "Estado",
+    "company_country": "País"
+  },
+  "delete_modal": {
+    "title": "Apagar cliente",
+    "ok_title": "Apagar",
+    "cancel_title": "Cancelar"
+  },
+  "notification_deleted": "Apagado",
+  "notification_updated": "Atualizado"
+}

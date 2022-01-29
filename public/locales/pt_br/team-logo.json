@@ -1,0 +1,7 @@
+{
+  "modal_title": "Escolher logo",
+  "button_text": "Selecionar dos arquivos",
+  "logo_url": "Inserir de URL na internet",
+  "logo_url_err": "Imagem deve possuir menos de 512kb.",
+  "or": "ou"
+}

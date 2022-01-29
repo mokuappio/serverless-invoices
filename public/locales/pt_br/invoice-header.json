@@ -1,0 +1,10 @@
+{
+  "invoice_title": "Fatura ",
+  "invoice_number": "No.",
+  "issued_at": "Emitida em: ",
+  "due_at": "Vence em:",
+  "late_fee": "Taxa de atraso:",
+  "add_late_fee": "Adicionar taxa de atraso",
+  "modal_issued_at_title": "Emitido em",
+  "modal_due_at_title": "Vence em"
+}
