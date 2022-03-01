@@ -1,0 +1,9 @@
+{
+  "title": "Conta bancária",
+  "bank_name": "Nome",
+  "account_no": "Detalhes",
+  "loading": "Carregando",
+  "done": "Concluir",
+  "create": "Criar",
+  "notification_updated": "Conta atualizada"
+}

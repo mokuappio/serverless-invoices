@@ -1,0 +1,8 @@
+{
+  "client_address": "Endereço",
+  "client_postal_code": "CEP",
+  "client_city": "Cidade",
+  "client_county": "Estado",
+  "client_country": "País",
+  "client_email": "Email do Cliente"
+}

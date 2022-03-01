@@ -1,0 +1,36 @@
+{
+  "title": "Sua Empresa",
+  "done": "Concluir",
+  "updated": "Atualizado",
+  "loading": "Carregando",
+  "tabs": {
+    "general": "Geral",
+    "invoicing": "Faturamento",
+    "address": "Endereço",
+    "taxes": "Imposto"
+  },
+  "general": {
+    "company_name": "Nome da Empresa",
+    "contact_email": "Email",
+    "contact_phone": "Telefone",
+    "website": "Website"
+  },
+  "invoicing": {
+    "invoice_late_fee": "Taxa de atraso (%)",
+    "invoice_due_days": "Termos de pagamento, dias",
+    "currency": "Moeda Padrão"
+  },
+  "address": {
+    "company_address": "Endereço da Empresa",
+    "company_postal_code": "CEP",
+    "company_city": "Cidade",
+    "company_county": "Estado",
+    "company_country": "País"
+  },
+  "tax_modal": {
+    "title": "Substituir imposto nos itens do pedido atual?",
+    "ok_title": "Substituir",
+    "cancel_title": "Cancelar",
+    "taxes_updated": "Atualizar Imposto"
+  }
+}
