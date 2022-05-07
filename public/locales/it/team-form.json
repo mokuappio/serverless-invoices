@@ -1,0 +1,36 @@
+{
+  "title": "Tua azienda",
+  "done": "Fatto",
+  "updated": "Aggiornato",
+  "loading": "Caricato",
+  "tabs": {
+    "general": "Generale",
+    "invoicing": "Fatturazione",
+    "address": "Indirizzi",
+    "taxes": "Tasse"
+  },
+  "general": {
+    "company_name": "Noma azienda",
+    "contact_email": "Posta elettronica",
+    "contact_phone": "Telefono",
+    "website": "Sito internet"
+  },
+  "invoicing": {
+    "invoice_late_fee": "Interessi (%)",
+    "invoice_due_days": "Termini pagamento, giorni",
+    "currency": "Valuta predefinita"
+  },
+  "address": {
+    "company_address": "Indirizzo Azienda",
+    "company_postal_code": "CAP",
+    "company_city": "Citta'",
+    "company_county": "Provincia",
+    "company_country": "Stato"
+  },
+  "tax_modal": {
+    "title": "Sovrascrivi la tassa per la fattura selezionata?",
+    "ok_title": "Sovrascrivi",
+    "cancel_title": "Cancella",
+    "taxes_updated": "Tasse aggiornate"
+  }
+}

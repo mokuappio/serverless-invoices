@@ -1,0 +1,10 @@
+{
+  "invoice_title": "Fattura",
+  "invoice_number": "Numero",
+  "issued_at": "Emassa il: ",
+  "due_at": "Da pagare entro:",
+  "late_fee": "Interessi da pagare:",
+  "add_late_fee": "Aggiungi interessi da pagare",
+  "modal_issued_at_title": "Fatturato il",
+  "modal_due_at_title": "Pagare il"
+}

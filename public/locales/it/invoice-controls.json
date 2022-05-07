@@ -1,0 +1,16 @@
+{
+    "back": "Ritorna",
+    "book": "Libro",
+    "design_and_layout": "Stile e impaginazione",
+    "compact": "Compatto",
+    "comfortable": "Comodo",
+    "customize": "Adattabile",
+    "download_pdf": "Scarica file PDF",
+    "delete": "Rimuovi",
+    "delete_modal": {
+        "title": "Rimuovi fattura",
+        "ok_title": "Rimuovi",
+        "cancel_title": "Cancella"
+    },
+    "notification_deleted": "Rimosso"
+}

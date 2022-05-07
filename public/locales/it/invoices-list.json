@@ -1,0 +1,7 @@
+{
+    "invoice_number": "Numero",
+    "client": "Cliente",
+    "issued_at": "Fatturato il: ",
+    "total": "Totale",
+    "status": "Stato"
+}

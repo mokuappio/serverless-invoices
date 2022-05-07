@@ -1,0 +1,9 @@
+{
+  "statuses": {
+    "draft": "bozza",
+    "booked": "prenotata",
+    "sent": "mandata",
+    "paid": "pagata",
+    "cancelled": "cancellata"
+  }
+}

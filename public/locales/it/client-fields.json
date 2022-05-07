@@ -1,0 +1,10 @@
+{
+    "label": "Etichetta",
+    "field": "Campo",
+    "delete_modal": {
+        "title": "Cancella campo",
+        "ok_title": "Cancella",
+        "cancel_title": "Annulla"
+    },
+    "notification_deleted": "Cancellato"
+}
