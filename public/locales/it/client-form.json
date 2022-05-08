@@ -1,0 +1,36 @@
+{
+  "title": "Cliente",
+  "delete": "Cancella",
+  "done": "Fatto",
+  "create": "Crea",
+  "loading": "Caricamento",
+  "tabs": {
+    "general": "Generale",
+    "invoicing": "Fatturazione",
+    "address": "Indirizzo"
+  },
+  "general": {
+    "company_name": "Ragione sociale",
+    "invoice_email": "Posta elettronica"
+  },
+  "invoicing": {
+    "currency": "Moneta",
+    "rate": "Tariffa oraria",
+    "has_tax": "Applica tassa",
+    "bank_account": "Conto bancario"
+  },
+  "address": {
+    "company_address": "Indirizzo societa'",
+    "company_postal_code": "CAP",
+    "company_city": "Citta",
+    "company_county": "Provincia",
+    "company_country": "Stato"
+  },
+  "delete_modal": {
+    "title": "Elimina Cliente",
+    "ok_title": "Elimina",
+    "cancel_title": "Cancella"
+  },
+  "notification_deleted": "Cancellato",
+  "notification_updated": "Aggiornato"
+}

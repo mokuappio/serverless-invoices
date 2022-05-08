@@ -7,12 +7,13 @@ export default {
     all: [
       { name: 'English', code: 'en' },
       { name: 'French', code: 'fr' },
+      { name: 'Italian', code: 'it' },
       { name: 'Estonian', code: 'et' },
       { name: 'Persian', code: 'fa' },
       { name: 'Spanish', code: 'es' },
       { name: 'Bangla', code: 'bn' },
       { name: 'German', code: 'de' },
-      { name: 'Português - BR', code: 'pt_br' },
+      { name: 'Português - BR', code: 'pt_br' }
     ],
   },
   mutations: {

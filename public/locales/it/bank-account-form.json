@@ -1,0 +1,9 @@
+{
+  "title": "Conto bancario",
+  "bank_name": "Nome banca",
+  "account_no": "Dettaglio conto",
+  "loading": "Caricamento",
+  "done": "Fatto",
+  "create": "Crea",
+  "notification_updated": "Aggiornato"
+}
