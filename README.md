@@ -10,8 +10,6 @@ It is open-source and easily extendable. You can use it as a starter kit for mor
 Run it locally or host it yourself.
  
 You can always use the latest free version at [invoices.mokuapp.io](https://invoices.mokuapp.io)
- 
-Sponsored and maintained by [Moku](https://mokuapp.io)
 
 Built with [Vue.js](https://vuejs.org/) and [Bootstrap](https://getbootstrap.com/)
 
@@ -64,8 +62,24 @@ npm run build
 npm run lint
 ```
 
-# Topics
+## Topics
 - invoices management
 - invoicing solution
 - invoice maker
 - invoice generator 
+
+
+## Affiliates and sponsors
+<a href="https://www.zone.ee/en/" target="_blank"><img src="https://www.zone.ee/wp-content/themes/zone-theme/img/zone_ee.svg" alt="Zone - Domains and web hosting" width="150"/></a>
+
+**ZONE** offers fast and secure web hosting, spam free email, cheap domains and quality support.
+
+Get **50%** off your first year with the code **ELEVATE**
+ - [Get your web, email and domain](https://my.zone.eu/en/domain-search#/?campaign=ELEVATE)
+ - Already have a domain? [Get only web and email](https://my.zone.eu/en/zwebadmin/webhosting/order?campaign=ELEVATE)
+
+<a href="https://mokuapp.io/" target="_blank"><img src="https://user-images.githubusercontent.com/5262399/170223530-0634d5c4-56d8-425e-846c-09f352f7b00c.png" alt="Moku - Time tracking, task management and automated invoicing" width="150"/></a>
+
+**MOKU** offers simple time tracking, task management and automated invoicing for ambitious dev teams and freelancers.
+ - [Get your free trial](https://mokuapp.io/)
+
