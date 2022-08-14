@@ -62,6 +62,25 @@ npm run build
 npm run lint
 ```
 
+## Run with Docker
+
+It is necessary to install Docker before running the following commands.
+
+```
+git clone https://github.com/mokuappio/serverless-invoices.git
+cd serverless-invoices.git
+docker build . -t mokuappio/serverless-invoices
+docker run -p 80:8080 -d --rm mokuappio/serverless-invoices
+```
+
+It is possible to add an alias in your .bashrc/.zshrc file to launch the app on the fly.
+
+```
+echo "alias serverless-invoices='docker run -p 80:8080 -d --rm mokuappio/serverless-invoices'" >> ~/.zshrc
+source ~/.zshrc
+serverless-invoices
+```
+
 ## Topics
 - invoices management
 - invoicing solution
