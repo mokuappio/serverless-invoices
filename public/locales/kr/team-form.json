@@ -1,0 +1,36 @@
+{
+  "title": "당신의 회사",
+  "done": "완료",
+  "updated": "수정되었습니다",
+  "loading": "실행 중",
+  "tabs": {
+    "general": "일반",
+    "invoicing": "송장 정보",
+    "address": "주소",
+    "taxes": "세금"
+  },
+  "general": {
+    "company_name": "회사 이름",
+    "contact_email": "이메일",
+    "contact_phone": "전화번호",
+    "website": "웹사이트"
+  },
+  "invoicing": {
+    "invoice_late_fee": "연착 요금 (%)",
+    "invoice_due_days": "지불조건, 일",
+    "currency": "기본 통화"
+  },
+  "address": {
+    "company_address": "회사 주소",
+    "company_postal_code": "우편번호",
+    "company_city": "읍/면/동",
+    "company_county": "시/도",
+    "company_country": "국가"
+  },
+  "tax_modal": {
+    "title": "현재 송장의 세금 항목을 젚어쓰기 하시겠습니까?",
+    "ok_title": "덮어쓰기",
+    "cancel_title": "취소",
+    "taxes_updated": "세금 정보가 수정되었습니다"
+  }
+}

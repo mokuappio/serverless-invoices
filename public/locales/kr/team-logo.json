@@ -1,0 +1,7 @@
+{
+  "modal_title": "상표(로고) 선택하기",
+  "button_text": "파일 가져오기",
+  "logo_url": "웹 URL 입력하기",
+  "logo_url_err": "상표 파일의 용량은 512kb 이하여야 합니다.",
+  "or": "혹은"
+}
