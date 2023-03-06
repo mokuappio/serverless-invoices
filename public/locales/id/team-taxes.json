@@ -1,0 +1,10 @@
+{
+    "label": "Label",
+    "tax": "Pajak",
+    "delete_modal": {
+        "title": "Hapus pajak",
+        "ok_title": "Hapus",
+        "cancel_title": "Gugurkan"
+    },
+    "notification_deleted": "Dihapus"
+}

@@ -1,0 +1,10 @@
+{
+    "invoice_title": "Invoice ",
+    "invoice_number": "No.",
+    "issued_at": "Diterbikan pada: ",
+    "due_at": "Tenggat Pembayaran:",
+    "late_fee": "Denda Keterlambatan:",
+    "add_late_fee": "Tambah Denda Keterlambatan",
+    "modal_issued_at_title": "Diterbikan pada",
+    "modal_due_at_title": "Tenggat Pembayaran"
+}

@@ -1,0 +1,9 @@
+{
+    "statuses": {
+        "draft": "konsep",
+        "booked": "dipesan",
+        "sent": "terkirim",
+        "paid": "lunas",
+        "cancelled": "dibatalkan"
+    }
+}

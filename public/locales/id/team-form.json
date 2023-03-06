@@ -1,0 +1,36 @@
+{
+    "title": "Usaha/Perusahan Anda",
+    "done": "Selesai",
+    "updated": "Diperbarui",
+    "loading": "Memuat",
+    "tabs": {
+        "general": "Umum",
+        "invoicing": "Penagihan",
+        "address": "Alamat",
+        "taxes": "Pajak"
+    },
+    "general": {
+        "company_name": "Nama Usaha",
+        "contact_email": "Email",
+        "contact_phone": "No. HP",
+        "website": "Website"
+    },
+    "invoicing": {
+        "invoice_late_fee": "Denda Keterlambatan (%)",
+        "invoice_due_days": "Ketentuan pemabarayan, hari",
+        "currency": "Mata uang baku"
+    },
+    "address": {
+        "company_address": "Alamat usaha",
+        "company_postal_code": "Kode Pos",
+        "company_city": "Kota",
+        "company_county": "Provinsi/Wilayah",
+        "company_country": "Negara"
+    },
+    "tax_modal": {
+        "title": "Timpa pajak untuk baris invoice saat ini?",
+        "ok_title": "Timpa",
+        "cancel_title": "Gugurkan",
+        "taxes_updated": "Pajak Diperbarui"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "client_address": "Alamat",
+    "client_postal_code": "Kode pos",
+    "client_city": "Kota",
+    "client_county": "Provinsi/Wilayah",
+    "client_country": "Negara",
+    "client_email": "Email Pelanggan"
+}
