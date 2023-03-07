@@ -1,0 +1,10 @@
+{
+    "label": "Label",
+    "field": "Kolom isian",
+    "delete_modal": {
+        "title": "Hapus kolom isian",
+        "ok_title": "Hapus",
+        "cancel_title": "Gugurkan"
+    },
+    "notification_deleted": "Dihapus"
+}

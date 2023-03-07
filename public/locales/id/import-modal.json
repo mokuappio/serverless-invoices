@@ -1,0 +1,6 @@
+{
+    "title": "Impor data",
+    "warning": "Data Anda saat ini akan dihapus dan ditimpa dengan data yang diimpor!",
+    "button_text": "Pilih berkas untuk diimpor",
+    "import-error": "Format JSON tidak valid"
+}

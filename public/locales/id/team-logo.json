@@ -1,0 +1,7 @@
+{
+    "modal_title": "Pilih logo",
+    "button_text": "Pilih dari berkas",
+    "logo_url": "Sisipkan tautan gambar",
+    "logo_url_err": "Ukuran berkas logo tidak boleh melebihi 512kb.",
+    "or": "atau"
+}

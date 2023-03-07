@@ -1,0 +1,36 @@
+{
+    "title": "Pelanggan",
+    "delete": "Hapus",
+    "done": "Selesai",
+    "create": "Buat",
+    "loading": "Memuat",
+    "tabs": {
+        "general": "Umum",
+        "invoicing": "Penagihan",
+        "address": "Alamat"
+    },
+    "general": {
+        "company_name": "Nama Usaha",
+        "invoice_email": "Email"
+    },
+    "invoicing": {
+        "currency": "Mata uang",
+        "rate": "Tarif per jam",
+        "has_tax": "Terapkan Pajak",
+        "bank_account": "Rekening bank"
+    },
+    "address": {
+        "company_address": "Alamat Usaha",
+        "company_postal_code": "Kode Pos",
+        "company_city": "Kota",
+        "company_county": "Provinsi/Wilayah",
+        "company_country": "Negara"
+    },
+    "delete_modal": {
+        "title": "Hapus pelanggan",
+        "ok_title": "Hapus",
+        "cancel_title": "Gugurkan"
+    },
+    "notification_deleted": "Dihapus",
+    "notification_updated": "Diperbarui"
+}

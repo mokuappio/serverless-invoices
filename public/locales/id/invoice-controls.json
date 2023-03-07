@@ -1,0 +1,16 @@
+{
+    "back": "Kembali",
+    "book": "Pesan",
+    "design_and_layout": "Desain & layout",
+    "compact": "Rapat",
+    "comfortable": "Nyaman",
+    "customize": "Sesuaikan",
+    "download_pdf": "Unduh PDF",
+    "delete": "Hapus",
+    "delete_modal": {
+        "title": "Hapus invoice",
+        "ok_title": "Hapus",
+        "cancel_title": "Gugurkan"
+    },
+    "notification_deleted": "Dihapus"
+}
