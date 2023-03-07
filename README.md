@@ -42,6 +42,7 @@ Built with [Vue.js](https://vuejs.org/) and [Bootstrap](https://getbootstrap.com
   - Custom HTTP API
 
 ## Project setup
+Requires `node 16.18`
 
 ```
 npm install
