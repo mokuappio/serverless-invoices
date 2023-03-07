@@ -1,0 +1,7 @@
+{
+  "invoice_number": "번호",
+  "client": "고객",
+  "issued_at": "계약년월일",
+  "total": "총계",
+  "status": "상태"
+}

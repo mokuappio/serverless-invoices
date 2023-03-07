@@ -1,0 +1,10 @@
+{
+  "label": "세금 이름",
+  "tax": "세금",
+  "delete_modal": {
+    "title": "세금 항목을 삭제하시겠습니까",
+    "ok_title": "삭제하기",
+    "cancel_title": "취소"
+  },
+  "notification_deleted": "삭제되었습니다"
+}

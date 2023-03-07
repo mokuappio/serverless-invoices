@@ -1,0 +1,8 @@
+{
+  "client_address": "주소",
+  "client_postal_code": "우편 번호",
+  "client_city": "읍/면/동",
+  "client_county": "시/도",
+  "client_country": "국가",
+  "client_email": "고객 이메일"
+}

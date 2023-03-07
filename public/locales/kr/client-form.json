@@ -1,0 +1,36 @@
+{
+  "title": "고객",
+  "delete": "삭제",
+  "done": "완료",
+  "create": "생성하기",
+  "loading": "실행 중",
+  "tabs": {
+    "general": "일반",
+    "invoicing": "송장 정보",
+    "address": "주소"
+  },
+  "general": {
+    "company_name": "회사 이름",
+    "invoice_email": "이메일"
+  },
+  "invoicing": {
+    "currency": "통화",
+    "rate": "시간당 요금",
+    "has_tax": "세금 적용 여부",
+    "bank_account": "은행 계좌"
+  },
+  "address": {
+    "company_address": "회사 주소",
+    "company_postal_code": "우편 번호",
+    "company_city": "읍/면/동",
+    "company_county": "시/도",
+    "company_country": "국가"
+  },
+  "delete_modal": {
+    "title": "고객 삭제",
+    "ok_title": "식제",
+    "cancel_title": "취소"
+  },
+  "notification_deleted": "삭제되었습니다",
+  "notification_updated": "수정되었습니다"
+}

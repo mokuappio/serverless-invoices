@@ -1,0 +1,16 @@
+{
+  "back": "뒤로가기",
+  "book": "예약하기",
+  "design_and_layout": "디자인 & 레이아웃",
+  "compact": "여백 줄이기",
+  "comfortable": "여백 늘리기",
+  "customize": "사용자 지정하기",
+  "download_pdf": "PDF 다운로드",
+  "delete": "삭제하기",
+  "delete_modal": {
+    "title": "송장 삭제하기",
+    "ok_title": "삭제하기",
+    "cancel_title": "취소"
+  },
+  "notification_deleted": "삭제되었습니다"
+}

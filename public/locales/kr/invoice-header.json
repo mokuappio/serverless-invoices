@@ -1,0 +1,10 @@
+{
+  "invoice_title": "송장 ",
+  "invoice_number": "번호",
+  "issued_at": "계약년월일: ",
+  "due_at": "납품기한:",
+  "late_fee": "연착 비용:",
+  "add_late_fee": "연착 비용 추가하기",
+  "modal_issued_at_title": "계약년월일 설정",
+  "modal_due_at_title": "납품기한 설정"
+}

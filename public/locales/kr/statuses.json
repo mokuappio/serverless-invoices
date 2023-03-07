@@ -1,0 +1,9 @@
+{
+  "statuses": {
+    "draft": "초안",
+    "booked": "예약됨",
+    "sent": "발송됨",
+    "paid": "결제됨",
+    "cancelled": "취소됨"
+  }
+}

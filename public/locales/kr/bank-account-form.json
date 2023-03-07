@@ -1,0 +1,9 @@
+{
+  "title": "은행 계좌",
+  "bank_name": "은행 이름",
+  "account_no": "은행 계좌 상세 정보",
+  "loading": "실행 중",
+  "done": "완료",
+  "create": "생성하기",
+  "notification_updated": "수정되었습니다"
+}
