@@ -13,7 +13,9 @@ export default {
       { name: 'Spanish', code: 'es' },
       { name: 'Bangla', code: 'bn' },
       { name: 'German', code: 'de' },
-      { name: 'Português - BR', code: 'pt_br' }
+      { name: 'Português - BR', code: 'pt_br' },
+      { name: 'Indonesian', code: 'id' },
+      { name: 'Korean', code: 'kr' },
     ],
   },
   mutations: {
