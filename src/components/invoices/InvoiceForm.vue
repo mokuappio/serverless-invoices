@@ -32,11 +32,10 @@
                         </table>
                     </div>
                     <hr>
-                    <div class="row">
-                        <InvoiceBankDetails :invoice="invoice" :errors="errors" @update="updateProp"
-                                            class="col-8"/>
+                    <div class="row pl-3 pr-3 justify-content-between">
+                        <InvoiceBankDetails :invoice="invoice" :errors="errors" @update="updateProp"/>
                         <InvoiceContactDetails :invoice="invoice" :errors="errors" @update="updateProp"
-                                               class="col-4 text-right"/>
+                                               class="text-right"/>
                     </div>
                 </div>
             </div>
