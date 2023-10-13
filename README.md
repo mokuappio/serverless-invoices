@@ -51,7 +51,7 @@ npm install
 ### Create app config
 Create an app.config.js which can be edited for custom settings.
 ```
-cp src/config/app.config.example.js ./src/config/app.config.js
+cp src/config/app.config.example.js src/config/app.config.js
 ```
 
 ### Compiles and hot-reloads for development
