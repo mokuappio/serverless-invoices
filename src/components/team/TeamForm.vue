@@ -38,10 +38,6 @@
 
                 <b-tab :title="$t('tabs.invoicing')">
                     <div class="row">
-                        <AppInput :value="team.invoice_late_fee" @change="updateProp({ invoice_late_fee: $event })"
-                                  type="number"
-                                  :label="$t('invoicing.invoice_late_fee')" field="invoice_late_fee" :errors="errors"
-                                  class="col-12"/>
                         <AppInput :value="team.invoice_due_days" @change="updateProp({ invoice_due_days: $event })"
                                   type="number"
                                   :label="$t('invoicing.invoice_due_days')" field="invoice_due_days" :errors="errors"

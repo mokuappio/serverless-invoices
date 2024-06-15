@@ -16,7 +16,6 @@
     "website": "Website"
   },
   "invoicing": {
-    "invoice_late_fee": "Late fee (%)",
     "invoice_due_days": "Payment terms, days",
     "currency": "Default currency"
   },

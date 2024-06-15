@@ -90,7 +90,6 @@ export default {
     },
     async updateTeam({ dispatch }, payload) {
       const teamProps = pick(payload.props, {
-        late_fee: 'invoice_late_fee',
         from_name: 'company_name',
         from_address: 'company_address',
         from_postal_code: 'company_postal_code',
@@ -180,7 +179,6 @@ export default {
           .add(team.invoice_due_days || 14, 'days')
           .format('YYYY-MM-DD'),
         number: generateInvoiceNumber(getters.all),
-        late_fee: team.invoice_late_fee || 0.5,
         currency: team.currency || 'USD',
       };
 

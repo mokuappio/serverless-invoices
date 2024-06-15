@@ -19,7 +19,6 @@ class InvoiceService {
   async updateInvoice(invoice) {
     const requiredFields = {
       currency: 'Currency',
-      late_fee: 'Late Fee',
       issued_at: 'Issued At',
       due_at: 'Due At',
       number: 'Number',
@@ -40,25 +39,15 @@ class InvoiceService {
   async bookInvoice(invoice) {
     const requiredFields = {
       currency: 'Currency',
-      late_fee: 'Late fee',
       issued_at: 'Issued at',
       due_at: 'Due at',
       number: 'Number',
       client_id: 'Client',
       client_name: 'Client name',
-      client_address: 'Address',
-      client_postal_code: 'Postal code',
-      client_city: 'City',
       client_email: 'Client\'s email',
-      client_country: 'Country',
       from_name: 'Name',
-      from_address: 'Address',
-      from_postal_code: 'Postal code',
-      from_country: 'Country',
-      from_city: 'City',
       from_website: 'Website',
       from_email: 'Your email',
-      from_phone: 'Your phone',
       bank_name: 'Bank name',
       bank_account_no: 'Bank account details',
       rows: {
