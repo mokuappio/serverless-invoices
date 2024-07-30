@@ -36,12 +36,19 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: "16.18"
+            - name: Restore cached Primes
+              id: node-modules
+              uses: actions/cache/restore@v4
+              with:
+                path: node_modules
             - name: npm install
               run: npm ci --force
             - name: config
               run: |
                 cp src/config/app.config.example.js src/config/app.config.js
                 cp vue.config.js.example vue.config.js
+                sed -i "s|publicPath: '/'|publicPath: '/serverless-invoices'|" vue.config.js
+                cat vue.config.js
             - name: building
               run: npm run build
             - name: Upload artifact
