@@ -41,7 +41,7 @@ jobs:
             - name: config
               run:
                 cp src/config/app.config.example.js src/config/app.config.js
-                cp vue.config.example.js vue.config.js
+                cp vue.config.js.example vue.config.js
             - name: building
               run: npm run build
             - name: Upload artifact
