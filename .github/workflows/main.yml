@@ -39,7 +39,7 @@ jobs:
             - name: npm install
               run: npm ci --force
             - name: config
-              run:
+              run: |
                 cp src/config/app.config.example.js src/config/app.config.js
                 cp vue.config.js.example vue.config.js
             - name: building
