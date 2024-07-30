@@ -41,7 +41,8 @@ jobs:
               uses: actions/cache/restore@v4
               with:
                 path: node_modules
-                key: node_modules
+                key: ${{ runner.os }}-node_modules
+                restore-keys: ${{ runner.os }}-node_modules
             - name: npm install
               run: npm ci --force
             - name: config
