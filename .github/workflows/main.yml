@@ -36,7 +36,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: "16.18"
-            - name: Restore cached Primes
+            - name: cache node_modules
               id: node-modules
               uses: actions/cache/restore@v4
               with:
