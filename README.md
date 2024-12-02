@@ -9,7 +9,7 @@ It is open-source and easily extendable. You can use it as a starter kit for mor
  
 Run it locally or host it yourself.
  
-You can always use the latest free version at [invoices.mokuapp.io](https://invoices.mokuapp.io)
+You can always use the latest free version at [invoices.elevate.ee](https://invoices.elevate.ee)
 
 Built with [Vue.js](https://vuejs.org/) and [Bootstrap](https://getbootstrap.com/)
 
@@ -35,7 +35,7 @@ Built with [Vue.js](https://vuejs.org/) and [Bootstrap](https://getbootstrap.com
 - Multilingual
 - PWA support 
 - Ready-to-go backend adapters
-  - [Browser Storage](https://invoices.mokuapp.io)
+  - [Browser Storage](https://invoices.elevate.ee)
   - [Wordpress](https://wordpress.org/plugins/beautiful-custom-invoices/)
   - Woocommerce (coming soon)
   - Google Drive (coming soon)
