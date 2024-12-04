@@ -17,7 +17,6 @@ export default class Invoice extends Model {
       issued_at: this.attr(''),
       is_compact: this.attr(false),
       due_at: this.attr(''),
-      late_fee: this.attr(''),
       currency: this.attr(''),
       from_name: this.attr(''),
       from_address: this.attr(''),

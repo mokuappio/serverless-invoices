@@ -31,7 +31,6 @@ export default class Team extends Model {
       contact_email: this.attr(''),
       contact_phone: this.attr(''),
       currency: this.attr(null),
-      invoice_late_fee: this.attr(null),
       invoice_due_days: this.attr(null),
       fields: this.hasMany(TeamField, 'team_id'),
       updated_at: this.attr(''),
