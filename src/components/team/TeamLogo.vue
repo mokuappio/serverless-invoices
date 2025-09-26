@@ -4,7 +4,7 @@
              class="pointer"
              @click="openModal"
              :src="team.logo_url" style="width:100%; max-width:200px;">
-        <button class="btn btn-sm" @click="openModal" v-else>
+        <button class="btn btn-sm d-print-none" @click="openModal" v-else>
             <i class="material-icons material-icons-round md-36">file_upload</i>
         </button>
         <AppError :errors="errors" field="logo_url"/>
