@@ -37,13 +37,15 @@
                            :inline="true"
                            field="due_at"/>
         </BModal>
-        <br>{{ $t('late_fee') }}
-        <AppEditable :value="invoice.late_fee | currency"
-                     :errors="errors"
-                     suffix="%"
-                     field="late_fee"
-                     :placeholder="$t('add_late_fee')"
-                     @change="updateProp({ late_fee: $event })"/>
+        <span :class="{'d-print-none': !invoice.late_fee}">
+            <br>{{ $t('late_fee') }}
+            <AppEditable :value="invoice.late_fee | currency"
+                         :errors="errors"
+                         suffix="%"
+                         field="late_fee"
+                         :placeholder="$t('add_late_fee')"
+                         @change="updateProp({ late_fee: $event })"/>
+        </span>
     </div>
 </template>
 <script>
