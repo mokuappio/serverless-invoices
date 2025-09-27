@@ -1,0 +1,64 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+    # Runs on pushes targeting the default branch
+    push:
+        branches: ["main"]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+    group: "pages"
+    cancel-in-progress: true
+
+jobs:
+    # Single deploy job since we're just deploying
+    deploy:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Setup Pages
+              uses: actions/configure-pages@v5
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "16.18"
+            - name: cache node_modules
+              id: node-modules
+              uses: actions/cache/restore@v4
+              with:
+                path: node_modules
+                key: ${{ runner.os }}-node_modules
+                restore-keys: ${{ runner.os }}-node_modules
+            - name: npm install
+              run: npm ci --force
+            - name: config
+              run: |
+                cp src/config/app.config.example.js src/config/app.config.js
+                cp vue.config.js.example vue.config.js
+                sed -i "s|publicPath: '/'|publicPath: '/serverless-invoices'|" vue.config.js
+                cat vue.config.js
+                sed -i "s|};|base_url: '/serverless-invoices'};|" src/config/app.config.js
+                cat src/config/app.config.js
+            - name: building
+              run: npm run build
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: "dist"
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
