@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "Taxa de atraso (%)",
     "invoice_due_days": "Termos de pagamento, dias",
-    "currency": "Moeda Padrão"
+    "currency": "Moeda Padrão",
+    "thousands_separator": "Separador de milhares"
   },
   "address": {
     "company_address": "Endereço da Empresa",

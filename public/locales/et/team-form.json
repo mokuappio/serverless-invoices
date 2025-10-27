@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "Viivis (%)",
     "invoice_due_days": "Makse tähtaeg, päevades",
-    "currency": "Vaikimisi valuuta"
+    "currency": "Vaikimisi valuuta",
+    "thousands_separator": "Tuhandikute eraldaja"
   },
   "address": {
     "company_address": "Firma aadress",

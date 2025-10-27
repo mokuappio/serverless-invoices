@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "Cargo por demora (%)",
     "invoice_due_days": "Condiciones de pago, días",
-    "currency": "Mondea predeterminada"
+    "currency": "Mondea predeterminada",
+    "thousands_separator": "Separador de miles"
   },
   "address": {
     "company_address": "Dirección de la compañía",

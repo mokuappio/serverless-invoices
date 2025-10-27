@@ -18,7 +18,8 @@
     "invoicing": {
         "invoice_late_fee": "Denda Keterlambatan (%)",
         "invoice_due_days": "Ketentuan pemabarayan, hari",
-        "currency": "Mata uang baku"
+        "currency": "Mata uang baku",
+        "thousands_separator": "Pemisah ribuan"
     },
     "address": {
         "company_address": "Alamat usaha",

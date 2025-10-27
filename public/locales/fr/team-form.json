@@ -18,7 +18,8 @@
     "invoicing": {
         "invoice_late_fee": "Intérêt de retard (%)",
         "invoice_due_days": "Conditions de paiements, jours",
-        "currency": "Devise par défaut"
+        "currency": "Devise par défaut",
+        "thousands_separator": "Separateur de milliers"
     },
     "address": {
         "company_address": "Address de la société",

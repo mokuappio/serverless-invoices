@@ -39,7 +39,7 @@
         </BModal>
         <span :class="{'d-print-none': !invoice.late_fee}">
             <br>{{ $t('late_fee') }}
-            <AppEditable :value="invoice.late_fee | currency"
+            <AppEditable :value="currency(invoice.late_fee)"
                          :errors="errors"
                          suffix="%"
                          field="late_fee"
@@ -54,6 +54,7 @@ import AppEditable from '@/components/form/AppEditable';
 import AppDatePicker from '@/components/form/AppDatePicker';
 import { formatDate } from '@/filters/date.filter';
 import { formatCurrency } from '@/filters/currency.filter';
+import { mapGetters } from 'vuex';
 
 export default {
   i18nOptions: { namespaces: 'invoice-header' },
@@ -68,9 +69,19 @@ export default {
   },
   filters: {
     date: formatDate,
-    currency: formatCurrency,
+  },
+  computed: {
+    ...mapGetters({
+      team: 'teams/team',
+    }),
   },
   methods: {
+    currency(val, digits = 2) {
+      const separator = (this.team && this.team.thousands_separator !== undefined)
+        ? this.team.thousands_separator
+        : ',';
+      return formatCurrency(val, digits, separator);
+    },
     updateProp(props) {
       this.$emit('update', props);
     },

@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "Verzugsgebühr (%)",
     "invoice_due_days": "Bezahlungsbedingungen, Tage",
-    "currency": "Standardwährung"
+    "currency": "Standardwährung",
+    "thousands_separator": "Tausendertrennzeichen"
   },
   "address": {
     "company_address": "Firmenadresse",

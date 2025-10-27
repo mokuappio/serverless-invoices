@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "Late fee (%)",
     "invoice_due_days": "Payment terms, days",
-    "currency": "Default currency"
+    "currency": "Default currency",
+    "thousands_separator": "Thousands separator"
   },
   "address": {
     "company_address": "Company address",

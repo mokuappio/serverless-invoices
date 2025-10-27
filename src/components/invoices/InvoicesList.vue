@@ -20,8 +20,8 @@
                 <td>{{ invoice.client ? invoice.client.company_name : '' }}</td>
                 <td>{{ invoice.issued_at | date('D MMM YYYY', 'YYYY-MM-DD') }}</td>
                 <td>
-                    {{ invoice.subTotal | currency }}
-                    <small v-if="invoice.taxTotal"><br>({{ invoice.total | currency }})</small>
+                    {{ currency(invoice.subTotal) }}
+                    <small v-if="invoice.taxTotal"><br>({{ currency(invoice.total) }})</small>
                 </td>
                 <td class="text-right text-capitalize">
                     <i class="material-icons material-icons-round md-18 mr-2 text-warning"
@@ -52,7 +52,6 @@ export default {
   },
   filters: {
     date: formatDate,
-    currency: formatCurrency,
   },
   directives: {
     'b-tooltip': VBTooltip,
@@ -60,12 +59,19 @@ export default {
   computed: {
     ...mapGetters({
       invoices: 'invoices/all',
+      team: 'teams/team',
     }),
   },
   mounted() {
     this.$store.dispatch('invoices/getInvoices');
   },
   methods: {
+    currency(val, digits = 2) {
+      const separator = (this.team && this.team.thousands_separator !== undefined)
+        ? this.team.thousands_separator
+        : ',';
+      return formatCurrency(val, digits, separator);
+    },
     openInvoice(invoice) {
       this.$store.commit('invoices/invoiceId', invoice.id);
       this.$router.push({

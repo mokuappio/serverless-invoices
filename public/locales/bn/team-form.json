@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "জরিমানা (%)",
     "invoice_due_days": "পরিশোধের শর্ত, দিন",
-    "currency": "প্রচলিত মুদ্রা"
+    "currency": "প্রচলিত মুদ্রা",
+    "thousands_separator": "হাজারের বিভাজক"
   },
   "address": {
     "company_address": "কোম্পানীর ঠিকানা",

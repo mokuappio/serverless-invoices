@@ -22,7 +22,7 @@
                          @change="updateProp({ unit: $event })"/>
         </td>
         <td>
-            <AppEditable :value="row.price | currency"
+            <AppEditable :value="currency(row.price)"
                          :errors="errors"
                          :field="`rows.${index}.price`"
                          :placeholder="$t('enter_price')"
@@ -30,14 +30,14 @@
         </td>
         <td v-for="(tax, taxIndex) in row.taxes" :title="tax.label">
             <AppEditable v-if="tax.row_id"
-                         :value="tax.value | currency"
+                         :value="currency(tax.value)"
                          :errors="errors"
                          :field="`rows.${index}.taxes.${taxIndex}.value`"
                          :placeholder="$t('enter_tax')"
                          @change="updateTaxProp({ value: $event }, tax)"/>
         </td>
         <td class="text-right position-relative">
-            {{ (row.quantity * row.price) | currency }}
+            {{ currency(row.quantity * row.price) }}
             <button class="btn btn-sm d-print-none invoice__row-control"
                     @click="removeRow(row)">
                 <i class="material-icons md-18 pointer">remove</i>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import { formatCurrency } from '../../filters/currency.filter';
 import AppEditable from '../form/AppEditable';
 
@@ -57,10 +58,18 @@ export default {
   components: {
     AppEditable,
   },
-  filters: {
-    currency: formatCurrency,
+  computed: {
+    ...mapGetters({
+      team: 'teams/team',
+    }),
   },
   methods: {
+    currency(val, digits = 2) {
+      const separator = (this.team && this.team.thousands_separator !== undefined)
+        ? this.team.thousands_separator
+        : ',';
+      return formatCurrency(val, digits, separator);
+    },
     updateProp(props) {
       this.$store.dispatch('invoiceRows/updateInvoiceRow', {
         props,

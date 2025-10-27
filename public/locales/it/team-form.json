@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "Interessi (%)",
     "invoice_due_days": "Termini pagamento, giorni",
-    "currency": "Valuta predefinita"
+    "currency": "Valuta predefinita",
+    "thousands_separator": "Separatore migliaia"
   },
   "address": {
     "company_address": "Indirizzo Azienda",

@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "연착 요금 (%)",
     "invoice_due_days": "지불조건, 일",
-    "currency": "기본 통화"
+    "currency": "기본 통화",
+    "thousands_separator": "천 단위 구분 기호"
   },
   "address": {
     "company_address": "회사 주소",

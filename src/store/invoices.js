@@ -100,6 +100,7 @@ export default {
         from_website: 'website',
         from_email: 'contact_email',
         from_phone: 'contact_phone',
+        thousands_separator: 'thousands_separator',
       });
       const invoice = getInvoice(payload.invoiceId);
 

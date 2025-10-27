@@ -18,7 +18,8 @@
   "invoicing": {
     "invoice_late_fee": "هزینه دیرهنگام (%)",
     "invoice_due_days": "شرایط پرداخت ، روزها",
-    "currency": "ارز پیش فرض"
+    "currency": "ارز پیش فرض",
+    "thousands_separator": "جداکننده هزارگان"
   },
   "address": {
     "company_address": "آدرس شرکت",

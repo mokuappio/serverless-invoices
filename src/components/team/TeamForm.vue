@@ -41,7 +41,10 @@
                         <AppInput :value="team.invoice_late_fee" @change="updateProp({ invoice_late_fee: $event })"
                                   type="number"
                                   :label="$t('invoicing.invoice_late_fee')" field="invoice_late_fee" :errors="errors"
-                                  class="col-12"/>
+                                  class="col-sm-7"/>
+                        <AppInput :value="team.thousands_separator" @change="updateProp({ thousands_separator: $event })"
+                                  :label="$t('invoicing.thousands_separator')" field="thousands_separator" :errors="errors"
+                                  class="col-sm-5"/>
                         <AppInput :value="team.invoice_due_days" @change="updateProp({ invoice_due_days: $event })"
                                   type="number"
                                   :label="$t('invoicing.invoice_due_days')" field="invoice_due_days" :errors="errors"

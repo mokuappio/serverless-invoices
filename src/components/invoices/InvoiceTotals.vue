@@ -2,13 +2,13 @@
     <tfoot>
     <tr class="text-right">
         <td :colspan="colspan">{{ $t('subtotal') }}</td>
-        <td>{{ invoice.subTotal | currency }}</td>
+        <td>{{ currency(invoice.subTotal) }}</td>
     </tr>
     <tr class="text-right" v-for="tax in invoice.taxes" :key="tax.label">
         <td :colspan="colspan">
             {{ tax.label }} ({{ tax.rate }}%)
         </td>
-        <td>{{ tax.total | currency }}</td>
+        <td>{{ currency(tax.total) }}</td>
     </tr>
     <tr class="text-right">
         <th :colspan="colspan">
@@ -19,7 +19,7 @@
                          :placeholder="$t('add_currency')"
                          @change="updateProp({ currency: $event })"/>
         </th>
-        <th class="text-nowrap">{{ invoice.total | currency }}</th>
+        <th class="text-nowrap">{{ currency(invoice.total) }}</th>
     </tr>
     </tfoot>
 </template>
@@ -37,17 +37,23 @@ export default {
   },
   filters: {
     date: formatDate,
-    currency: formatCurrency,
   },
   computed: {
     ...mapGetters({
       taxes: 'invoiceRows/taxes',
+      team: 'teams/team',
     }),
     colspan() {
       return 4 + this.taxes.length;
     },
   },
   methods: {
+    currency(val, digits = 2) {
+      const separator = (this.team && this.team.thousands_separator !== undefined)
+        ? this.team.thousands_separator
+        : ',';
+      return formatCurrency(val, digits, separator);
+    },
     updateProp(props) {
       this.$emit('update', props);
     },
